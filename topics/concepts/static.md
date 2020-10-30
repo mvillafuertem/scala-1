@@ -94,7 +94,7 @@ states, and comparing the results to expected values, but (unlike types) there i
 
 For dynamic values, even within a statically-typed language, tests can still be very useful. It is not always
 possible or practical to encode enough precision with types to very a program for _all_ possible inputs. And in
-many scenarios, unit tests can offer additional confidince that our code does what we intend it to do.
+many scenarios, unit tests can offer additional confidence that our code does what we intend it to do.
 
 ## Summary
 

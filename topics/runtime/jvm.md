@@ -40,7 +40,7 @@ such as Java, [Kotlin](https://kotlinlang.org/) and [Groovy](https://groovy-lang
 
 It is possible for the JVM to host code written in different languages only because they all use the same
 low-level intermediate language to represent code: _Java Bytecode_. Every JVM language uses a compiler, like
-`javac` or `scalac`, to transform the human-readable source code into Java Bytecode, sequences of instructions
+`javac` or `dotc`, to transform the human-readable source code into Java Bytecode, sequences of instructions
 which perform CPU and memory operations, to interact with the virtual machine. The process of transformation of
 source code into bytecode is called _compilation_.
 
@@ -110,9 +110,9 @@ def run(): Unit = println("Hello, World!")
 and Scala will generate a classfile called `run.class`, corresponding to the class, `run`, which will contain a
 `main` method which will be invoked when we launch a new JVM.
 
-We can achieve that using the `scala` command with the compiled class name:
+We can achieve that using the `dotr` command with the compiled class name:
 ```sh
-scala run
+dotr run
 ```
 
 Although a full understanding of Java bytecode is not necessary to write good Scala code, at the very least we
