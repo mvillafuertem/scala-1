@@ -9,7 +9,7 @@ Content is distributed under the [CreativeCommons Attribution-ShareAlike 4.0](ht
  - Every commit to the `stage` branch updates the content in the staging environment.
  - Every commit to the `main` branch updates the content in the production environment.
 
-Only the production environment is accessible to the public. [TODO: add access for other people?]
+Only the production environment is accessible to the public.
 People outside of [VirtusLab](https://virtuslab.com) and [Propensive](https://propensive.com) do not have access to the `develop` and `stage` environments, but access will be provided
 on request.
 
