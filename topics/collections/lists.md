@@ -188,7 +188,7 @@ Sets offer a rich assortment of other operations. The most useful of these are,
 - [ ] 4
 - [ ] 5
 
-## The `List`, `xs`, contains the integers `0` to `4`. If we print every element, accessed by its index, how many times must the `tail` field of a `List` be accessed?
+## The `List`, `xs`, contains the integers `0` to `6`. If we print every element, accessed by its index, how many times must the `tail` field of a `List` be accessed?
 
 ```scala
 val xs = List(0, 1, 2, 3, 4, 5, 6)
