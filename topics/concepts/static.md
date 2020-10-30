@@ -60,7 +60,7 @@ example, the expression `2 + 2` is _statically_ known to be the integer `4` at c
 compiler has all the information it needs to compute it. Whereas, an expression which reads input from the
 console and interprets it as an integer, `StdIn.readInt`, could evaluate to any integer, and while it is known
 statically that it will always be an _integer_ (and not, say, a string or a boolean), the actual integer value
-is unknown at during compilation (or, at _compiletime_), may be different on different occasions that it is
+is unknown during compilation (or, at _compiletime_), may be different on different occasions that it is
 evaluated, and is therefore called _dynamic_. (It could also result in a failure, of course.)
 
 "Static" and "dynamic" can be used, quite generally, to describe those details of a program that are known at
