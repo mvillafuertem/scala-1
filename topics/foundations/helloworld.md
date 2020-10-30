@@ -101,7 +101,7 @@ is nothing more than a method definition, indicated by the `def` keyword. The na
 the empty parentheses after its name are where we could define its parameters, if it had any. The implementation
 of the `hello` method is on the right-hand side of the `=` sign, and is a simple statement which invokes the
 method `println`, pronounced "print line", passing it the string `Hello, World!`, enclosed in quotes as its only
-parameter. The `println` method call is what produces output on the consolu.
+parameter. The `println` method call is what produces output on the console.
 
 And finally, as previously mentioned, `@main` is an _annotation_ which adds some "metadata" to the definition;
 specifically, that it is a main method. Annotations are a versatile feature of Scala, but their use is
