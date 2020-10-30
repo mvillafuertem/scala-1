@@ -14,14 +14,24 @@ In Scala, we can create just such a program with the following code:
 
 ## Compiling
 
-We can put this into a plain text file called `hello.scala`, and compile it by running the Scala compiler, like
-so:
+We can put this into a plain text file called `hello.scala`, and compile it by running the Scala compiler.
+
+This requires that the correct version of `dotc` is installed. We can check this by running,
 ```sh
-scalac hello.scala
+dotc -version
+```
+which should display a message like the following:
+```
+Dotty compiler version 0.27.0-RC1 -- Copyright 2002-2020, LAMP/EPFL
+```
+
+We can compile our source file by running,
+```sh
+dotc hello.scala
 ```
 
 If everything worked correctly, this will create some new files in the same directory, with names ending in
-`.class`, and containing _compiled Java bytecode_. The `scalac` command will not print any output if the
+`.class`, and containing _compiled Java bytecode_. The `dotc` command will not print any output if the
 compilation was successful, but error messages will be displayed if compilation fails.
 
 ## Compilation Errors
@@ -68,27 +78,27 @@ we generally don't know (and shouldn't need to know) the exact details of _how_ 
 In the case of our "Hello, World!" example, that entry point is the method, `hello()`, which is a _main method_,
 as indicated by the `@main` annotation. Prefixing a _top-level_ method (a method defined outside a class, trait 
 or object) with the special annotation, `@main`, marks it as a program's entry point, and makes it accessible to
-invoked directly by the operating system, typically through the shell with the `scala` command.
+invoked directly by the operating system, typically through the shell with the `dotr` command.
 
 In general, other methods we write can only be called from expressions we write in Scala, and only _main_
 methods can be invoked externally.
 
 To run the program, we can invoke the following command in the console,
 ```sh
-scala hello
+dotr hello
 ```
 and we should see the output:
 ```
 Hello, World!
 ```
 
-These commands, `scalac hello.world` and `scala hello` are artificially simple, because our source file,
+These commands, `dotc hello.world` and `dotr hello` are artificially simple, because our source file,
 `hello.scala` is in the current directory, which we also use as an _output directory_. And that allows us to
 invoke the method we have just invoked, `hello`, without any additional parameters. We also benefit from 
 requiring no dependencies for our tiny program to run.
 
 In reality, very few programs are so simple, and usually different _source_ and _output_ directories would be
-used, along with a set of dependencies, defined using a _classpath_. The `scalac` and `scala` commands support
+used, along with a set of dependencies, defined using a _classpath_. The `dotc` and `dotr` commands support
 a variety of parameters for specifying these details, but it is more usual to give this task to a _build tool_.
 
 ## Anatomy of Hello World
@@ -120,7 +130,8 @@ def factorial(x: Int) =
 ```
 
 Try to compile the program and read the error message to understand the problem that is preventing successful
-compilation.
+compilation. Don't worry, you are not expected to understand the program or the error, only to identify what the
+problem is!
 
 - [ ] compilation fails because the `@main` annotation is missing
 - [ ] compilation fails because the method is not called `main`
