@@ -116,11 +116,11 @@ will result in the side-effect of `"Completed."` being printed on the console, b
 But every expression which does not throw an exception must return a single value, so a `println` expression
 will return the _unit value_, which we write as `()`. There is virtually nothing interesting that can be done
 with the value `()`, but it exists in order to maintain the invariant that every expression returns a value.
-Nevertheless, expressions which return `()` are called _statements_, and the invariant on returning a value
-means that we can treat them like any other expression.
+Nevertheless, expressions which return `()` are a special kind of expression called a _statement_. The invariant
+that all expressions must return a value means that we can treat statements like other expressions.
 
 There is only one unit value, which means that every statement returns the _same_ value, regardless of what it
-does.
+does. The "interesting" action of statements is not in their return value, but in the side-effects they produce.
 
 When two statements appear after each other on separate lines, or separated by a semicolon (`;`), they will be
 evaluated one after the other. For example,
