@@ -228,7 +228,7 @@ def run(): Unit =
   println(counter.value)
 ```
 
-What counter value is printed now?
+What counter value is printed now? This is a tricky question, so be _very_ careful to check _every_ `val` and `def`!
 
 - [X] 0
 - [ ] 1
