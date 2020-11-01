@@ -131,7 +131,7 @@ def factorial(x: Int) =
 
 Try to compile the program and read the error message to understand the problem that is preventing successful
 compilation. Don't worry, you are not expected to understand the program or the error, only to identify what the
-problem is!
+compiler is telling you!
 
 - [ ] compilation fails because the `@main` annotation is missing
 - [ ] compilation fails because the method is not called `main`
