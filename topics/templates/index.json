@@ -49,13 +49,7 @@
       "duration": 11,
       "video": "https://www.youtube.com/embed/5uAkpxI-GUk",
       "prerequisites": [
-        {
-          "reason": "we should understand how types are organized hierarchically",
-          "topicId": "types",
-          "lessonId": "hierarchy"
-        }
-      ],
-      "comingSoon": true
+      ]
     }
   ]
 }
