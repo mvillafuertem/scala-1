@@ -1,3 +1,5 @@
+## Appending Functionality
+
 Often we want to define a class which has all of the state and methods of another class, but provides additional
 functionality; extra methods and/or state. Scala provides this through _inheritance_, and establishes a
 _subtyping relationship_ between the new template and the template in inherits from.
@@ -23,14 +25,17 @@ class Log(id: String) extends BasicLog(id):
 ```
 
 We declare that our new `Log` class _extends_ the `BasicLog` class; `Log` is now a _subclass_ of `BasicLog`.
-This requires, first of all, that the `BasicLog` constructor have its `id` parameter specified. Remember we are
-defining a new template from an existing template, and the `BasicLog` template still has the same unknowns which
-must be specified for a new instance of that template to be constructed. Here, we specify that the `id`
-parameter that `BasicLog` requires will be fulfilled with an `id` parameter that will be passed in to `Log`'s
-constructor. In a sense, the `id` parameter is just as much an unknown for `Log` as it is for `BasicLog`, and we
-delegate it from one template definition to the next.
+This requires, first of all, that the `BasicLog` constructor have its `id` parameter specified.
 
-The parameter `id` from `BasicLog` is not visible in `Log`. We used the same name for the `id` parameter in
+## Parameter Delegation
+
+Remember we are defining a new template from an existing template, and the `BasicLog` template still has the
+same unknowns which must be specified for a new instance of that template to be constructed. Here, we specify
+that the `id` parameter that `BasicLog` requires will be fulfilled with an `id` parameter that will be passed in
+to `Log`'s constructor. In a sense, the `id` parameter is just as much an unknown for `Log` as it is for
+`BasicLog`, and we are delegating it from one template definition to the next.
+
+But the parameter `id` from `BasicLog` is not visible in `Log`. We used the same name for the `id` parameter in
 `Log` too—and it's a sensible choice because they represent the same value—but we didn't have to. It would be
 acceptable to write, instead,
 ```scala
@@ -46,11 +51,16 @@ class Log() extends BasicLog("application")
 ```
 
 Note also that our implementations of `debug`, `info`, `warn` and `error` all call the `record` method, which
-was defined in `BasicLog`. This, and any other methods and state that was defined in `BasicLog` (for example,
-`writer`) is automatically available to use, without a prefix, in subclasses. So our new `Log` class is very
-much defined in terms of `BasicLog`; a class may refer to members in its _superclass_, and all members, whether
-they originated in the class or one of its superclasses, can be accessed (by default—there are ways to hide
-them which we will see later) from within the body of that class, or by dereferencing an instance of the class.
+was defined in `BasicLog`. This, and any other methods and state that were defined in `BasicLog` (for example,
+`writer`) are automatically available to use, without a prefix, in subclasses.
+
+So our new `Log` class is very much defined _in terms of_ `BasicLog`; a class may refer to members in its
+_superclass_, and all members, whether they originated in the class or one of its superclasses, can be accessed
+(by default—there are ways to hide them, which we will see later) from within the body of that class, or by
+dereferencing an instance of the class. For example, if `logger` is an instance of `Log`, then it is possible to
+access `logger.writer` even though `writer` is defined as a part of `BasicLog` rather than `Log`.
+
+## Instantiation
 
 Constructing a new instance of any class requires executing its body, that is, instantiating all the `val`s and
 `var`s, and any code in the body of the class. Executing the body of a class is a necessary step in the
@@ -73,7 +83,7 @@ class BasicLog(id: String):
   def record(message: String): Unit = writer.write(s"$message\n")
 
 class Log(id: String) extends BasicLog(id):
-  println("Initializing Log with id=$id")
+  println(s"Initializing Log with id=$id")
   def debug(msg: String): Unit = record(s"[DEBUG] $msg")
   def info(msg: String): Unit = record(s"[INFO]  $msg")
   def warn(msg: String): Unit = record(s"[WARN]  $msg")
@@ -107,12 +117,14 @@ be considered a compile error.
 The inheritance relationship between a class and its superclass confers a subtyping relationship between the
 subclass type and its superclass type. We can say that `Log` is a _subtype_ of `BasicLog`. What that means is
 that any property that is provable about an instance of `BasicLog` will also be provable about an instance of
-`Log`. Therefore, if we can prove that we can access the `writer` value of a `BasicLog`, and we know that `Log`
-is a subtype of `BasicLog`, then we can prove that we can access the `writer` value of a `Log` too. An instance
-of a class has all the properties of its superclasses.
+its subtype, `Log`. Therefore, if we can prove that we can access the `writer` value of a `BasicLog`, and we
+know that `Log` is a subtype of `BasicLog`, then we can prove that we can access the `writer` value of a `Log`
+too because an instance of a class has all the properties of its superclasses.
 
 ?---?
-Consider the following code:
+
+# Consider the following code:
+
 ```scala
 class Animal(name: String):
   val id: String = name.toUpperCase+"-001"
@@ -122,29 +134,34 @@ class Sheep(name: String) extends Animal("Sheep"):
 
 val sheep = Sheep("Aries")
 ```
-## What is the result of `println(sheep.name)`?
- * [ ] prints `"Sheep"`
- * [ ] prints `"Aries"`
- * [ ] prints `"SHEEP-001"`
- * [ ] prints `"ARIES-001"`
- * [X] does not compile
 
- ## What is the result of `println(sheep.description)`?
- * [ ] prints `"Sheep"`
- * [ ] prints `"Aries"`
- * [X] prints `"SHEEP-001"`
- * [ ] prints `"ARIES-001"`
- * [ ] does not compile
+What is the result of `println(sheep.name)`?
+
+ - [ ] prints `"Sheep"`
+ - [ ] prints `"Aries"`
+ - [ ] prints `"SHEEP-001"`
+ - [ ] prints `"ARIES-001"`
+ - [X] does not compile
+
+# In the same code, what is the result of `println(sheep.description)`?
  
- ## What is the result of `println(sheep.id)`?
- * [ ] prints `"Sheep"`
- * [ ] prints `"Aries"`
- * [X] prints `"SHEEP-001"`
- * [ ] prints `"ARIES-001"`
- * [ ] does not compile
+ - [ ] prints `"Sheep"`
+ - [ ] prints `"Aries"`
+ - [X] prints `"SHEEP-001"`
+ - [ ] prints `"ARIES-001"`
+ - [ ] does not compile
+ 
+# And what is the result of `println(sheep.id)`?
 
- Consider the following code:
- ```scala
+ - [ ] prints `"Sheep"`
+ - [ ] prints `"Aries"`
+ - [X] prints `"SHEEP-001"`
+ - [ ] prints `"ARIES-001"`
+ - [ ] does not compile
+
+# Now consider the following code:
+
+```scala
 var counter = 1
 
 class Parent(n: Int):
@@ -155,9 +172,11 @@ class Child(n) extends Parent(n + 1):
 
 Child(2)
 ```
-## What is the value of `counter` after running this code?
- * [ ] 1
- * [ ] 3
- * [ ] 4
- * [ ] 5
- * [X] 6
+
+What is the value of `counter` after running this code?
+
+ - [ ] 1
+ - [ ] 3
+ - [ ] 4
+ - [ ] 5
+ - [X] 6
