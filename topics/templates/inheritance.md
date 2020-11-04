@@ -167,7 +167,7 @@ var counter = 1
 class Parent(n: Int):
   counter += n
 
-class Child(n) extends Parent(n + 1):
+class Child(n: Int) extends Parent(n + 1):
   counter += n
 
 Child(2)
