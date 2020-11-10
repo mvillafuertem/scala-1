@@ -1,13 +1,14 @@
 ## What is a Hash Function?
+
 The concept of _hash functions_ is fundamental to a number of different areas of software development, from high
-performance access of elements in collections, to security, to caching, it has a variety of different
-applications. A good understanding of the basics of _hashing_ is essential.
+performance access of elements in collections, to security, to caching, it has a many applications. So a good
+understanding of the basics of _hashing_ is essential.
 
 A hash function is a pure, total, deterministic function from a large domain into a smaller range, where a
 different input is _very likely_ to produce a different output.
 
 The purpose of a hash function is to make it easier to check whether two things are _different_ with
-_certainty_, or the same with some likelihood.
+_certainty_, or _the same_ without certainty, but with _some likelihood_.
 
 ## A Trivial Example
 
@@ -32,13 +33,15 @@ are many different inputs which could all produce the same hash. Using our hash 
 
 When two inputs produce the same hash value, we still do not know for sure if the inputs are the same or
 different. We only get useful information that the inputs are different when the hash values are different, and
-it is much more common that two different inputs will produce two different hash values. But it does mean that
-if two inputs hash to the same value, we need to do further checks before we know if they are equal or unequal.
+it is much more common that two different inputs would produce two different hash values. But it does mean that
+if two inputs hash to the same value, we need to do further checks before we know for certain if they are equal
+or unequal.
 
 Hashes are useful because, having a smaller range, the computational cost of comparing two is smaller than it
 would be for a full comparison of the inputs. Consider the numbers `38126976` and `38162976`. Are they the same?
 It probably takes a couple of seconds to check the digits one by one, to discover that they are different.
-However, the hashes of those two values are `52` and `111` respectively, which are _obviously_ different.
+However, the hashes of those two values are `52` and `111` respectively, which are much more _obviously_
+different.
 
 But how about the numbers, `38619276` and `38962176`? The hashes of `38619276` is `100`, and the hash of
 `38962176` is also `100`. The hashes do not prove that the inputs are different, but do not prove that the
@@ -54,7 +57,7 @@ out. So, if 99.2% of comparisons can be made fast, but 0.8% of comparisons are v
 significant improvement as long as the hash function itself is _fast_.
 
 Modern computers are able to compare any two 32-bit integers equally fast, so the example above would not help a
-computer in the same way as it helps a human. But hash functions can be defined for any kind of finite input,
+_computer_ in the same way as it helps a human. But hash functions can be defined for any kind of finite input,
 such as strings, or files, or lists of objects.
 
 ## Hashing for storing data
@@ -69,7 +72,7 @@ value would require calculating the hash, going directly to the folder for that 
 the record to the end of the records already there.
 
 Retrieving a record would require calculating the hash, going directly to the folder for that letter, and then
-linearly searching through the records there to check for a match.
+linearly searching through the records there to check for an exact match.
 
 Of these two operations, every step can be completed in a constant time, regardless of how many records we are
 storing, with the exception of the linear search upon retrieval, which would be dependent on how many records
@@ -80,10 +83,10 @@ But there are a few more observations we can make about this.
 
 ## Uniformity of Distribution
 
-Firstly, Names are not evenly distributed through the alphabet, so there are many more people with names
-beginning with "S" than there are people with names beginning with "Q". So the linear search to look up someone
-called "Smith" in a store that already contains lots of data would probably take longer than a search for
-someone called "Quentin".
+Firstly, names are not evenly distributed through the alphabet, so there are many more people with names
+beginning with "S" than there are people with names beginning with "Q". Thus, the linear search to look up
+someone called "Smith" in a store that already contains lots of data would probably take longer than a search
+for someone called "Quentin".
 
 That is a flaw in our hash function: its inputs are not evenly distributed over the range, with a
 disproportionate number of inputs getting hashed to certain values. We could choose a different hash function
@@ -106,26 +109,28 @@ remainder after dividing by 26. Here are some examples:
 | Smyth   | 7    |
 
 Despite the similarity of "Smit", "Smith" and "Smyth", these names will all produce different hashes, while
-seemingly-unrelated names "Gilmour" and "Smith" have the same hash. But in general, we would get a roughly even
-distribution across the values `0` to `25` for a set of names.
+seemingly-unrelated names "Gilmour" and "Smith" (by chance) have the same hash. But in general, we would get a
+roughly even distribution across the values `0` to `25` for a set of names.
 
 A second observation, given that the slowest part of retrieval is the linear search through all values at a
 particular hash value, is that this could be reduced by increasing the number of valid hash values (or folders
-in our original example), and storing fewer records at each. We could find a new hash function with a range of
-`0` to `999`, and if we were to store a thousand records, there would be an average of one record per hash
-value. (Some would be empty, while others would have two or three records.) This would require more storage
-space, but would offer faster retrieval.
+in our original example), and storing fewer records at each.
+
+We could find a new hash function with a range of `0` to `999`, and if we were to store a thousand records,
+there would be an average of one record per hash value. (Some would be empty, while others would have two or
+three records, but it is very unlikely any hash value would have tens of records.) This would require more
+storage space, but would offer faster retrieval.
 
 ## Collisions
 
 When two values do hash to the same value, this is known as a _hash collision_ or just a _collision_. It's
 generally considered undesirable, because it implies an additional cost _somewhere_ to disambiguate between
-those two inputs. For hash functions with a small range, collisions are inevitable, and should not be considered
+those two inputs. For hash functions with a small range, collisions are inevitable, but should not be considered
 catastrophic.
 
-But if they occur too frequently, either by accident, or because a malicious user is deliberately seeking to
+But if they occur too frequently, either by accident or because a malicious user is deliberately seeking to
 attack a running system, they can reduce the performance of hash lookups from constant time, on average, to
-linear time, which could have serious performance implications.
+linear time, which could have more serious performance implications.
 
 ## Cryptographic Hash Functions
 
@@ -151,6 +156,12 @@ The MD5 algorithm, and the various SHA algorithms, are _cryptographic_ hash func
 make it as hard as possible to find two different inputs which produce the same output, or to manipulate an
 input by adding additional data to produce a specific desired hash.
 
+Nevertheless, the MD5 algorithm has, in recent years, been _cracked_ and is now considered
+_cryptographically broken_. This means that given an MD5 hash value, it is possible to create an input which
+would hash to that value, within a reasonable time. (It's always possible in an _unreasonable time_, of course.)
+The consequence of this is that any system which relies upon a one-to-one mapping from an MD5 hash to its input
+is open to being compromised.
+
 ## Hashing in Scala
 
 All objects in Scala have a `hashCode` method, defined for each type, and intended to hash the state of that
@@ -163,3 +174,24 @@ throughout the ecosystems of both languages.
 difficult to find two different objects with the same `hashCode` value, but not impossible, and the risk of
 a collision is real. So `hashCode` is useful for identifying a difference between objects, but is not sufficient
 to identify that two objects are identical.
+
+?---?
+
+# The values `"Aa".hashCode` and `"BB".hashCode` are equal. What does this mean?
+
+* [ ] `"Aa"` equals `"BB"`
+* [X] Java's `String#hashCode` method is not cryptographically secure
+* [ ] `"aA".hashCode` equals `"BB".hashCode`
+* [ ] the strings `"Aa"` and `"BB"` cannot be safely stored in the same collection
+* [X] Java's `String#hashCode` method results in collisions
+
+# In fact, _any_ string which ends in `Aa` will have the same `hashCode` value as the same string ending in `BB`. For example, `"xyzAa".hashCode` equals `"xyzBB".hashCode`.
+
+What can be implied from this fact?
+
+* [X] a hash collision with any string ending in `"BB"` is easy to find
+* [X] it's possible to find an arbitrary number of strings which all produce the same hash value
+* [ ] hash values for strings will never be uniformly distributed
+* [X] hash values for certain sets of strings may not be uniformly distributed
+* [ ] software should never rely on `String#hashCode` for storing values in a collection
+* [X] a malicious user _may be able to_ exploit this to adversely impact a program's performance characteristics
