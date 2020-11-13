@@ -4,7 +4,7 @@ Welcome to _Learning to code in Scala_, an evolving online course which, over th
 every detail of the Scala language, from the very fundamentals of programming, through the subtle finer details
 of the syntax and runtime, to advanced topics like metaprogramming and type theory.
 
-_Learing to code in Scala_ is launching with twenty beginner-level lessons, and will expand through 2020 and
+_Learning to code in Scala_ is launching with twenty beginner-level lessons, and will expand through 2020 and
 2021 to offer over a hundred lessons covering every facet of Scala at beginner, intermediate and advanced
 level, organized into topics, and each one linked to the prerequisites that need to be understood before that
 lesson.
