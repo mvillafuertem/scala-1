@@ -36,9 +36,9 @@ println(s"There are ${Project.todo} tasks to do.")
 Within the object `Project` we can define a method, `todo`, which refers to the value, `tasks`, directly; we
 do not need to reference it as `Project.tasks` (although we could). Likewise, the definition of `todo` needs to
 access the `count` method of the list of tasks, but we cannot simply call `count`; we need the `count` method
-which operates on the `Task` elements of the `List` called `tasks`, hence we cane reference the `tasks` value
-directly. Outside of the `Project` object, we must refer to `todo` as `Project.todo`, or we could, equally,
-refer directly to `Project.tasks.count(!_.done)` to get the same value.
+which operates on the `Task` elements of the `List` called `tasks`, hence we can reference the `tasks` value
+directly. Outside of the `Project` object, we _must_ refer to `todo` as `Project.todo`, or we could, equally,
+use the expression `Project.tasks.count(!_.done)` directly to get the same value.
 
 ## Object References
 
@@ -51,7 +51,7 @@ state together, for example:
 def describe(p: ProjectDef): Unit =
   println(s"${p.todo} out of ${p.tasks.length} are incomplete.")
 
-describe(Development)
+describe(Project)
 ```
 
 It is clear from the definition of `describe` that, with only a single reference, `p`, passed as a parameter,
@@ -59,8 +59,8 @@ the expressions `p.todo` and `p.tasks.length` relate (directly or indirectly) to
 `p`. Accessing a member like `todo` or `tasks` through a reference, as `p.todo` or `p.tasks` is called
 _selection_ or _dereferencing_. We _dereference_ `p` and _select_ its `todo` and `tasks` members.
 
-Compare that to a hypothetical alternative implementation which passes the `tasks` and `todo` as separate
-parameters:
+Compare that to a hypothetical alternative implementation which passes the `tasks` and `todo` members as
+separate parameters:
 
 ```scala
 def describe(tasks: List[Task], todo: Int): Unit =
