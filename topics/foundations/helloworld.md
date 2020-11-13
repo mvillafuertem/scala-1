@@ -55,8 +55,8 @@ beneath it containing one or more caret characters (`^`), pointing to the error 
 
 The message, `end of statement expected but string literal found`, tries to indicate the problem: that a string
 was found in the source code, in an unexpected position. This might not be the clearest explanation of the
-problem, but it should help: we need to put paretheses around the string literal in order for it to be _applied_
-to the method `println`. Simply juxtaposing the string next to the method name is not valid syntax!
+problem, but it should help: we need to put parentheses around the string literal in order for it to be
+_applied_ to the method `println`. Simply juxtaposing the string next to the method name is not valid syntax!
 
 ## Programs
 
