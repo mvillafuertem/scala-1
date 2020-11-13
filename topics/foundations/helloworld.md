@@ -92,7 +92,7 @@ and we should see the output:
 Hello, World!
 ```
 
-These commands, `dotc hello.world` and `dotr hello` are artificially simple, because our source file,
+These commands, `dotc hello.scala` and `dotr hello` are artificially simple, because our source file,
 `hello.scala` is in the current directory, which we also use as an _output directory_. And that allows us to
 invoke the method we have just invoked, `hello`, without any additional parameters. We also benefit from 
 requiring no dependencies for our tiny program to run.
