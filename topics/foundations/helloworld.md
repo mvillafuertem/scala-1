@@ -78,7 +78,7 @@ we generally don't know (and shouldn't need to know) the exact details of _how_ 
 In the case of our "Hello, World!" example, that entry point is the method, `hello()`, which is a _main method_,
 as indicated by the `@main` annotation. Prefixing a _top-level_ method (a method defined outside a class, trait 
 or object) with the special annotation, `@main`, marks it as a program's entry point, and makes it accessible to
-invoked directly by the operating system, typically through the shell with the `dotr` command.
+be invoked directly by the operating system, typically through the shell with the `dotr` command.
 
 In general, other methods we write can only be called from expressions we write in Scala, and only _main_
 methods can be invoked externally.
