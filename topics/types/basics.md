@@ -145,7 +145,7 @@ putting many limitations on the code we can write straight away.
 
 ?---?
 
-## Below are several short fragments of code which include a single reference to either `alpha` or `Alpha`. In some fragments, it is a term, while in others it represents a type. Even if you don't fully understand the code, try to understand whether each is a term or a type. Select all the fragments of Scala code where `alpha` or `Alpha` looks like a type (and not a term). There are no trick questions!
+## Below are several short fragments of code which include a single reference to either `alpha` or `Alpha`. In some fragments, it is a term, while in others it represents a type. Even if you don't fully understand the code, try to understand whether each is a term or a type. Select all the fragments of Scala code where `alpha` or `Alpha` looks like a type (and not a term).
 * [X] `val x: Alpha = get()`
 * [ ] `val alpha = "a"`
 * [ ] `val Alpha = "A"`
