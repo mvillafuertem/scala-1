@@ -169,9 +169,3 @@ object Square:
 Is the object `Square` an instance of the type `Rectangle`?
 - [ ] Yes
 - [X] No
-
-## Which of the following properties of a value could be represented by its type?
-* [X] "it has a member called `apply()` which will always return the value `2`"
-* [X] "it has a member called `count` which takes any number of parameters of the same type"
-* [ ] "it does not have a member called `run()`"
-* [ ] "it has a member called `apply()` which will always return a different value"
