@@ -34,11 +34,12 @@ println(s"There are ${Project.todo} tasks to do.")
 ```
 
 Within the object `Project` we can define a method, `todo`, which refers to the value, `tasks`, directly; we
-do not need to reference it as `Project.tasks` (although we could). Likewise, the definition of `todo` needs to
-access the `count` method of the list of tasks, but we cannot simply call `count`; we need the `count` method
-which operates on the `Task` elements of the `List` called `tasks`, hence we can reference the `tasks` value
-directly. Outside of the `Project` object, we _must_ refer to `todo` as `Project.todo`, or we could, equally,
-use the expression `Project.tasks.count(!_.done)` directly to get the same value.
+do not need to reference it as `Project.tasks` (although this is permitted, and has an identical meaning).
+Likewise, the definition of `todo` needs to access the `count` method of the list of tasks, but we cannot simply
+call `count`; we need the `count` method which operates on the `Task` elements of the `List` called `tasks`,
+hence we can reference the `tasks` value directly. Outside of the `Project` object, we _must_ refer to `todo` as
+`Project.todo`, or we could, equally, use the expression `Project.tasks.count(!_.done)` directly to get the same
+value.
 
 ## Object References
 
