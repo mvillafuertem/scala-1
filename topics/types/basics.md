@@ -24,8 +24,8 @@ apparent later, what aspects of the value are _unknown_.
 Types provide a _language_ to express the capabilities and expectations of values, when writing code, and when
 communicating errors from the compiler to the programmer. The language of types is rich and expressive, and has
 at its foundation, the DOT calculus. As well as providing us with a basis to trust what the compiler tells us
-(as long as we do not try to circumvent it!), DOT allows us to combine types algebraicly, almost as easily as we
-would numbers.
+(as long as we do not try to circumvent it!), DOT allows us to combine types algebraically, almost as easily as
+we would numbers.
 
 ## Properties
 
