@@ -16,9 +16,10 @@ a _type_. For example, in,
 class Item(element: Element):
   def describe: String = s"This is a ${element.name}"
 ```
-the compiler knows that `Element` and `String` are type identifiers which refer to definitions elsewhere. A big
-clue, in general, is that `Element` and `String` appear after a colon (`:`), while `Item` is also a type
-identifier, albeit a definition, because it appears after the keyword `class`.
+the compiler knows—without even needing to see their definitions—that `Element` and `String` are type
+identifiers which refer to definitions elsewhere. A big clue, in general, is that `Element` and `String` appear
+after a colon (`:`), while `Item` is also a type identifier, albeit a definition, because it appears after the
+keyword `class`.
 
 Likewise, `element`, `describe` and `name` are term definitions. Similarly, their appearance before a colon
 suggests this. The first occurrence of `element` and `describe` are definitions which introduce these terms, and
