@@ -135,7 +135,7 @@ object Info:
 
   println(s"Initializing $description")
 ```
-and a `main` method which references it, twice:
+and an `exec` method which references it, twice:
 
 ```scala
 @main
@@ -149,7 +149,7 @@ When the runtime encounters the first reference to the `Info` object, it will,
 * [X] evaluate the value `version`
 * [X] evaluate the value `name`
 * [X] print the string `"Initializing Onion, version 7"`
-* [ ] print something else
+* [X] print the string `"Onion"`
 
 ## When the runtime encounters the second reference to the `Info` object, it will,
 
@@ -157,7 +157,6 @@ When the runtime encounters the first reference to the `Info` object, it will,
 * [ ] evaluate the value `version`
 * [ ] evaluate the value `name`
 * [ ] print the string `"Initializing Onion, version 7"`
-* [ ] print something else
 * [X] look up the `Info` object instantiated earlier
 
 ## Moving the definition of `description` _before_ the definition of `name` would,
