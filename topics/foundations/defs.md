@@ -114,7 +114,7 @@ Every time an identifier which refers to a `val` definition is evaluated, it wil
 memory. That operation will always be near-instaneous, because it just has to look up a value in memory which
 has already been calculated.
 
-A definition using the `def` keyword will behave in exactly the same way if it's implementation is just a simple
+A definition using the `def` keyword will behave in exactly the same way if its implementation is just a simple
 expression, as in our earlier example,
 ```scala
 def second: String = "two"
