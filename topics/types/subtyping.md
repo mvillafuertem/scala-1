@@ -122,10 +122,10 @@ to express specificity and generality in our code.
 
 Then compared to `Device`, the type `Apparatus`:
 
-* [X] has fewer properties
-* [ ] has fewer instances
-* [ ] has more properties
-* [X] has more instances
+* [X] has fewer or the same number of properties
+* [ ] has fewer or the same number of instances
+* [ ] has at least as many properties
+* [X] has at least as many instances
 * [X] is more general
 * [ ] is more specific
 * [X] is a supertype of `Device`
