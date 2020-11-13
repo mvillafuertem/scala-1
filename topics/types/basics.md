@@ -24,8 +24,8 @@ apparent later, what aspects of the value are _unknown_.
 Types provide a _language_ to express the capabilities and expectations of values, when writing code, and when
 communicating errors from the compiler to the programmer. The language of types is rich and expressive, and has
 at its foundation, the DOT calculus. As well as providing us with a basis to trust what the compiler tells us
-(as long as we do not try to circumvent it!), DOT allows us to combine types algebraicly, almost as easily as we
-would numbers.
+(as long as we do not try to circumvent it!), DOT allows us to combine types algebraically, almost as easily as
+we would numbers.
 
 ## Properties
 
@@ -145,7 +145,7 @@ putting many limitations on the code we can write straight away.
 
 ?---?
 
-## Below are several short fragments of code which include a single reference to either `alpha` or `Alpha`. In some fragments, it is a term, while in others it represents a type. Even if you don't fully understand the code, try to understand whether each is a term or a type. Select all the fragments of Scala code where `alpha` or `Alpha` looks like a type (and not a term). There are no trick questions!
+## Below are several short fragments of code which include a single reference to either `alpha` or `Alpha`. In some fragments, it is a term, while in others it represents a type. Even if you don't fully understand the code, try to understand whether each is a term or a type. Select all the fragments of Scala code where `alpha` or `Alpha` looks like a type (and not a term).
 * [X] `val x: Alpha = get()`
 * [ ] `val alpha = "a"`
 * [ ] `val Alpha = "A"`
@@ -169,9 +169,3 @@ object Square:
 Is the object `Square` an instance of the type `Rectangle`?
 - [ ] Yes
 - [X] No
-
-## Which of the following properties of a value could be represented by its type?
-* [X] "it has a member called `apply()` which will always return the value `2`"
-* [X] "it has a member called `count` which takes any number of parameters of the same type"
-* [ ] "it does not have a member called `run()`"
-* [ ] "it has a member called `apply()` which will always return a different value"

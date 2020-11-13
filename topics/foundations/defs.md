@@ -16,9 +16,10 @@ a _type_. For example, in,
 class Item(element: Element):
   def describe: String = s"This is a ${element.name}"
 ```
-the compiler knows that `Element` and `String` are type identifiers which refer to definitions elsewhere. A big
-clue, in general, is that `Element` and `String` appear after a colon (`:`), while `Item` is also a type
-identifier, albeit a definition, because it appears after the keyword `class`.
+the compiler knows—without even needing to see their definitions—that `Element` and `String` are type
+identifiers which refer to definitions elsewhere. A big clue, in general, is that `Element` and `String` appear
+after a colon (`:`), while `Item` is also a type identifier, albeit a definition, because it appears after the
+keyword `class`.
 
 Likewise, `element`, `describe` and `name` are term definitions. Similarly, their appearance before a colon
 suggests this. The first occurrence of `element` and `describe` are definitions which introduce these terms, and
@@ -114,7 +115,7 @@ Every time an identifier which refers to a `val` definition is evaluated, it wil
 memory. That operation will always be near-instaneous, because it just has to look up a value in memory which
 has already been calculated.
 
-A definition using the `def` keyword will behave in exactly the same way if it's implementation is just a simple
+A definition using the `def` keyword will behave in exactly the same way if its implementation is just a simple
 expression, as in our earlier example,
 ```scala
 def second: String = "two"

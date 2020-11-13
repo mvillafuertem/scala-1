@@ -58,7 +58,7 @@ The sorts of changes we consider "detectable" would include all of the following
 - accessing a value which counts the number of times it has been accessed
 
 These may seem increasingly subtle, but all are considered _side-effects_, sometimes described as "changes to
-the state of the universe". Though referring to the "state of the universe" may seem overly gradiose, it
+the state of the universe". Though referring to the "state of the universe" may seem overly grandiose, it
 nevertheless makes an important point: that the mere evaluation of a _side-effecting expression_ could be
 detected by an external observer in some way, and by virtue of being detectable, code elsewhere could depend
 upon the change, however subtle, and behave differently as a consequence, potentially in more significant ways.

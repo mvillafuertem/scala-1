@@ -2,7 +2,7 @@ A type such as `List[String]` conforms to the type `Seq[String]`, and a value or
 `List[String]` may be used in any position that a `List[String]` or a `Seq[String]` or an `Iterable[String]` is
 expected. We might as well say that such a value _is_ a `List[String]` and _is_ a `Seq[String]` and _is_ an
 `Iterable[String]`, but at any given location in our code, a value can be proven to _be_ many different types,
-but will have a single _most precice_ type known to the compiler, from which its conformance to other more
+but will have a single _most precise_ type known to the compiler, from which its conformance to other more
 generaly types can be inferred by logical implication.
 
 If, at any point, we explicitly _ascribe_ a specific type to a value, that type will _become_ the single most

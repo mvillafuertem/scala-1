@@ -1,7 +1,7 @@
 ## Matching Against Structured Data
 
 Scala offers a variety of ways to describe patterns, and much of this topic will be spent discovering these.
-In the example above, we have described the simplest of patterns like `Up` and `Down`. They are just references
+In the previous lesson, we described the simplest of patterns like `Up` and `Down`. They are just references
 to values, and the `dir` value will be compared to see if it is _equal_ to each of them: first `Up`, and if
 the scrutinee is not equal to `Up`, we try `Down`, and so on.
 
@@ -165,7 +165,7 @@ geo match
   case Square(edge) =>
     edge*edge
   case Rectangle(width, 1.0) =>
-    width*height
+    width*1.0
   case Circle(_, radius) =>
     math.Pi*radius*radius
   case Line(a@Point(ax, 0.0), b) =>
@@ -174,7 +174,7 @@ geo match
 
 Select all the expressions which the pattern match would match. You can ignore the calculated value.
 
-* [X] `Circle(0.5, 0.5)`
+* [X] `Circle(Point(-4.0, -8.0), 0.5)`
 * [ ] `Rectangle(1.0, 2.0)`
 * [X] `Line(Point(0.0, 0.0), Point(0.2, 0.8))`
 * [ ] `Point(-1.0, 1.0)`

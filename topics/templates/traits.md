@@ -244,7 +244,6 @@ Which two of the following solutions would avoid the compile error?
 
 * [ ] add a method, `def center: Point = Origin`, to the body of `object Dot`
 * [ ] change the definition of `def center` in `trait Position` to `def center: Point = Origin`
-* [X] change the definition of `trait Shape` to `trait Shape extends Position(Origin)`
 * [ ] remove the method `def center` and the parameter block, `(point: Point)` from `trait Position`
 * [ ] remove `extends Position` from the definition of `trait Shape`
 * [X] change the definition of `object Dot` to `object Dot extends Circle(1.0), Position(Origin)`

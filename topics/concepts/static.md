@@ -93,8 +93,8 @@ a static type system: they attempt to verify code by running it with a represent
 states, and comparing the results to expected values, but (unlike types) there is no proof of their correctness.
 
 For dynamic values, even within a statically-typed language, tests can still be very useful. It is not always
-possible or practical to encode enough precision with types to very a program for _all_ possible inputs. And in
-many scenarios, unit tests can offer additional confidence that our code does what we intend it to do.
+possible or practical to encode enough precision with types to verify a program for _all_ possible inputs. And
+in many scenarios, unit tests can offer additional confidence that our code does what we intend it to do.
 
 ## Summary
 
