@@ -38,9 +38,18 @@
       ]
     },
     {
+      "id": "strings",
+      "title": "Strings",
+      "authorId": "jon-pretty",
+      "duration": 15,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
       "id": "scopes",
       "title": "Scopes and Namespaces",
       "authorId": "jon-pretty",
+      "video": "https://www.youtube.com/embed/IOnttJYoj_4",
       "duration": 9,
       "prerequisites": [
         {
@@ -48,8 +57,7 @@
           "topicId": "templates",
           "lessonId": "classes"
         }
-      ],
-      "comingSoon": true
+      ]
     }
   ]
 }

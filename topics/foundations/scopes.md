@@ -95,11 +95,14 @@ accessible at any point within our code.
 
 ?---?
 
-## From a nested scope, all identifiers defined the surrounding scope can be accessed, apart from:
+# From a nested scope, all identifiers defined the surrounding scope can be accessed, apart from:
+
 * [ ] imported and exported members
 * [X] members which are shadowed
-* [ ] members marked with the `private` visibility modifier
-* [ ] members marked with the `protected` visibility modifier
+* [ ] objects
+* [ ] classes, traits and types
+
+# Consider this code:
 
 ```scala
 val button: Boolean = true
@@ -108,13 +111,15 @@ object App:
   def myButton: Boolean = button
   def run(): Unit = println(myButton)
 ```
-## When calling `App.run()`, what will be printed?
+When calling `App.run()`, what will be printed?
+
  - [ ] We know it will be `true`
  - [X] We cannot know for sure without also knowing whether `Events` contains a member called `button`
  - [ ] If it compiles, it will print `true`
- - [ ] Even if it compiles, and we know everything about `Events`, we cannot know for sure whether `true` or `false` is printed
+ - [ ] Even if it compiles, and we know everything the definition of `Events`, we cannot know for sure whether `true` or `false` is printed
 
-Now consider the following code:
+# Now consider the following code:
+
 ```scala
 object Date:
   val date = Date(7, 9, 2022)
@@ -124,10 +129,15 @@ case class Date(day: Int, month: Int, year: Int):
 
 val date = Date(1, 1, 2000)
 ```
-## True or false? `Date.date == date.date.date`
-- [X] True
-- [ ] False
 
-## True or false? `Date.date.date == date.date`
-- [X] True
-- [ ] False
+What is the result of, `Date.date == date.date.date`?
+
+- [X] `true`
+- [ ] `false`
+- [ ] it does not compile
+
+# And in the same example, what is the result of, `Date.date.date == date.date`?
+
+- [X] `true`
+- [ ] `false`
+- [ ] it does not compile
