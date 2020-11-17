@@ -5,14 +5,18 @@
     {
       "id": "enums",
       "title": "Simple Enumerations",
-      "authorId": "jon-pretty",
+      "authorIds": [
+        "jon-pretty"
+      ],
       "video": "https://www.youtube.com/embed/byN3JmE9UoQ",
       "duration": 16
     },
     {
       "id": "enums2",
       "title": "Parameterized Enumerations",
-      "authorId": "jon-pretty",
+      "authorIds": [
+        "jon-pretty"
+      ],
       "video": "https://www.youtube.com/embed/To9-wC-F2GY",
       "duration": 14
     }
