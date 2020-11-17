@@ -38,14 +38,6 @@
       ]
     },
     {
-      "id": "strings",
-      "title": "Strings",
-      "authorId": "jon-pretty",
-      "duration": 15,
-      "prerequisites": [],
-      "comingSoon": true
-    },
-    {
       "id": "scopes",
       "title": "Scopes and Namespaces",
       "authorId": "jon-pretty",
