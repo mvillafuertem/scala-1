@@ -15,11 +15,7 @@ our code.
 
 Almost any character can be included in a string literal when we write it using the style above, and we are
 certainly not restricted only to the "English" alphabet, or to the widely-used ASCII character set, which
-defines just 96 different characters. So this,
-```scala
-"სწრაფი ყავისფერი მელა ხტება ზარმაც ძაღლს."
-```
-is a valid Scala string literal, and so is this:
+defines just 96 different characters. So this is also a valid Scala string literal:
 ```scala
 "速い茶色のキツネは怠惰な犬を飛び越えます。"
 ```
