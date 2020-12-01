@@ -1,3 +1,5 @@
+## Partial and Total matching
+
 A common thought when writing a pattern match is knowing whether we are handling all possible inputs.
 
 Conversely, we could ask, is it possible to provide an input to the pattern match expression which would match
