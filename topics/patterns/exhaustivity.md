@@ -1,19 +1,20 @@
 A common thought when writing a pattern match is knowing whether we are handling all possible inputs.
+
 Conversely, we could ask, is it possible to provide an input to the pattern match expression which would match
-_none_ of the patterns? This is not usually something we would want to happen. It would mean that the expression
-is _partial_, not _total_. If we were to pass a scrutinee to the pattern match which it could not handle, in the
-absence of any possible return expression, the only action that makes sense is for an exception to be thrown.
+_none_ of the patterns? This is not usually something we would want to happen: it would mean that the expression
+is _partial_, not _total_. If we were to pass a scrutinee value to the pattern match which it could not handle,
+in the absence of any possible return expression, the only action that makes sense is for an exception to be thrown.
 So, Scala will throw a `MatchError`.
 
 ## Wildcard matches
 
-To avoid partiality in the pattern match, one solution is to use a _wildcard_ pattern. This is not really a
-"pattern" at all, because it is guaranteed to match the scrutinee every time, but that's exactly what we need to
-ensure _totality_.
+To avoid _partiality_ (when an expression is not total) in the pattern match, one solution is to use a
+_wildcard_ pattern. This is not really a "pattern" at all, because it is guaranteed to match the scrutinee every
+time, but that's exactly what we need to ensure _totality_.
 
-In it's simplest form, a wildcard match uses the pattern, `_`. It must be the last case in a pattern match; if
-we know it will match everything, then there would not be any point attempting to match on something else
-_after_ a wildcard, and, in fact, the compiler considers it an error.
+In it's simplest form, a wildcard match is the pattern, `_`. It must be the last case specified in a pattern
+match; if we know it will match everything, then there would not be any point attempting to match on something
+else _after_ a wildcard, and, in fact, the compiler considers it an error.
 ```scala
 def chooseTheme(background: Color): Theme =
   background match
@@ -32,28 +33,36 @@ def message(count: Int): String = count match
   case n => s"There are $n."
 ```
 
-Here, we introduce a new identifier, `n`, which is bound to the scrutinee where it has failed to match `1`, `2` or `3`. This
-is something we have seen already, in fact. When we wrote the pattern, earlier,
+Here, we introduce a new identifier, `n`, which is bound to the scrutinee after it has failed to match `1`, `2`
+or `3`. This is something we have seen already, in fact. When we wrote the pattern, earlier,
 ```scala
 case Color(red, green, blue) =>
 ```
 the identifiers, `red`, `green` and `blue` are also patterns which are used to "match" against the three
-parameters of `Color`, but being wildcard patterns, we know they will always match. So their primary function is
-to bind new identifiers to each of the three parameters so we can use them directly on the right-hand side
-of the case clause.
+parameters of `Color`, but being wildcard patterns, we know they will always match. The difference in this case
+is that they always match on each of the parameters, rather than always matching the entire scrutinee value. So
+their primary function is to bind new identifiers to each of the three parameters so we can use them directly on
+the right-hand side of the case clause.
+
+A case-class extractor such as `case Color(red, green, blue)` is guaranteed to match any instance of `Color`,
+but if we had written, `case Color(0.0, green, blue)` then this would be known not to exhaustively match every
+possible instance of `Color`—a scrutinee of `Color(1.0, 2.0, 3.0)` would not match, for example—and further
+cases would need to be specified to ensure totality.
+
+This applies recursively to nested case-class matches, of course.
 
 ## Enumerations and Sealed types
 
 A wildcard match does not always make sense, though. If we were to to match a scrutinee which was an
 `Option[Int]`, we would know that matching `case Some(value)` and `case None` would be guaranteed to match.
-`Option[T]` is a sealed type, so there are no other possible subtypes other than these, and therefore no
-need to provide a wildcard match at the end to handle any other cases.
+`Option[T]` is a _sealed type_, which means there are no other possible subtypes other than these two, and
+therefore no need to provide a wildcard match at the end to handle any other cases.
 
-This is something Scala is also able to work out, as long as the type of the scrutinee is a union type, a
-sealed type such as an enumeration, a `Boolean` or, trivially, a `Unit`. This feature is called _exhaustivity
-checking_, and we say that it checks that the match is _exhaustive_ in the sense that it _exhausts_ the set of
-possible values such that there is nothing left to try to match against. And it guarantees the _totality_ of the
-match expression, which is something we want.
+This is something Scala is also able to know, as long as the type of the scrutinee is a union type, a sealed
+type such as an enumeration, a `Boolean` or, trivially, a `Unit`. This feature is called
+_exhaustivity checking_, and we say that it checks that the match is _exhaustive_ in the sense that it
+_exhausts_ the set of possible values to consider such that there is nothing remaining to try to match against.
+And it guarantees the _totality_ of the match expression, which is something we want.
 
 Provided Scala can prove that, collectively, the cases listed inside a `match` will handle any value we pass to
 it, it will consider the match exhaustive.
@@ -88,14 +97,61 @@ any instances of the scrutinee which none of the cases would match, and if so, w
 
 Based on the answers to these questions, Scala may issue warnings about the code. If it decides that a case
 will never match because one of the earlier cases would always match it first, then we will receive a warning
-that it is an _unreachable case_; it's provably impossible that it will never match. Likewise, if it is possible
-for a particular scrutinee instance to pass over every case in the expression without matching any of them, then
-a warning is issued: "match may not be exhaustive". We even get insight into the cases which are not handled.
+that it is an _unreachable case_, meaning that it is provably impossible that it will never match. Likewise, if
+it is possible for a particular scrutinee instance to pass over every case in the expression without matching
+any of them, then a warning is issued: "match may not be exhaustive". We even get insight into the cases which
+are not handled.
 
-Remember that these questions are asked with the knowledge that Scala has available to it at compile time. It
+Remember that these questions are asked with the static information Scala has available at compile time. It
 knows nothing about the runtime value of the scrutinee, apart from its type. Scala is also limited in its
 ability to analyse the predicates in guards: a predicate could be _any_ expression which returns a `Boolean`
 value, even a nondeterministic expression, so the compiler makes no assumptions about whether a guarded case
 will always match, never match or sometimes match, even when it might be obvious to us.
 
 ?---?
+
+# Consider the following pattern match:
+
+```scala
+def complement(value: Color) = value match
+  case Color(0.0, green, blue) => green + blue
+  case Color(red, 0.0, blue)   => red + blue
+  case Color(red, green, 0.0)  => red + green
+```
+
+Is the pattern match expression exhaustive?
+
+- [ ] Yes
+- [X] No
+
+# Given the definitions for representating dates in a form such as "the third Friday in March",
+
+```scala
+enum Day:
+  case Mon, Tue, Wed, Thu, Fri, Sat, Sun
+
+enum Month:
+  case Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+
+case class Date(number: Int, day: Day, month: Month)
+```
+
+Is the pattern match, `meet` exhaustive?
+
+```scala
+
+import Day._, Month._
+
+def meet(date: Date): Boolean = date match
+  case Date(1 | 2 | 3 | 4 | 5, Sat | Sun, _) =>
+    false
+  case Date(1 | 3 | 5, Tue | Thu, Jan | Mar | May | Jul | Aug | Oct | Dec) =>
+    true
+  case Date(2 | 4, Mon | Wed | Fri, Feb | Apr | Jun | Sep | Nov) =>
+    true
+  case Date(_, Tue | Thu, _) | Date(_, Mon | Wed | Fri, _) =>
+    false
+```
+
+- [ ] Yes
+- [X] No
