@@ -139,7 +139,6 @@ case class Date(number: Int, day: Day, month: Month)
 Is the pattern match, `meet` exhaustive?
 
 ```scala
-
 import Day._, Month._
 
 def meet(date: Date): Boolean = date match
