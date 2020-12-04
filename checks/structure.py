@@ -59,5 +59,5 @@ class Author:
 class Structure:
   courses: [Course]
   levels: [Level]
-  topics: [Topic]
+  topics: dict
   authors: [Author]

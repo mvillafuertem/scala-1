@@ -8,12 +8,11 @@ from envs import CONTENT_PATH
 from pathlib import Path
 
 QUESTION_SECTION_INDICATOR = "?---?"
-topics_root = CONTENT_PATH + "/topics"
+topic_files = CONTENT_PATH + "/courses/*/topics/*.md"
 
 
 def test_lesson():
-  files = f"{topics_root}/*/*.md"
-  mds = glob.glob(files)
+  mds = glob.glob(topic_files)
   for md in mds:
     try:
       lesson_text = Path(md).read_text()

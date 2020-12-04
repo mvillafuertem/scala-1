@@ -1,5 +1,4 @@
 from structure import *
-import os
 import json
 from pathlib import Path
 from envs import CONTENT_PATH
@@ -7,7 +6,7 @@ from envs import CONTENT_PATH
 def load_structure():
   courses = load_courses()
   levels = load_levels(courses)
-  topics = load_topics()
+  topics = load_topics(courses)
   authors = load_authors()
   return Structure(courses, levels, topics, authors)
 
@@ -34,7 +33,7 @@ def load_course(course_id: str):
     assert False, f"Course {course_id} index is malformed, cause: {repr(e)}"
 
 def load_levels(courses: [Course]):
-  return [load_level(course.id, level) for course in courses for level in course.levels ]
+  return [load_level(course.id, level) for course in courses for level in course.levels]
 
 def load_level(course_id: str, level_id: str):
   try:
@@ -48,22 +47,29 @@ def load_level(course_id: str, level_id: str):
   except KeyError as e:
     assert False, f"Level {level} file for course {course_id} is malformed, cause: {repr(e)}"
 
-def load_topics():
+
+def load_topics(courses: [Course]):
+  return dict([load_topics_for_course(course.id) for course in courses])
+
+
+def load_topics_for_course(course_id: str):
   try:
-    topics_index_json = Path(CONTENT_PATH + "/topics/index.json").read_text()
+    topics_index_json = Path(f"{CONTENT_PATH}/courses/{course_id}/topics/index.json").read_text()
     topics_index = json.loads(topics_index_json)
-    return [load_topic(topic_id) for topic_id in topics_index['topics']]
+    return (course_id, [load_topic(course_id, topic_id) for topic_id in topics_index['topics']])
   except FileNotFoundError:
     assert False, f"Topics index file not found"
   except KeyError as e:
     assert False, f"Topics index is malformed, cause: {repr(e)}"
 
+
 def emptyIfNone(array):
   return [] if array == None else array
 
-def load_topic(topic_id: str):
+
+def load_topic(course_id: str, topic_id: str):
   try:
-    path = CONTENT_PATH + f"/topics/{topic_id}/index.json"
+    path = CONTENT_PATH + f"/courses/{course_id}/topics/{topic_id}/index.json"
     topic_json = Path(path).read_text()
     topic = json.loads(topic_json)
     lessons = [Lesson(lesson['id'], topic_id, lesson['title'], lesson['authorIds'], lesson['duration'],
