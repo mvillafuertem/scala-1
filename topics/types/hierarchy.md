@@ -19,7 +19,7 @@ case class Poisonberry() extends Berry
 case class Blackcurrant() extends Berry, Edible
 ```
 
-![Class hierarchy diagram](https://raw.githubusercontent.com/scalazone/scala/main/contentImages/singly-linked.svg)
+![Class hierarchy diagram](https://raw.githubusercontent.com/scalazone/scala/main/contentImages/hierarchy.png)
 
 We conventionally draw supertypes positioned above their subtypes, with arrows between them to indicate direct
 subtyping relationships. Conventionally, again, the arrows point _from_ a subtype _to_ its supertype, so they
@@ -143,7 +143,7 @@ Occasionally, we will encounter them, and it's necessary to understand the role 
 
 ?---?
 
-# Select all the statements that are true:
+# Select all the statements that are true about types in the Scala type hierarchy:
 
 * [X] `Nothing` is a subtype of `Null`
 * [X] `Null` is a subtype of `Any`
@@ -152,4 +152,13 @@ Occasionally, we will encounter them, and it's necessary to understand the role 
 * [ ] `Null` is a subtype of `AnyVal`
 * [X] `AnyRef` is a subtype of `Any`
 
-# 
+# Take another look at this type hierarchy diagram:
+
+![Class hierarchy diagram](https://raw.githubusercontent.com/scalazone/scala/main/contentImages/hierarchy.png)
+
+What does the diagram show about the relationship between the types `Fruit` and `Edible`?
+
+- [ ] `Fruit` is a subtype of `Edible`
+- [ ] `Edible` is a subtype of `Fruit`
+- [X] `Edible` and `Fruit` have no subtype or supertype relationship
+- [ ] `Edible` and `Fruit` _may_ have a subtype or supertype relationship
