@@ -20,7 +20,7 @@ val password: login.Field = login.Field("password", "Password", conceal = true)
 The JVM treats inner classes such as `Field` like any other class, so every `Form##Field` will be compiled to an
 instance of the same class, referred to internally as, `LForm$Field`. That means that both `signup.Field` and
 `login.Field` will be instances of the same _runtime_ class, even though the compiler can distinguish them at
-compile time.
+compiletime.
 
 In this example, we have four fields, belonging to two different forms. If we were to create a `List` of all
 fields,

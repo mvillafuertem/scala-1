@@ -64,11 +64,11 @@ We may sometimes encounter _wildcard types_ in Scala, which are a way of general
 more type parameters that is _indeterminate_. In Scala versions before 3, these were a subset of the
 _existential types_, though these are no longer a part of Scala's type system.
 
-An indeterminate type parameter is one which is not known at compile time. There are a variety of reasons why a
+An indeterminate type parameter is one which is not known at compiletime. There are a variety of reasons why a
 type parameter may not be known, but there are two sources of such types:
 
 Firstly, the JVM permits us to pattern match a runtime value against its _runtime type_. Runtime types cannot
-encode all the features that compile-time types can encode, and—in particular—the type parameters of a value's
+encode all the features that compiletime types can encode, and—in particular—the type parameters of a value's
 type cannot be determined just by looking at the value. So we would not be able to distinguish between a value
 of type `Option[Int]` and `Option[String]` by pattern matching. As a way of representing an option of
 _something_, the compiler uses `Option[_]`, using the `_` to represent the indeterminate type parameter. The

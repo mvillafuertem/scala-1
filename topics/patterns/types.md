@@ -2,7 +2,7 @@ The patterns we have seen so far have been described in terms of literal values 
 also match a value by type, subject to some important restrictions.
 
 A limitation of running code on the Java Virtual Machine is that its runtime type system is much less expressive
-than Scala's, and Scala's rich types, which are known at compile-time, must be simplified or _erased_ to pale
+than Scala's, and Scala's rich types, which are known at compiletime, must be simplified or _erased_ to pale
 shadows of themselves. At runtime, of course, we do have the advantage of having actual values which can be
 inspected, but we can not always accurately know the type a value had when it was created, just by inspecting
 it.
