@@ -56,7 +56,7 @@ advantageous.
 
 Even in the context of a compiled language, it is common to consider what information is known statically about
 our code and the values we work with, and what information is unknown until the code is run, or, _dynamic_. For
-example, the expression `2 + 2` is _statically_ known to be the integer `4` at compile time because the Scala
+example, the expression `2 + 2` is _statically_ known to be the integer `4` at compiletime because the Scala
 compiler has all the information it needs to compute it. Whereas, an expression which reads input from the
 console and interprets it as an integer, `StdIn.readInt`, could evaluate to any integer, and while it is known
 statically that it will always be an _integer_ (and not, say, a string or a boolean), the actual integer value

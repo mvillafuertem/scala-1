@@ -104,7 +104,7 @@ it is possible for a particular scrutinee instance to pass over every case in th
 any of them, then a warning is issued: "match may not be exhaustive". We even get insight into the cases which
 are not handled.
 
-Remember that these questions are asked with the static information Scala has available at compile time. It
+Remember that these questions are asked with the static information Scala has available at compiletime. It
 knows nothing about the runtime value of the scrutinee, apart from its type. Scala is also limited in its
 ability to analyse the predicates in guards: a predicate could be _any_ expression which returns a `Boolean`
 value, even a nondeterministic expression, so the compiler makes no assumptions about whether a guarded case

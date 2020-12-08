@@ -48,8 +48,8 @@ which would come first, and all we would know about both elements is that they a
 ## Downcasting
 
 Given the possibility that values may be upcast to more general types, and the immutability of a value's runtime
-type, we may have values with types that are known more precisely at runtime than at compile-time. But if we
-do not know a value's precise type at compile time, we cannot rely on that value's more precise properties; the
+type, we may have values with types that are known more precisely at runtime than at compiletime. But if we
+do not know a value's precise type at compiletime, we cannot rely on that value's more precise properties; the
 Scala compiler will not permit us to compile any code which assumes those properties.
 
 Thankfully, those values do not forever lose some of their functionality when their static type is upcast. It is
@@ -113,7 +113,7 @@ val locations: List[String] =
 
 Here, we are storing some fields, indexed by `String`s, in a generic `Map`. We can access the age and a list
 of locations by their indices, but the values taken from the map will have the type `Any`, which means that at
-compile-time we know very little about them.
+compiletime we know very little about them.
 
 In the case of `details("age")` we can pattern match on the value to test that it is an `Int`, but we should
 consider the case where it is not an `Int`, in order to avoid the risk of a `ClassCastException`. For the list
