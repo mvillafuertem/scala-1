@@ -1,3 +1,5 @@
+## Type hierarchy diagrams
+
 Subtyping relationships between some types in Scala imply there is a partial order between them. That is to say,
 for any two concretely-known types, `A` and `B`, `A` may be a subtype of `B`, or `B` may be a subtype of `A`, or
 there may be no subtyping relationship between them.
@@ -19,7 +21,7 @@ case class Poisonberry() extends Berry
 case class Blackcurrant() extends Berry, Edible
 ```
 
-![Class hierarchy diagram](https://raw.githubusercontent.com/scalazone/scala/main/contentImages/hierarchy.png)
+![Class hierarchy diagram](/api/content/contentImages/hierarchy.png)
 
 We conventionally draw supertypes positioned above their subtypes, with arrows between them to indicate direct
 subtyping relationships. Conventionally, again, the arrows point _from_ a subtype _to_ its supertype, so they
@@ -33,6 +35,8 @@ supertype; if types appear side-by-side, then they do not have any subtyping rel
 can find a path by following the arrows through a series of types, we know that they do have a _subtyping_
 relationship, and it is usually easier to see than it would be by reading the class definitions.
 
+## The Universal Hierarchy
+
 All types in Scala belong to a universal _type hierarchy_, though as the number of possible types Scala can
 encode is infinite—we will discover later how new types can be constructed by combining existing types—the
 hierarchy would also be infinite. And that would obviously be impossible to draw! But we can draw the part of
@@ -44,6 +48,8 @@ finite number, and furthermore, the full inheritance lineage for any type will b
 every type, if we follow the arrow to its supertypes, then take the supertypes of its supertypes, and carry on
 _upwards_ like this, we can count the steps before we reach the "top", and it would be unusual for it to be more
 than a few.
+
+## `Any`, the Top Type
 
 But what is the "top", and why should we stop there? Scala's type hierarchy has a "top type" whose name is
 `Any`. `Any` is a supertype of every other type. That means that for every value we encounter, whatever type it
@@ -69,6 +75,8 @@ us, at compiletime, to the properties that are common to all values.
 would be no need for them to exist: every value is an instance of `Any`, and any supertype must be a superset
 of the instances of `Any`, but our set is already _everything_, so any superset, if it were to exist, could only
 be the same superset.
+
+## `AnyRef` and `AnyVal`
 
 `Any` has two immediate subtypes, `AnyRef` and `AnyVal` and all values will be partitioned into these. Most
 values we work with will be `AnyRef`s: every instance of every class, enum or case class, every `String`, every
@@ -104,6 +112,8 @@ singleton type.
 And while we usually think of types as being defined in terms of their supertypes—types, derived from their
 class definitions, where those classes _inherit_ from other classes—there are two "magic" types which exist that
 are automatically subtypes of every new class.
+
+## `Nothing` and `Null`
 
 The `Nothing` type, sometimes referred to as the _bottom type_ is the counterpart to `Any`, and appears at the
 bottom of the type hierarchy, being a subtype of _everything_. If we could ever have an instance of `Nothing`,
@@ -154,7 +164,7 @@ Occasionally, we will encounter them, and it's necessary to understand the role 
 
 # Take another look at this type hierarchy diagram:
 
-![Class hierarchy diagram](https://raw.githubusercontent.com/scalazone/scala/main/contentImages/hierarchy.png)
+![Class hierarchy diagram](/api/content/contentImages/hierarchy.png)
 
 What does the diagram show about the relationship between the types `Fruit` and `Edible`?
 
