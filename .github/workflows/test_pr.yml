@@ -6,6 +6,9 @@ on:
       - opened
       - edited
 
+  push:
+    branches: [ develop, main, stage ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
