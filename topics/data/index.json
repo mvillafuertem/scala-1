@@ -4,9 +4,16 @@
   "lessons": [
     {
       "id": "enums",
-      "title": "Enumerations",
+      "title": "Simple Enumerations",
       "authorId": "jon-pretty",
-      "duration": 18,
+      "video": "https://www.youtube.com/embed/byN3JmE9UoQ",
+      "duration": 16
+    },
+    {
+      "id": "enums2",
+      "title": "Advanced Enumerations",
+      "authorId": "jon-pretty",
+      "duration": 16,
       "comingSoon": true
     }
   ]
