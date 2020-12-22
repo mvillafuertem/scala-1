@@ -13,7 +13,7 @@ specific. Regardless of the context, the `_` character can always be interpreted
 confusing symbolic operator whose purpose is unclear, we should see it very consistently as a way of indicating
 the _unspecified_.
 
-The rest of this lesson cover the variety of contexts in which underscores may appear in Scala source code.
+The rest of this lesson covers the variety of contexts in which underscores may appear in Scala source code.
 Understanding all these concepts may not make sense to everyone yet, but should provide hints about where to
 look to try to understand them better.
 
@@ -56,8 +56,8 @@ parameter, produces more readable (and writable) code, without any ambiguity.
 
 Not all lambdas can be written in this style, though.
 
-Lambdas which take more than one parameter are also supported through multiple placeholder underscores,
-provided the order of the parameters matches the order of their placement in the expression. For example,
+Lambdas that take more than one parameter are also supported through multiple placeholder underscores, provided
+the order of the parameters matches the order of their placement in the expression. For example,
 ```scala
 List(3, 5, 7, 11).reduce(_ * _)
 ```
@@ -72,8 +72,8 @@ the underscore for wildcard parameters: the question mark (`?`) has been adopted
 Code written for Scala 2, however, still uses the underscore for wildcard types, so it is useful to be able to
 recognize it.
 
-An indeterminate type parameter is one which is not known universally. There are a few reasons why a type
-parameter may not be known:
+An indeterminate type parameter is one that is not known universally. There are a few reasons why a type
+parameter may not be known.
 
 Firstly, the JVM permits us to pattern match a runtime value against its _runtime type_. Runtime types cannot
 encode all the features that compiletime types can encode, and—in particular—the type parameters of a value's
@@ -103,7 +103,7 @@ that on the elements of a `List[?]`.
 
 ## Numeric spacing
 
-Sometimes, when we work with vary large literal numbers, like `100000000000L` (that's one trillion) it is useful
+Sometimes, when we work with very large literal numbers, like `100000000000L` (that's one trillion) it is useful
 to group the digits to make them easier to read. So we can write,
 ```scala
 val trillion: Long = 1000_000_000_000
@@ -140,7 +140,7 @@ that normally takes one or more type parameters (like `List` or `Either`), the `
 constraint on the structure of the type parameter, known as its _kind_.
 
 Normally, these types would be given their own named identifiers, but Scala does not impose this upon us if we
-have no need to refer to those parameters.
+do not need to refer to those parameters.
 
 For example, a method `convertTo`, which will convert a `List[Int]` to a different collection type, could be
 defined with the signature,
