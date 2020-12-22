@@ -46,7 +46,7 @@ The way to read this should be, "from within the `java.io` package, discard `Fil
 The `_` character appears twice, firstly to indicate that `File` is discarded, and secondly as a wildcard import
 of everything else. `File => _` can be thought of as mapping the `File` import to _nothing_.
 
-## Lambdas
+## Lambda Placeholder Syntax
 
 Underscores are very common shorthand for writing simple lambdas in Scala, using what is usually called
 _placeholder syntax_, for example in `xs.exists(_ < 10)`, which is short for `xs.exists { x => x < 10 }`. This
@@ -157,15 +157,6 @@ Note that when calling such a method, types such as `List` which would normally 
 like `List[T]`, may be written without that parameter when the context (i.e. the expected kind, from the
 specification at the definition site) indicates the need for a higher-kinded type of this nature.
 
-But sometimes a type's natural structure does not match the kind that is required at a particular use site. A
-type-lambda, analagous to a value lambda, can sometimes be utilized in these scenarios.
-
-For example, if a type parameter expects the kind, `F[_]`, and we would like to provide `Either[A, B]` where `A`
-would correspond to the type's hole, and `B` would be fixed as the type `String`, we could write this as the
-type-lambda, `[T] => Either[T, String]`.
-
-But that could be shortened to `Either[_, String]`.
-
 ## Summary
 
 While the uses of underscores in Scala are quite varied, with the exception of numeric spacing, they are
@@ -177,9 +168,8 @@ identifiers or entities to represent that.
 # How could the underscore in `Apply[_]` be interpreted in Scala 3, without seeing or assuming any further context?
 
 * [ ] numeric spacing
-* [X] higher-kinded type parameters
+* [X] a higher-kinded type parameter
 * [ ] lambda placeholder syntax
-* [X] type-lambda syntax
 * [ ] a universal import
 
 # How could the lambda `(x, y) => y.action(z, x)` be written more concisely using underscores?
