@@ -116,7 +116,7 @@ When calling `App.run()`, what will be printed?
  - [ ] We know it will be `true`
  - [X] We cannot know for sure without also knowing whether `Events` contains a member called `button`
  - [ ] If it compiles, it will print `true`
- - [ ] Even if it compiles, and we know everything the definition of `Events`, we cannot know for sure whether `true` or `false` is printed
+ - [ ] Even if it compiles, and we know everything within the definition of `Events`, we cannot know for sure whether `true` or `false` is printed
 
 # Now consider the following code:
 
