@@ -48,6 +48,14 @@
       "authorId": "jon-pretty",
       "duration": 14,
       "video": "https://www.youtube.com/embed/AYvkAHqHEzk"
+    },
+    {
+      "id": "generics",
+      "title": "Generic Types",
+      "authorId": "jon-pretty",
+      "duration": 14,
+      "video": "https://www.youtube.com/embed/rqovDkKmGP8",
+      "comingSoon": true
     }
   ]
 }
