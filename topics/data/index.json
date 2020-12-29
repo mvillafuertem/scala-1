@@ -11,10 +11,10 @@
     },
     {
       "id": "enums2",
-      "title": "Advanced Enumerations",
+      "title": "Parameterized Enumerations",
       "authorId": "jon-pretty",
-      "duration": 16,
-      "comingSoon": true
+      "video": "https://www.youtube.com/embed/To9-wC-F2GY",
+      "duration": 14
     }
   ]
 }

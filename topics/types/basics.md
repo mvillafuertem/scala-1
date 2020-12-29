@@ -54,17 +54,17 @@ not be possible to specify that a method is pure or deterministic in its type.
 ## Member References
 
 Often, when we talk about members (in this course and elsewhere), we want to specify that member by its name and
-the name of the type it is a member of. We can do this using the `##` symbol, for example to specify the
-`substring` method of the `String` type, we would write `String##substring`. The type name always goes on the
-left of the `##` and the member name (which may be a term name or a type name) goes on the right.
+the name of the type it is a member of. We can do this using the `#` symbol, for example to specify the
+`substring` method of the `String` type, we would write `String#substring`. The type name always goes on the
+left of the `#` and the member name (which may be a term name or a type name) goes on the right.
 
 This is similar to, but should not be confused with, references written with _dot-notation_. These may look
-similar, using a `.` instead of a `##`, but the name to the left of the `.` will always be a _value_ and not a
+similar, using a `.` instead of a `#`, but the name to the left of the `.` will always be a _value_ and not a
 _type_. For example, in `List.empty`, `List` is the _object_ called `List` with the member `empty`, while in
-`List##head`, `List` refers to the type `List`. (Neither does the object `List` have a member called `head`, nor
+`List#head`, `List` refers to the type `List`. (Neither does the object `List` have a member called `head`, nor
 do instances of the type `List` have members called `empty`.)
 
-So, in general, `a.b` refers to the member `b` of the instance `a` (of unspecified type), while `A##b` refers to
+So, in general, `a.b` refers to the member `b` of the instance `a` (of unspecified type), while `A#b` refers to
 the member `b` of _an instance of_ the type `A`.
 
 ## Templates and Types

@@ -33,6 +33,11 @@
       "lessonEnd": "methods"
     },
     {
+      "topicId": "data",
+      "lessonStart": "enums2",
+      "lessonEnd": "enums2"
+    },
+    {
       "topicId": "concepts",
       "lessonStart": "hashing",
       "lessonEnd": "hashing"
