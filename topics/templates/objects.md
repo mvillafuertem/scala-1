@@ -95,7 +95,7 @@ the same instance of a `FileWriter`.
 ## Lazy Instantiation
 
 Unlike `val`s, though, objects are instantiated _lazily_. That means that an object may be defined in our
-program, but it will exist as a "living" value on the heap until one of the running threads makes its first
+program, but it will not exist as a "living" value on the heap until one of the running threads makes its first
 reference to it. That may happen when the JVM first starts up, if the application's `main` method refers to
 `BasicLog` early in its execution, or it may happen after many seconds, minutes or hours, in an application
 which can run for a long time without executing certain code.
