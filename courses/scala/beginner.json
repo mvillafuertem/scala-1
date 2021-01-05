@@ -20,7 +20,7 @@
     {
       "topicId": "types",
       "lessonStart": "basics",
-      "lessonEnd": "hierarchy"
+      "lessonEnd": "generics"
     },
     {
       "topicId": "patterns",

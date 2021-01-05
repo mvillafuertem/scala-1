@@ -118,6 +118,9 @@ which is a complex topic which we will cover in more detail later. For now, it s
 that some generic types may assume the same subtyping relationships as their type parameters, and these are
 called _covariant_, and others do not.
 
+Like any other type, all generic types fit into the type hierarchy, which will reflect these subtyping
+relationships.
+
 ?---?
 
 # Consider the following class definition:
