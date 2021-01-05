@@ -184,7 +184,7 @@ Which of the following is a valid implementation of that method?
 
 # Enumerations can model a variety of different types of data. Which of the following would be good candidates to be modeled by an enumeration in Scala?
 
-* [X] the type of medal awarded for an event in the Olympics
+* [X] the type of medal awarded to a participant for an event in the Olympics
 * [ ] the year in which a person is born
 * [X] the broad category of a person's eye color
 * [X] the physical state (e.g. liquid) of some matter
