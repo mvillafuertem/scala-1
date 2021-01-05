@@ -4,7 +4,7 @@
     "intermediate",
     "beginner"
   ],
-  "image": "courseImages/scala.svg",
+  "image": "courses/scala/images/scala.svg",
   "video": "https://www.youtube.com/embed/FvYS8r9Nt18",
   "desc": "The Scala programming language",
   "language": "English",
