@@ -6,19 +6,37 @@ This repository contains the content of the [ScalaZONE website](https://scala.zo
 Content is distributed under the [CreativeCommons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/legalcode) licence.	
 
 ## Deployment triggers
- - Every commit to the `develop` branch updates the content in the development environment.
- - Every commit to the `stage` branch updates the content in the staging environment.
- - Every commit to the `main` branch updates the content in the production environment.
 
-Only the production environment is accessible to the public.
-People outside of [VirtusLab](https://virtuslab.com) and [Propensive](https://propensive.com) do not have access to the `develop` and `stage` environments, but access will be provided
-on request.
+- Every commit to the `develop` branch updates the content in the development environment.
+- Every commit to the `stage` branch updates the content in the staging environment.
+- Every commit to the `main` branch updates the content in the production environment.
+
+Only the production environment is accessible to the public. People outside of [VirtusLab](https://virtuslab.com)
+and [Propensive](https://propensive.com) do not have access to the `develop` and `stage` environments, but access will
+be provided on request.
 
 ## Structure overview
 
+This is an outline repository fulfilling structure requirements for a course. The following files and directories are
+required:
+
+- **images** - directory with images used by course; NOTE that the final path differs from the path within the course
+  repository as follows:
+  `/images/<path> -> /api/content/courseImages/<course-id>/<path>`
+- **topics** - directory with topics
+- **advanced.json** - course level description
+- **beginner.json** - course level description
+- **index.json** - course description
+- **intermediate.json** - course level description
+
+The branch names correspond to the deployment environments as it is described in the section above.
+
 ### Courses
 
-Courses are the top-level entity in the ScalaZONE material structure. Their structure is stored in the [courses](/courses) directory. The [courses/index.json](/courses/index.json) file stores a list with all available courses. For each course there is a directory named after the course id that contains the course structure. Basic course data is stored in the `index.json` file in this directory. Here is the `Course` JSON type structure:
+Courses are the top-level entity in the ScalaZONE material structure. Their structure is stored in the root directory of
+the course repository. The [index.json](/index.json) file stores a list with all available courses. For each course
+there is a directory named after the course id that contains the course structure. Basic course data is stored in
+the `index.json` file in this directory. Here is the `Course` JSON type structure:
 
 | Field name | Type            | Description                                                                            |
 |------------|-----------------|----------------------------------------------------------------------------------------|
@@ -170,7 +188,8 @@ To add two numbers ...
 
 ### Authors
 
-Courses' authors are defined in the [authors.json](/authors.json) file. This file contains a list of `Author` objects. The `Author` JSON object has following structure:
+Courses' authors are defined in the **authors.json** file in the content root repository. This file contains a list
+of `Author` objects. The `Author` JSON object has following structure:
 
 | Field name | Type             | Description                                 |
 |------------|------------------|---------------------------------------------|
@@ -186,7 +205,8 @@ Courses' authors are defined in the [authors.json](/authors.json) file. This fil
 
 ### Companies
 
-Courses' authors are defined in the [companies.json](/companies.json) file. This file contains a list of `Company` objects. The `Company` JSON object has following structure:
+Courses' authors are defined in the **companies.json** file in the content root repository. This file contains a list
+of `Company` objects. The `Company` JSON object has following structure:
 
 | Field name | Type             | Description                                 |
 |------------|------------------|---------------------------------------------|

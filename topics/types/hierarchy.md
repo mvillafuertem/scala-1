@@ -21,13 +21,13 @@ case class Poisonberry() extends Berry
 case class Blackcurrant() extends Berry, Edible
 ```
 
-![Class hierarchy diagram](/api/content/contentImages/hierarchy.png)
+![Class hierarchy diagram](/api/content/courseImages/scala/hierarchy.png)
 
-We conventionally draw supertypes positioned above their subtypes, with arrows between them to indicate direct
-subtyping relationships. Conventionally, again, the arrows point _from_ a subtype _to_ its supertype, so they
-are always directed upwards. There are a few reasons we could use to justify this convention, but it's probably
-easiest to remember that the a subtype needs to refer to (or point to) its supertype for some of its
-definitions, but a supertype can happily exist without any reference to its subtypes.
+We conventionally draw supertypes positioned above their subtypes, with arrows between them to indicate direct subtyping
+relationships. Conventionally, again, the arrows point _from_ a subtype _to_ its supertype, so they are always directed
+upwards. There are a few reasons we could use to justify this convention, but it's probably easiest to remember that the
+a subtype needs to refer to (or point to) its supertype for some of its definitions, but a supertype can happily exist
+without any reference to its subtypes.
 
 Diagrams like these can help to more clearly communicate subtyping relationships. For example, if one type
 appears visibly lower than another in the diagram, then (without even studying the arrows) it cannot be a
@@ -164,7 +164,7 @@ Occasionally, we will encounter them, and it's necessary to understand the role 
 
 # Take another look at this type hierarchy diagram:
 
-![Class hierarchy diagram](/api/content/contentImages/hierarchy.png)
+![Class hierarchy diagram](/api/content/courseImages/scala/hierarchy.png)
 
 What does the diagram show about the relationship between the types `Fruit` and `Edible`?
 

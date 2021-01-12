@@ -54,7 +54,7 @@ will share a tiny part of its tail. And `Nil` is necessary in Scala to terminate
 list would have to provide a link to another `List` instance as its tail, which could only carry on infinitely.
 
 Diagrammatically, a `List` looks like this,
-![Singly-linked list](/api/content/contentImages/singly-linked.svg)
+![Singly-linked list](/api/content/courseImages/scala/singly-linked.svg)
 or, if we were to describe the _structure_ of Scala's `List` using an `enum`, it would look similar to this:
 ```scala
 enum List[+T]:
