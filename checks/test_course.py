@@ -2,6 +2,7 @@ from structure_loader import load_structure
 
 STRUCTURE = load_structure()
 
+
 def test_level_names():
   courses = STRUCTURE.courses
   for course in courses:

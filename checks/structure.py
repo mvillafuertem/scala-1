@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Course:
   id: str
@@ -10,6 +11,7 @@ class Course:
   desc: str
   language: str
   scope: [str]
+
 
 @dataclass
 class TopicRange:
@@ -25,6 +27,7 @@ class Level:
   desc: str
   ranges: [TopicRange]
 
+
 @dataclass
 class Lesson:
   id: str
@@ -33,6 +36,7 @@ class Lesson:
   author_ids: [str]
   duration: int
   prereqs: [str]
+
 
 @dataclass
 class LessonPrereq:
@@ -46,18 +50,9 @@ class Topic:
   desc: str
   lessons: [Lesson]
 
-@dataclass
-class Author:
-  id: str
-  name: str
-  order: int
-  twitter: str
-  github: str
-  desc: str
 
 @dataclass
 class Structure:
   courses: [Course]
   levels: [Level]
   topics: dict
-  authors: [Author]

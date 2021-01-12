@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from envs import CONTENT_PATH
 
+
 def test_jsons_valid():
   for subdir, _, files in os.walk(CONTENT_PATH):
     for file in files:

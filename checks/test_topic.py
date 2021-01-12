@@ -2,6 +2,7 @@ from structure_loader import load_structure
 
 STRUCTURE = load_structure()
 
+
 def test_lesson_unique():
   for course_topics in STRUCTURE.topics.values():
     for topic in course_topics:
@@ -10,6 +11,7 @@ def test_lesson_unique():
       duplicates = list({lesson for lesson in lessons if lessons.count(lesson) > 1})
       for duplicate in duplicates:
         assert False, f"Lesson {duplicate} is duplicated in topic {topic.id}"
+
 
 def to_level_ordinal(level: str):
   return {

@@ -4,6 +4,7 @@ from structure_loader import load_structure
 STRUCTURE = load_structure()
 LEVELS = STRUCTURE.levels
 
+
 def test_topic_ranges_exist():
   for level in LEVELS:
     topic_ids = [topic.id for topic in STRUCTURE.topics[level.course_id]]
@@ -24,6 +25,7 @@ def test_topic_ranges_lessons_exist():
         f" (referenced in {level.course_id}/{level.level} topic range)")
   except IndexError:
     assert False, "Topic missing, detailed message in another test"
+
 
 def test_ranges_order():
   try:
