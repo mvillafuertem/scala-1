@@ -5,7 +5,7 @@
     {
       "topicId": "types",
       "lessonStart": "casting",
-      "lessonEnd": "hierarchy"
+      "lessonEnd": "wildcards"
     },
     {
       "topicId": "patterns",
