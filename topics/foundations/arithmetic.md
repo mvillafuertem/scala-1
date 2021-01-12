@@ -62,7 +62,7 @@ that is built into the Scala language.
 | `=`, `!`                |            |
 | `&`                     |            |
 | `^`                     |            |
-| `|`                     |            |
+| `\|`                    |            |
 | alphanumeric characters | low        |
 
 An infix operator (whether symbolic or alphanumeric) which starts with a character closer to the top of this
