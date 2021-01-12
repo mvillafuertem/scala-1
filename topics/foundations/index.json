@@ -43,8 +43,15 @@
       "authorId": "jon-pretty",
       "video": "https://www.youtube.com/embed/DeG6wmkCou0",
       "duration": 22,
-      "prerequisites": [
-      ]
+      "prerequisites": []
+    },
+    {
+      "id": "arithmetic",
+      "title": "Arithmetic",
+      "authorId": "jon-pretty",
+      "video": "https://www.youtube.com/embed/nAV4Qd9glWY",
+      "duration": 15,
+      "prerequisites": []
     },
     {
       "id": "scopes",
@@ -65,8 +72,7 @@
       "title": "Primitives",
       "authorId": "jon-pretty",
       "duration": 22,
-      "prerequisites": [
-      ],
+      "prerequisites": [],
       "comingSoon": true
     }
   ]
