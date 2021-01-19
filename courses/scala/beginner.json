@@ -20,7 +20,7 @@
     {
       "topicId": "types",
       "lessonStart": "basics",
-      "lessonEnd": "generics"
+      "lessonEnd": "wildcards"
     },
     {
       "topicId": "patterns",

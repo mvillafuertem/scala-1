@@ -55,6 +55,13 @@
       "authorId": "jon-pretty",
       "duration": 13,
       "video": "https://www.youtube.com/embed/rqovDkKmGP8"
+    },
+    {
+      "id": "wildcards",
+      "title": "Wildcard Types",
+      "authorId": "jon-pretty",
+      "duration": 13,
+      "video": "https://www.youtube.com/embed/20RRooLvzRs"
     }
   ]
 }
