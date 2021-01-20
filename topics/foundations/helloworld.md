@@ -126,7 +126,7 @@ incrementally!
 
 ```scala
 def factorial(x: Int) =
-  if x == 0 then 1 else x * factorial(x)
+   if x == 0 then 1 else x * factorial(x)
 ```
 
 Try to compile the program and read the error message to understand the problem that is preventing successful
@@ -142,15 +142,15 @@ compiler is telling you!
 
 ```scala
 def go(x: Int): Int =
-  if x == 0 then 1 else x * go(x/2)
+   if x == 0 then 1 else x * go(x/2)
 
 @main def calculate() = go(24)
 ```
 
 What happens?
 
- - [ ] An error is produced during compilation
- - [ ] The code compiles, but no runnable main method is produced
- - [ ] The code compiles, but fails with a runtime error
- - [X] The code compiles and runs, but prints no output
- - [ ] The code compiles, runs and prints `5184` in the console
+- [ ] An error is produced during compilation
+- [ ] The code compiles, but no runnable main method is produced
+- [ ] The code compiles, but fails with a runtime error
+- [X] The code compiles and runs, but prints no output
+- [ ] The code compiles, runs and prints `5184` in the console

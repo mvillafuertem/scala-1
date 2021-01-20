@@ -14,19 +14,19 @@ provide a method which times how long (in milliseconds) it takes to perform an o
 
 ```scala
 trait Timer:
-  def time(msg: String)(action: => Unit): String =
-    val t0 = System.currentTimeMillis
-    action
-    val time = System.currentTimeMillis - t0
-    s"${msg} (${time}ms)"
+   def time(msg: String)(action: => Unit): String =
+      val t0 = System.currentTimeMillis
+      action
+      val time = System.currentTimeMillis - t0
+      s"${msg} (${time}ms)"
 ```
 
 With this definition, it is now possible to construct a class which _inherits_ the `time` method, using the
 `extends` keyword in the class definition, like this:
 ```scala
 class BasicLog(id: String) extends Timer:
-  val writer: FileWriter = FileWriter(s"/var/log/$id.log")
-  def record(msg: String): Unit = writer.write(s"$msg\n")
+   val writer: FileWriter = FileWriter(s"/var/log/$id.log")
+   def record(msg: String): Unit = writer.write(s"$msg\n")
 ```
 
 This now means that calling the `BasicLog` constructor, for example, `BasicLog("app")`, will construct an
@@ -37,7 +37,7 @@ traits containing other members. We could use both methods like this:
 ```scala
 val log = BasicLog("app")
 val msg = log.time("Check file length") {
-  File("example.txt").length
+   File("example.txt").length
 }
 
 log.record(msg)
@@ -75,13 +75,13 @@ and to return the value it has calculated.
 
 ```scala
 trait Timer:
-  def time[T](msg: String)(action: => T): T =
-    val t0 = System.currentTimeMillis
-    val result = action
-    val time = System.currentTimeMillis - t0
-    record(s"${msg} (${time}ms)")
+   def time[T](msg: String)(action: => T): T =
+      val t0 = System.currentTimeMillis
+      val result = action
+      val time = System.currentTimeMillis - t0
+      record(s"${msg} (${time}ms)")
     
-    result
+      result
 ```
 
 The last line of the definition of `time` now returns the result of performing the `action`, whose return type
@@ -112,15 +112,15 @@ define a `record` method, with a fully-implemented body.
 The full definition of `Timer` looks like this:
 ```scala
 trait Timer:
-  def record(msg: String): Unit
+   def record(msg: String): Unit
 
-  def time[T](msg: String)(action: => T): T =
-    val t0 = System.currentTimeMillis
-    val result = action
-    val time = System.currentTimeMillis - t0
-    record(s"${msg} (${time}ms)")
+   def time[T](msg: String)(action: => T): T =
+      val t0 = System.currentTimeMillis
+      val result = action
+      val time = System.currentTimeMillis - t0
+      record(s"${msg} (${time}ms)")
     
-    result
+      result
 ```
 
 When we instantiate any new object, there can be no abstract method definitions. And we can rely on the Scala
@@ -137,12 +137,12 @@ This can be solved quite easily by following the advice in the error message. It
 sufficient for the `record` method to print its message to standard output,
 ```scala
 object SimpleTimer extends Timer:
-  def record(msg: String): Unit = println(msg)
+   def record(msg: String): Unit = println(msg)
 ```
 which would allow it to be used like this,
 ```scala
 SimpleTimer.time("Check the file length") {
-  File("example.txt").length
+   File("example.txt").length
 }
 ```
 returning the length of the file, and printing the time taken in doing so to standard output as a side-effect.
@@ -152,7 +152,7 @@ implementation, but concrete implementations of abstract methods may also be pro
 could define a trait, `StdoutRecorder` which provides a concrete `record` implementation,
 ```scala
 trait StdoutRecorder:
-  def record(msg: String): Unit = println(msg)
+   def record(msg: String): Unit = println(msg)
 ```
 and redefine our `SimpleTimer` object in terms of `StdoutRecorder` and `Timer`:
 ```scala
@@ -169,14 +169,14 @@ satisfied.
 Consider a `FileRecorder` trait which provides an alternative implementation of `record`,
 ```scala
 trait FileRecorder:
-  def writer: FileWriter
-  def record(msg: String): Unit = writer.write(s"$msg\n")
+   def writer: FileWriter
+   def record(msg: String): Unit = writer.write(s"$msg\n")
 ```
 
 We could use this to redefine `BasicLog` as,
 ```scala
 class BasicLog(id: String) extends Timer, FileRecorder:
-  val writer: FileWriter = FileWriter(s"/var/log/$id.log")
+   val writer: FileWriter = FileWriter(s"/var/log/$id.log")
 ```
 
 Dissecting this, we are defining a new `BasicLog` class, which inherits a `time` method from `Timer`, but
@@ -227,15 +227,15 @@ select every object definition which will compile without error.
 val Origin = Point(0, 0)
 
 trait Position(point: Point):
-  def center: Point = point
+   def center: Point = point
 
 trait Shape extends Position:
-  def inside(point: Point): Boolean
-  def area: Double
+   def inside(point: Point): Boolean
+   def area: Double
 
 trait Circle(radius: Double) extends Shape:
-  def area: Double = math.Pi*radius*radius
-  def inside(point: Point): Boolean = point.distanceTo(center) < radius
+   def area: Double = math.Pi*radius*radius
+   def inside(point: Point): Boolean = point.distanceTo(center) < radius
 
 object Dot extends Circle(1.0)
 ```

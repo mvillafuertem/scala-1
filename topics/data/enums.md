@@ -6,7 +6,7 @@ _Enumerations_, which are introduced by the `enum` keyword in Scala offer a way 
 We can define an enumeration like this:
 ```scala
 enum Activity:
-  case Active, Dormant, Extinct
+   case Active, Dormant, Extinct
 ```
 
 This introduces a new type, called `Activity`, which has three instances, `Active`, `Dormant` and `Extinct`
@@ -16,9 +16,9 @@ one of these three possibilities, and it cannot be in _more than one_ of these s
 It's also possible to write this enumeration more verbosely with multiple `case` lines, like so:
 ```scala
 enum Activity:
-  case Active
-  case Dormant
-  case Extinct
+   case Active
+   case Dormant
+   case Extinct
 ```
 
 This style is more commonly used for more complex enumerations, which are covered in the next lesson.
@@ -55,9 +55,9 @@ In the following example, the Scala compiler knows that we have specified an act
 `Activity`,
 ```
 def action(state: Activity): Unit = state match
-  case Active  => leaveImmediately()
-  case Dormant => ensureReadyToLeave()
-  case Extinct => ()
+   case Active  => leaveImmediately()
+   case Dormant => ensureReadyToLeave()
+   case Extinct => ()
 ```
 and that we do not need to consider a case where the `state` is something else.
 
@@ -72,11 +72,11 @@ Here is an example of an enumeration of the days of the week with a `Boolean` me
 particular `Day` case represents a weekend.
 ```scala
 enum Day:
-  case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+   case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 
-  def weekend: Boolean = this match
-    case Saturday | Sunday => true
-    case _                 => false
+   def weekend: Boolean = this match
+      case Saturday | Sunday => true
+      case _                 => false
 ```
 
 We can then call `Saturday.weekend` (which returns `true`) or call `day.weekend` where `day` is a `Day`
@@ -166,7 +166,7 @@ lesson, we will see how this can be extended to more complex data structures.
 
 ```scala
 enum Month:
-  case Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+   case Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
 ```
 and we want to implement a method, `monthName`, which returns a three-letter `String` (e.g. `"Oct"`) from an
 integer, `m`, as it appears in a numerical date. For example, `monthName(3)` would return `"Mar"`.

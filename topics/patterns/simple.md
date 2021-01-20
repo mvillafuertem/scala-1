@@ -7,14 +7,14 @@ Here's an example of a very simple pattern match expression:
 
 ```scala
 enum Direction:
-  case Up, Down, Right, Left
+   case Up, Down, Right, Left
 
 def move(dir: Direction, n: Int, x: Int, y: Int): (Int, Int) =
-  dir match
-    case Up    => (x, y - n)
-    case Down  => (x, y + n)
-    case Right => (x + n, y)
-    case Left  => (x - n, y)
+   dir match
+      case Up    => (x, y - n)
+      case Down  => (x, y + n)
+      case Right => (x + n, y)
+      case Left  => (x - n, y)
 ```
 
 In this example, we _match_ on a `dir` value, which is an enumeration, `Direction`, and depending on its runtime
@@ -30,10 +30,10 @@ pattern match expression could be rewritten as an `if` expression. Here is the s
 
 ```scala
 def move(dir: Direction, n: Int, x: Int, y: Int): (Int, Int) =
-  if dir == Up then (x, y - n)
-  else if dir == Down then (x, y + n)
-  else if dir == Right then (x + n, y)
-  else (x - n, y)
+   if dir == Up then (x, y - n)
+   else if dir == Down then (x, y + n)
+   else if dir == Right then (x + n, y)
+   else (x - n, y)
 ```
 
 We can see that the `direction` value is compared to the values `Up`, `Down` and `Right` in turn, returning a
@@ -51,11 +51,11 @@ method. And we can use a match expression in the same places any other expressio
 a match expression like,
 ```scala
 def move(dir: Direction, n: Int, x: Int, y: Int): (Int, Int) =
-  dir match
-    case Up    => (x, y - n)
-    case Down  => (x, y + n)
-    case Right => (x + n, y)
-    case Left  => (x - n, y)
+   dir match
+      case Up    => (x, y - n)
+      case Down  => (x, y + n)
+      case Right => (x + n, y)
+      case Left  => (x - n, y)
 ```
 the value `dir`, immediately before the keyword `match`, is also an expression, albeit a very simple
 one—just a reference to a value! It's called the _scrutinee_, because its value is what will be scrutinized in

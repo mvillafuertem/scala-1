@@ -22,8 +22,8 @@ but we will typically start with a simple example: an extractor called `Integral
 from a `Double` if and only if the `Double` value is a whole number. Here's how we want to use it:
 ```scala
 def readInt(input: Double): Int = input match
-  case Integral(int) => int
-  case _             => 0
+   case Integral(int) => int
+   case _             => 0
 ```
 
 Against the `input` scrutinee, which is a `Double`, we will attempt to extract an `Int`. When interpreting the
@@ -43,8 +43,8 @@ def unapply(input: Double): Option[Int]
 and we can provide the full implementation in an `Integral` object like so:
 ```scala
 object Integral:
-  def unapply(input: String): Option[Int] =
-    if input == input.floor then Some(input.toInt) else None
+   def unapply(input: String): Option[Int] =
+      if input == input.floor then Some(input.toInt) else None
 ```
 
 ## Return Type
@@ -69,10 +69,10 @@ Imagine, for example, that we would like to extract the bytes from an IP address
 is an example of how such an extractor might be used:
 ```scala
 def local(ip: String): Boolean = ip match
-  case Ip(192, 168, _, _) => true
-  case Ip(10, _, _, _)    => true
-  case Ip(172, x, _, _)   => x >= 16 && x < 32
-  case _                  => false
+   case Ip(192, 168, _, _) => true
+   case Ip(10, _, _, _)    => true
+   case Ip(172, x, _, _)   => x >= 16 && x < 32
+   case _                  => false
 ```
 
 Note that bytes on the JVM are signed, whereas IP addresses use unsigned bytes, so we will simply use `Int`s
@@ -83,10 +83,10 @@ instead of `Byte`s for convenience. A better implementation could use an opaque 
 Our extractor would look like this:
 ```scala
 object Ip:
-  def unapply(addr: String): Option[(Int, Int, Int, Int)] =
-    addr.split("\.").map(_.toInt) match
-      case Array(b1, b2, b3, b4) => Some((b1, b2, b3, b4))
-      case _                     => None
+   def unapply(addr: String): Option[(Int, Int, Int, Int)] =
+      addr.split("\.").map(_.toInt) match
+         case Array(b1, b2, b3, b4) => Some((b1, b2, b3, b4))
+         case _                     => None
 ```
 
 In order to extract into a four-parameter `Ip` pattern, we must return an `Option` of a four-tuple.
@@ -96,16 +96,16 @@ In order to extract into a four-parameter `Ip` pattern, we must return an `Optio
 Scala also supports extractors which take an empty parameter list, and dont extract any new values. For example,
 ```scala
 def describe(number: Int): String =
-  number match
-    case Even() => "even"
-    case _      => "odd"
+   number match
+      case Even() => "even"
+      case _      => "odd"
 ```
 
 Given that no value needs to be returned, the return type of the `unapply` method can be simplified to
 `Boolean`: we return `true` if the number should match, or `false` if it should not, like so:
 ```scala
 object Even:
-  def unapply(value: Int): Boolean = value%2 == 0
+   def unapply(value: Int): Boolean = value%2 == 0
 ```
 
 The definition of an `unapply` method hints at a limitation for defining extractors: unlike a method application which
@@ -120,32 +120,32 @@ define the following extractor, which extracts hours and minutes from a time giv
 as a `Double` will use an extractor which also extracts a number of seconds.
 ```scala
 object Time:
-  def unapply(mins: Int): Option[(Int, Int)] =
-    Some((value/60, value%60))
+   def unapply(mins: Int): Option[(Int, Int)] =
+      Some((value/60, value%60))
   
-  def unapply(time: Double): Option[(Int, Int, Int)] =
-    val hours = (time/60).toInt
-    val mins = (value - hours*60).toInt
-    val secs = (time - hours*60 - minutes)*60
+   def unapply(time: Double): Option[(Int, Int, Int)] =
+      val hours = (time/60).toInt
+      val mins = (value - hours*60).toInt
+      val secs = (time - hours*60 - minutes)*60
 
-    Some((hours, mins, secs))
+      Some((hours, mins, secs))
 ```
 
 We can then use it as,
 ```scala
 (time: Int) match
-  case Time(h, m) => ...
+   case Time(h, m) => ...
 ```
 or,
 ```scala
 (time: Double) match
-  case Time(h, m, s) => ...
+   case Time(h, m, s) => ...
 ```
 but not as,
 ```scala
 (time: AnyVal) match
-  case Time(h, m)    => ...
-  case Time(h, m, s) => ...
+   case Time(h, m)    => ...
+   case Time(h, m, s) => ...
 ```
 because the type of `time` is not statically known.
 

@@ -191,7 +191,7 @@ indices lower than `0`, or equal to the length of the `Vector` or higher will th
 safely check this using the `Vector##length` method of any `Vector`, like so:
 ```scala
 def safeGet(idx: Index, xs: Vector[Int]): Int =
-  if idx >= 0 && idx < xs.length then xs(idx) else 0
+   if idx >= 0 && idx < xs.length then xs(idx) else 0
 ```
 
 There are, however, likely better ways of achieving the same safety, without explicitly checking the length of

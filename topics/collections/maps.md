@@ -11,10 +11,10 @@ If you want to know a Adam's number you just look at the left column, find Adam'
 
 ```scala
 val phoneNumbers = Map(
-    "Adam"  -> "564 333 215",
-    "Emma"  -> "522 264 788",
-    "Harry" -> "578 855 362",
-    "Alice" -> "631 845 045"
+      "Adam"  -> "564 333 215",
+      "Emma"  -> "522 264 788",
+      "Harry" -> "578 855 362",
+      "Alice" -> "631 845 045"
 )
 ```
 
@@ -60,8 +60,8 @@ If you have two Maps and you want to join them together you can use `++` operato
 
 ```scala
 val anotherPhoneNumbers = Map(
-    "Jackson" -> "782 432 858",
-    "Evelyn" -> "684 363 431"
+      "Jackson" -> "782 432 858",
+      "Evelyn" -> "684 363 431"
 )
 
 val joinedMaps = phoneNumbers ++ anotherPhoneNumbers

@@ -27,8 +27,8 @@ This structure is known as _encapsulation_.
 For example,
 ```scala
 object Project extends ProjectDef:
-  val tasks: List[Task] = List(Setup, Core, Refinement, Cleanup)
-  def todo: Int = tasks.count(!_.done) 
+   val tasks: List[Task] = List(Setup, Core, Refinement, Cleanup)
+   def todo: Int = tasks.count(!_.done) 
 
 println(s"There are ${Project.todo} tasks to do.")
 ```
@@ -50,7 +50,7 @@ state together, for example:
 
 ```scala
 def describe(p: ProjectDef): Unit =
-  println(s"${p.todo} out of ${p.tasks.length} are incomplete.")
+   println(s"${p.todo} out of ${p.tasks.length} are incomplete.")
 
 describe(Project)
 ```
@@ -65,7 +65,7 @@ separate parameters:
 
 ```scala
 def describe(tasks: List[Task], todo: Int): Unit =
-  println(s"${todo} out of ${tasks.length} are incomplete.")
+   println(s"${todo} out of ${tasks.length} are incomplete.")
 ```
 
 It is entirely possible to call this `describe` method with a `tasks` value from one project and a `todo` value
@@ -86,8 +86,8 @@ object inside a running JVM.
 That is to say, if we create an object, `BasicLog`,
 ```scala
 object BasicLog:
-  val writer: FileWriter = FileWriter("/var/log/application.log")
-  def record(message: String): Unit = writer.write(s"$message\n")
+   val writer: FileWriter = FileWriter("/var/log/application.log")
+   def record(message: String): Unit = writer.write(s"$message\n")
 ```
 the identifier `BasicLog` will always refer to the same instance, and likewise, `BasicLog.writer` will always be
 the same instance of a `FileWriter`.
@@ -130,19 +130,19 @@ instantiated, so, like `def`s, the order they appear in is insignificant.
 
 ```scala
 object Info:
-  val version: Int = 7
-  val name: String = "Onion"
-  def description: String = s"$name, version $version"
+   val version: Int = 7
+   val name: String = "Onion"
+   def description: String = s"$name, version $version"
 
-  println(s"Initializing $description")
+   println(s"Initializing $description")
 ```
 and an `exec` method which references it, twice:
 
 ```scala
 @main
 def exec(): Unit =
-  println(Info.name) // First reference
-  println(Info.name) // Second reference
+   println(Info.name) // First reference
+   println(Info.name) // Second reference
 ```
 
 When the runtime encounters the first reference to the `Info` object, it will,
@@ -169,19 +169,19 @@ When the runtime encounters the first reference to the `Info` object, it will,
 # Now, consider the following definitions,
 ```scala
 object Alpha:
-  val beta = Beta
-  def gamma = 3
+   val beta = Beta
+   def gamma = 3
 
 object Beta:
-  def alpha = Alpha
-  val delta = 4
+   def alpha = Alpha
+   val delta = 4
 
 object Gamma:
-  val epsilon = 5
+   val epsilon = 5
 
 @main
 def exec(): Unit =
-  println(Alpha.beta.alpha.gamma)
+   println(Alpha.beta.alpha.gamma)
 ```
 
 Invoking the method `exec()` will cause several values to be instantiated to evaluate it, before the number `3`

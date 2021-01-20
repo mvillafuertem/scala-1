@@ -30,7 +30,7 @@ Here's an example of how that can work. We can define a simple method, `product`
 sequence of integers together.
 ```scala
 def product(xs: Seq[Int]): Int =
-  if xs.isEmpty then 1 else xs.head*product(xs.tail)
+   if xs.isEmpty then 1 else xs.head*product(xs.tail)
 ```
 
 This implementation uses three methods of `Seq[Int]`: `isEmpty`, `head` and `tail`.
@@ -138,10 +138,10 @@ Then compared to `Device`, the type `Apparatus`:
 class Layer() extends Group
 
 def showStatus(ctx: Context): Unit =
-  println(ctx.status)
+   println(ctx.status)
 
 def showGroup(group: Group): Unit =
-  println(group.describe)
+   println(group.describe)
 
 val group: Group = Group.get()
 showStatus(group)

@@ -87,14 +87,14 @@ Here is a contrived example:
 
 ```scala
 def example: String =
-  var str = "one"
-  // Point A
-  str = "two"
-  // Point B
-  str = str + " three"
-  // Point C
+   var str = "one"
+   // Point A
+   str = "two"
+   // Point B
+   str = str + " three"
+   // Point C
 
-  "four"
+   "four"
 ```
 
 We can't predict when the garbage collector process will pause execution, and collect unreferenced objects. It
@@ -167,10 +167,10 @@ This, however, is just an optimization, designed to minimize the impact of garba
 
 ```scala
 object Main:
-  val x = "Hello"
-  var y = x+" World!"
-  y = ""
-  // Z
+   val x = "Hello"
+   var y = x+" World!"
+   y = ""
+   // Z
 ```
 
 - [X] Yes

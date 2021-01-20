@@ -82,10 +82,10 @@ is equal.
 As a contrived example of why this may be useful, consider two classes,
 ```scala
 class Relation():
-  def close: Boolean
+   def close: Boolean
 
 class Door():
-  def close: Boolean
+   def close: Boolean
 ```
 where the `Relation` class has a boolean parameter to determine if it is a close relation or not, and the `Door`
 class has a method to close the door, returning `true` if the door was successfully closed. These methods have
@@ -159,12 +159,12 @@ putting many limitations on the code we can write straight away.
 # Consider the following class and object definitions:
 ```scala
 class Rectangle(width: Double, height: Double):
-  def size: Double = width*height
+   def size: Double = width*height
 
 object Square:
-  def width: Double = 4.0
-  def height: Double = width
-  def size: Double = width*height
+   def width: Double = 4.0
+   def height: Double = width
+   def size: Double = width*height
 ```
 Is the object `Square` an instance of the type `Rectangle`?
 - [ ] Yes

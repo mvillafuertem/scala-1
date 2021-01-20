@@ -2,8 +2,8 @@ Working with nested classes can lead to path-dependent types. For example, imagi
 form containing fields.
 ```scala
 class Form(name: String):
-  private var fields: List[Field] = List()
-  class Field(id: String, label: String, conceal: Boolean = false)
+   private var fields: List[Field] = List()
+   class Field(id: String, label: String, conceal: Boolean = false)
 ```
 
 We may choose to construct some new `Form`s with some `Field` instances, like so,
@@ -50,14 +50,14 @@ check between the `Field`'s `$outer` reference and the path in the path-dependen
 So a match such as,
 ```scala
 (field: Form##Field) match
-  case _: signup.Field => 1
-  case _: login.Field  => 2
-  case _               => 3
+   case _: signup.Field => 1
+   case _: login.Field  => 2
+   case _               => 3
 ```
 would be compiled to,
 ```scala
 if field.$outer eq signup then 1
-else field.##outer eq login then 2
+else if field.##outer eq login then 2
 else 3
 ```
 

@@ -50,7 +50,7 @@ Type parameters can be used in the whole class body, including functions. Theref
 
 ```scala
 class Pair[A, B](right: A, left: B):
-    def asTuple: (A, B) = (right, left)
+   def asTuple: (A, B) = (right, left)
 ```
 
 After using it we can see that the types are all being preserved:

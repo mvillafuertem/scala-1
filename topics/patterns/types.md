@@ -14,10 +14,10 @@ For simple types, we can use the familiar `: Type` syntax after any pattern, and
 constraint to the match that the value must be of that type. For example,
 ```scala
 def getId(values: Map[String, Any]): String = values("id") match
-  case _: String => "string"
-  case _: Int    => "integer"
-  case _: Node   => "node"
-  case _         => "something else"
+   case _: String => "string"
+   case _: Int    => "integer"
+   case _: Node   => "node"
+   case _         => "something else"
 ```
 
 Be careful not to write `case Node =>` instead of `case _: Node`. The former would attempt to match for equality
@@ -34,10 +34,10 @@ instance of a unified (non-union) return type, which should make further process
 We can pattern match by type on each type in the union, like this:
 ```scala
 def increment(value: Int | Double | BigDecimal): Int | Double | BigDecimal =
-  value match
-    case value: Int        => value + 1
-    case value: Double     => value + 1
-    case value: BigDecimal => value + 1
+   value match
+      case value: Int        => value + 1
+      case value: Double     => value + 1
+      case value: BigDecimal => value + 1
 ```
 
 Be careful with operator precedence. Writing `case _: Int | Long` is not the same as writing
@@ -55,8 +55,8 @@ It would seem very natural to extend this functionality to matching on generic t
 
 ```scala
 def elementType(values: Seq[Any]): String = values match
-  case _: List[Int]    => "integers"
-  case _: List[String] => "strings"
+   case _: List[Int]    => "integers"
+   case _: List[String] => "strings"
 ```
 
 Unfortunately, however, the runtime instance `values` is erased to a parameterless type (represented
@@ -78,9 +78,9 @@ element of a `List[String]`.
 Here is the same example, rewritten to use the head of the list to determine its type,
 ```scala
 def elementType(values: Seq[Any]): String = values match
-  case xs: List[Any] => xs.head match
-    case x: Int        => "integers"
-    case x: String     => "strings"
+   case xs: List[Any] => xs.head match
+      case x: Int        => "integers"
+      case x: String     => "strings"
 ```
 The `head` value is a different value, with its own runtime type, and can be used to provide evidence of the
 `List[_]`'s type parameter.
@@ -99,12 +99,12 @@ an `Option` of any type.
 Here is a safer way to write the expression above,
 ```scala
 def elementType(values: Seq[Any]): String = values match
-  case xs: List[Any] => xs.headOption match
-    case None            => "empty"
-    case Some(x: Int)    => "integers"
-    case Some(x: String) => "strings"
-    case _               => "other"
-  case _             => "other"
+   case xs: List[Any] => xs.headOption match
+      case None            => "empty"
+      case Some(x: Int)    => "integers"
+      case Some(x: String) => "strings"
+      case _               => "other"
+   case _             => "other"
 ```
 which also shows how a type pattern can be nested within an extractor. Note also how there are two separate
 `match` expressions here, and we are using the indentation of the `case` lines to indicate which `match` block
@@ -123,22 +123,22 @@ program.
 
 - [ ]
 ```scala
- list.head match
-case None => "Empty!"
-case Some(x: Int | Long) => "Numeric"
-case _ => "Non-numeric"
+list.head match
+   case None                => "Empty!"
+   case Some(x: Int | Long) => "Numeric"
+   case _                   => "Non-numeric"
 ```
 - [ ]
 ```scala
- list.headOption match
-case None => "Empty!"
-case Some(x: Int | Long) => "Numeric"
-case _ => "Non-numeric"
+list.headOption match
+   case None => "Empty!"
+   case Some(x: Int | Long) => "Numeric"
+   case _ => "Non-numeric"
 ```
 - [X]
 ```scala
- list.headOption match
-case None => "Empty!"
-case Some(x: (Int | Long)) => "Numeric"
-case _ => "Non-numeric"
+list.headOption match
+   case None => "Empty!"
+   case Some(x: (Int | Long)) => "Numeric"
+   case _ => "Non-numeric"
 ```

@@ -1,9 +1,9 @@
 In an earlier example, we saw how,
 ```scala
 def second: String =
-  println("Accessed the second method.")
+   println("Accessed the second method.")
 
-  "two"
+   "two"
 ```
 would execute the `println` command, and output a line to the console, every single time the method `second` is
 referenced.
@@ -13,9 +13,9 @@ cause changes to occur elsewhere—on the console—because it looks just like a
 is common-practice to write such a definition as,
 ```scala
 def second(): String =
-  println("Accessed the second method.")
+   println("Accessed the second method.")
 
-  "two"
+   "two"
 ```
 and correspondingly we must thereafter write these empty parentheses for every usage of the method, `second`,
 like so:

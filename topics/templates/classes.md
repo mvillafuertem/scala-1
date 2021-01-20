@@ -9,8 +9,8 @@ instances of it on demand. Let's convert the `BasicLog` object from the previous
 
 ```scala
 class BasicLog():
-  val writer: FileWriter = FileWriter("/var/log/application.log")
-  def record(msg: String): Unit = writer.write(s"$msg\n")
+   val writer: FileWriter = FileWriter("/var/log/application.log")
+   def record(msg: String): Unit = writer.write(s"$msg\n")
 ```
 
 We can instantiate, or _construct_, a new `BasicLog` instance just by calling `BasicLog()`. For example,
@@ -41,8 +41,8 @@ parameterizing the `BasicLog` class with an `id` from which we derive the filena
 
 ```scala
 class BasicLog(id: String):
-  val writer: FileWriter = FileWriter(s"/var/log/$id.log")
-  def record(msg: String): Unit = writer.write(s"$msg\n")
+   val writer: FileWriter = FileWriter(s"/var/log/$id.log")
+   def record(msg: String): Unit = writer.write(s"$msg\n")
 ```
 
 ## Classes as Templates
@@ -104,7 +104,7 @@ value, and the value's existence itself serves as evidence of this.
 For example, we can reason that, if the method,
 ```scala
 def recordInit(log: BasicLog): Unit =
-  log.record("Initializing application...")
+   log.record("Initializing application...")
 ```
 were called, with a `log` parameter, we would know that somewhere, that instance of `BasicLog` must have been
 instantiated, and a choice of `id` parameter must have been made. After all, we expect `log` to log a message to
@@ -126,8 +126,8 @@ users of the object.
 
 ```scala
 class JobRole(title: String, company: String):
-  val entity = "job-role"
-  val description = s"$title at $company"
+   val entity = "job-role"
+   val description = s"$title at $company"
 
 val pearCeo = JobRole("CEO", "Pear Inc")
 ```
@@ -158,8 +158,8 @@ What does the expression `pearCeo.description` evaluate to?
 
 ```scala
 class Info(msg: String):
-  val message = s"[INFO] $msg"
-  println(message)
+   val message = s"[INFO] $msg"
+   println(message)
 
 def go() = Info("Hello, World!")
 ```
@@ -168,9 +168,9 @@ and imagine evaluating the following main method:
 
 ```scala
 @main def run(): Unit =
-  val info = go()
-  println(info.message)
-  println(go().message)
+   val info = go()
+   println(info.message)
+   println(go().message)
 ```
 
 The `run()` method will cause `[INFO] Hello, World!` to be printed a number of times. How many?

@@ -120,17 +120,17 @@ makes it useful for disregarding a value because we don't care about it.
 
 ```scala
 anyValue match
-  case head :: _ => head
-  case (left, _) => s"left: $left"
-  case Some(_)   => "present"
-  case _         => "something else"
+   case head :: _ => head
+   case (left, _) => s"left: $left"
+   case Some(_)   => "present"
+   case _         => "something else"
 ```
 
 The underscore can also be used, as `$_`, when pattern matching against a string to ignore part of it, like so:
 ```scala
 def isAdmin(email: String) = email match
-  case s"admin@$_.com" => true
-  case _               => false
+   case s"admin@$_.com" => true
+   case _               => false
 ```
 
 ## Higher-kinded type parameters

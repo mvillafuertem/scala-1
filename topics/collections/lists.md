@@ -58,8 +58,8 @@ Diagrammatically, a `List` looks like this,
 or, if we were to describe the _structure_ of Scala's `List` using an `enum`, it would look similar to this:
 ```scala
 enum List[+T]:
-  case Nil
-  case ::(head: T, tail: List[T])
+   case Nil
+   case ::(head: T, tail: List[T])
 ```
 where a `List` of the first three natural numbers would be written,
 ```scala

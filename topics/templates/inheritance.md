@@ -8,8 +8,8 @@ Here is the `BasicLog` class from earlier in this topic:
 
 ```scala
 class BasicLog(id: String):
-  val writer: FileWriter = FileWriter(s"/var/log/$id.log")
-  def record(msg: String): Unit = writer.write(s"$msg\n")
+   val writer: FileWriter = FileWriter(s"/var/log/$id.log")
+   def record(msg: String): Unit = writer.write(s"$msg\n")
 ```
 
 Imagine that, in addition to the `record` method in our `BasicLog` class, we wish to provide the ability to log
@@ -18,10 +18,10 @@ methods. Here is a possible implementation of that class, called `Log`:
 
 ```scala
 class Log(id: String) extends BasicLog(id):
-  def debug(msg: String): Unit = record(s"[DEBUG] $msg")
-  def info(msg: String): Unit = record(s"[INFO]  $msg")
-  def warn(msg: String): Unit = record(s"[WARN]  $msg")
-  def error(msg: String): Unit = record(s"[ERROR] $msg")
+   def debug(msg: String): Unit = record(s"[DEBUG] $msg")
+   def info(msg: String): Unit = record(s"[INFO]  $msg")
+   def warn(msg: String): Unit = record(s"[WARN]  $msg")
+   def error(msg: String): Unit = record(s"[ERROR] $msg")
 ```
 
 We declare that our new `Log` class _extends_ the `BasicLog` class; `Log` is now a _subclass_ of `BasicLog`.
@@ -78,16 +78,16 @@ The easiest way to demonstrate this is to add some code to the class bodies whic
 clear. Let's define `BasicLog` and `Log` as follows,
 ```scala
 class BasicLog(id: String):
-  println(s"Initializing BasicLog with id=$id")
-  val writer = FileWriter(s"/var/log/$id.log")
-  def record(message: String): Unit = writer.write(s"$message\n")
+   println(s"Initializing BasicLog with id=$id")
+   val writer = FileWriter(s"/var/log/$id.log")
+   def record(message: String): Unit = writer.write(s"$message\n")
 
 class Log(id: String) extends BasicLog(id):
-  println(s"Initializing Log with id=$id")
-  def debug(msg: String): Unit = record(s"[DEBUG] $msg")
-  def info(msg: String): Unit = record(s"[INFO]  $msg")
-  def warn(msg: String): Unit = record(s"[WARN]  $msg")
-  def error(msg: String): Unit = record(s"[ERROR] $msg")
+   println(s"Initializing Log with id=$id")
+   def debug(msg: String): Unit = record(s"[DEBUG] $msg")
+   def info(msg: String): Unit = record(s"[INFO]  $msg")
+   def warn(msg: String): Unit = record(s"[WARN]  $msg")
+   def error(msg: String): Unit = record(s"[ERROR] $msg")
 ```
 
 When we construct a new instance of `Log` with `Log("application")`, the output we will see is,
@@ -127,37 +127,37 @@ too because an instance of a class has all the properties of its superclasses.
 
 ```scala
 class Animal(name: String):
-  val id: String = name.toUpperCase+"-001"
+   val id: String = name.toUpperCase+"-001"
 
 class Sheep(name: String) extends Animal("Sheep"):
-  val description: String = id
+   val description: String = id
 
 val sheep = Sheep("Aries")
 ```
 
 What is the result of `println(sheep.name)`?
 
- - [ ] prints `"Sheep"`
- - [ ] prints `"Aries"`
- - [ ] prints `"SHEEP-001"`
- - [ ] prints `"ARIES-001"`
- - [X] does not compile
+- [ ] prints `"Sheep"`
+- [ ] prints `"Aries"`
+- [ ] prints `"SHEEP-001"`
+- [ ] prints `"ARIES-001"`
+- [X] does not compile
 
 # In the same code, what is the result of `println(sheep.description)`?
  
- - [ ] prints `"Sheep"`
- - [ ] prints `"Aries"`
- - [X] prints `"SHEEP-001"`
- - [ ] prints `"ARIES-001"`
- - [ ] does not compile
+- [ ] prints `"Sheep"`
+- [ ] prints `"Aries"`
+- [X] prints `"SHEEP-001"`
+- [ ] prints `"ARIES-001"`
+- [ ] does not compile
  
 # And what is the result of `println(sheep.id)`?
 
- - [ ] prints `"Sheep"`
- - [ ] prints `"Aries"`
- - [X] prints `"SHEEP-001"`
- - [ ] prints `"ARIES-001"`
- - [ ] does not compile
+- [ ] prints `"Sheep"`
+- [ ] prints `"Aries"`
+- [X] prints `"SHEEP-001"`
+- [ ] prints `"ARIES-001"`
+- [ ] does not compile
 
 # Now consider the following code:
 
@@ -165,18 +165,18 @@ What is the result of `println(sheep.name)`?
 var counter = 1
 
 class Parent(n: Int):
-  counter += n
+   counter += n
 
 class Child(n: Int) extends Parent(n + 1):
-  counter += n
+   counter += n
 
 Child(2)
 ```
 
 What is the value of `counter` after running this code?
 
- - [ ] 1
- - [ ] 3
- - [ ] 4
- - [ ] 5
- - [X] 6
+- [ ] 1
+- [ ] 3
+- [ ] 4
+- [ ] 5
+- [X] 6

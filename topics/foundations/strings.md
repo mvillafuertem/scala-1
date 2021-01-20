@@ -145,7 +145,7 @@ _similar_ purpose, it's a _different_ method.
 
 ```scala
 def sayHello(name: String): Unit =
-  println("Hello, "+name+"!")
+   println("Hello, "+name+"!")
 ```
 
 This can be convenient for constructing simple joins between a few strings, but the syntax can become less
@@ -186,7 +186,7 @@ Within substitution braces, Scala permits not just identifiers, but any expressi
 an arithmetic expression inside a substitution in an interpolated string:
 ```scala
 def describe(width: Int, height: Int): String =
-  s"The rectangle's area is ${width*height}."
+   s"The rectangle's area is ${width*height}."
 ```
 
 While the result of `width*height` is an `Int` value, it will—as with any expression—be converted automatically

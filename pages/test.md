@@ -51,16 +51,16 @@ What have you noticed today? I noticed that if you outline the eyes, nose, and m
 
 ```scala
 object HelloWorld {
-  def main(args: Array[String]): Unit = {
-    println("Hello, world!")
-  }
+   def main(args: Array[String]): Unit = {
+      println("Hello, world!")
+   }
 }
 ```
 
 ```scala
 object HelloWorld {
-  def main(args: Array[String]): Unit = {
-    println("Hello, world!")
-  }
+   def main(args: Array[String]): Unit = {
+      println("Hello, world!")
+   }
 }
 ```
