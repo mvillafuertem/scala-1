@@ -131,7 +131,7 @@ All the folding operations that were covered in this lesson only allow to operat
 
 ```scala
 def appendToString(acc: String, elem: Int) = 
-    acc + " " + elem.toString
+   acc + " " + elem.toString
 
 val list = 1 :: 2 :: 3 :: Nil
 val asString = list.foldLeft("")(appendToString)

@@ -59,14 +59,14 @@ where `a`, `b`, `c` and `d` are all expressions.
 The additional definitions of extractors for these types,
 ```scala
 object * :
-  def unapply(expr: Expr): Option[(Expr, Expr)] = expr match
-    case Intersection(a, b) => Some((a, b))
-    case _                  => None
+   def unapply(expr: Expr): Option[(Expr, Expr)] = expr match
+      case Intersection(a, b) => Some((a, b))
+      case _                  => None
 
 object + :
-  def unapply(expr: Expr): Option[(Expr, Expr)] = expr match
-    case Union(a, b) => Some((a, b))
-    case _           => None
+   def unapply(expr: Expr): Option[(Expr, Expr)] = expr match
+      case Union(a, b) => Some((a, b))
+      case _           => None
 ```
 would permit us to match on such an expression, too. For example,
 ```scala

@@ -7,8 +7,8 @@ Let's start with an example of matching on a `List[Int]` using the extractor, `:
 its head and tail within a pattern, like so:
 ```scala
 def tailOrNil(xs: List[Int]): List[Int] = xs match
-  case head :: tail => tail
-  case _            => Nil
+   case head :: tail => tail
+   case _            => Nil
 ```
 
 The pattern `head :: tail` looks a little different from the patterns we have seen so far, but it's analogous to
@@ -21,8 +21,8 @@ This can be particularly convenient for writing recursive functions using `List`
 `sum` method which operates on a `List` of integers.
 ```scala
 def sum(xs: List[Int]): Int = xs match
-  case head :: tail => head + sum(tail)
-  case Nil          => 0
+   case head :: tail => head + sum(tail)
+   case Nil          => 0
 ```
 Each invocation adds the integer at the head to the sum of the tail, with a special case for `Nil`, whose sum is
 zero. Note that the order of the case clauses does not matter, either. A list is either empty or it can be
@@ -32,10 +32,10 @@ Here's another example of a recursive method which gets the second-to-last eleme
 one.
 ```scala
 def penultimate[T](xs: List[T]): Option[T] =
-  xs match
-    case head :: head2 :: Nil => Some(head)
-    case Nil | _ :: Nil       => None
-    case head :: tail         => penultimate(tail)
+   xs match
+      case head :: head2 :: Nil => Some(head)
+      case Nil | _ :: Nil       => None
+      case head :: tail         => penultimate(tail)
 ```
 
 We first check if the scrutinee is a two-element list: or, literally, an element prepended to another element
@@ -60,8 +60,8 @@ For other sequence-like collections, such as `Vector`, we have two additional ex
 provide an alternative `sum` implementation for a `Vector[Int]`.
 ```scala
 def sum(xs: Vector[Int]): Int = xs match
-  case init :+ last => last + sum(init)
-  case _            => 0
+   case init :+ last => last + sum(init)
+   case _            => 0
 ```
 
 Like before, this finds the sum of all the elements in the collection, but it adds them in the opposite
@@ -91,19 +91,19 @@ These infix extractors are actually just ordinary extractors with two parameters
 example, we could define a two-parameter extractor such as,
 ```scala
 object Point:
-  def unapply(value: Double): Some[(Double, Double)] =
-    Some((value.floor, value - value.floor))
+   def unapply(value: Double): Some[(Double, Double)] =
+      Some((value.floor, value - value.floor))
 ```
 which will decompose a floating-point number into its integral part, and its fractional part. We can use it
 in a pattern, like this,
 ```scala
 def fractional(x: Double) = x match
-  case Point(_, fraction) => fraction
+   case Point(_, fraction) => fraction
 ```
 but without changing the definition, we can also write the pattern as:
 ```scala
 def fractional(x: Double) = x match
-  case _ Point fraction => fraction
+   case _ Point fraction => fraction
 ```
 
 Scala interprets these in exactly the same way. While in the first version, `Point`'s two parameters appear
@@ -116,11 +116,11 @@ This works for any extractor, though it's less common to use it for extractors w
 could, however, rename `Point` to a symbolic name, like `+`, and then write,
 ```scala
 object + :
-  def unapply(value: Double): Some[(Double, Double)] =
-    Some((value.floor, value - value.floor))
+   def unapply(value: Double): Some[(Double, Double)] =
+      Some((value.floor, value - value.floor))
 
 def fractional(x: Double) = x match
-  case _ + f => f
+   case _ + f => f
 ```
 to give us a method which returns just the fractional part of a `Double`.
 

@@ -9,8 +9,8 @@ Some values can be destructured into their component parts. Imagine, for example
 color, using an RGB or CMYK model:
 ```scala
 enum Color:
-  case Rgb(red: Float, green: Float, blue: Float)
-  case Cmyk(cyan: Float, magenta: Float, yellow: Float, key: Float)
+   case Rgb(red: Float, green: Float, blue: Float)
+   case Cmyk(cyan: Float, magenta: Float, yellow: Float, key: Float)
 ```
 
 If our scrutinee is an `Rgb` value, we can match against a pattern which, at the same time as matching, extracts
@@ -21,14 +21,14 @@ Here is a simple implementation of a method which converts a `Color` value into 
 
 ```scala
 enum Mono:
-  case Black, White
+   case Black, White
 
 def monochrome(color: Color): Mono =
-  color match
-    case Rgb(red, green, blue) =>
-      if red + green + blue < 1.5 then Black else White
-    case Cmyk(cyan, magenta, yellow, key) =>
-      if key > 0.5 then Black else White
+   color match
+      case Rgb(red, green, blue) =>
+         if red + green + blue < 1.5 then Black else White
+      case Cmyk(cyan, magenta, yellow, key) =>
+         if key > 0.5 then Black else White
 ```
 
 Our first case matches on a general `Rgb` value, which we write within the pattern, not as a single value, but
@@ -67,8 +67,8 @@ the left of the center of the circle.
 
 ```scala
 def leftEdge(circle: Circle): Double =
-  circle match
-    case Circle(center, radius, color) => center.x - radius
+   circle match
+      case Circle(center, radius, color) => center.x - radius
 ```
 
 ## Binding Identifiers
@@ -78,9 +78,9 @@ of `Point`), `radius` and `color`, an `Rgb` instance. But these can additionally
 against which we can pattern match by substituting nested patterns in place of their identifiers, like so:
 ```scala
 def leftEdge(circle: Circle): Double =
-  circle match
-    case Circle(Point(x, y), radius, Rgb(r, g, b)) =>
-      x - radius
+   circle match
+      case Circle(Point(x, y), radius, Rgb(r, g, b)) =>
+         x - radius
 ```
 
 In this particular expression, only the *x*-coordinate and the radius are used on the right-hand side of the
@@ -92,9 +92,9 @@ correct number of parameters!
 Here is the rewritten method:
 ```scala
 def leftEdge(circle: Circle): Double =
-  circle match
-    case Circle(Point(x, _), radius, _) =>
-      x - radius
+   circle match
+      case Circle(Point(x, _), radius, _) =>
+         x - radius
 ```
 
 Sometimes, in an expression like the example above, we would like to both destructure a pattern, _and_ bind it
@@ -104,10 +104,10 @@ or the *y* axis, so that their radii are `1`, and leave the others unchanged.
 An implementation might look like this:
 ```scala
 def axisCircle(circle: Circle): Circle =
-  circle match
-    case Circle(Point(0, y), _, c) => Circle(Point(0, y), 1, c)
-    case Circle(Point(x, 0), _, c) => Circle(Point(x, 0), 1, c)
-    case other                     => other
+   circle match
+      case Circle(Point(0, y), _, c) => Circle(Point(0, y), 1, c)
+      case Circle(Point(x, 0), _, c) => Circle(Point(x, 0), 1, c)
+      case other                     => other
 ```
 
 Note that the first two cases have the same _structure_, but the first parameter of the `Point` is explicitly
@@ -128,10 +128,10 @@ structure at the same time as binding it to an identifier, using the `@` operato
 the pattern. Here is the example above rewritten more concisely:
 ```scala
 def axisCircle(circle: Circle): Circle =
-  circle match
-    case Circle(pt@Point(0, y), _, c) => Circle(pt, 1, c)
-    case Circle(pt@Point(x, 0), _, c) => Circle(pt, 1, c)
-    case other                        => other
+   circle match
+      case Circle(pt@Point(0, y), _, c) => Circle(pt, 1, c)
+      case Circle(pt@Point(x, 0), _, c) => Circle(pt, 1, c)
+      case other                        => other
 ```
 
 ## Deconstruction Mirrors Construction
@@ -143,7 +143,7 @@ deconstruction of the shape value here:
 val shape = Circle(Point(3.2, -1.4), 2.0, red)
 
 shape match
-  case Circle(Point(x, y), 2.0, _) =>
+   case Circle(Point(x, y), 2.0, _) =>
 ```
 
 The basic structure is the same. But the pattern has the flexibility to have some values precisely specified
@@ -162,14 +162,14 @@ construction of the values we want to match against.
 
 ```scala
 geo match
-  case Square(edge) =>
-    edge*edge
-  case Rectangle(width, 1.0) =>
-    width*1.0
-  case Circle(_, radius) =>
-    math.Pi*radius*radius
-  case Line(a@Point(ax, 0.0), b) =>
-    0.0
+   case Square(edge) =>
+      edge*edge
+   case Rectangle(width, 1.0) =>
+      width*1.0
+   case Circle(_, radius) =>
+      math.Pi*radius*radius
+   case Line(a@Point(ax, 0.0), b) =>
+      0.0
 ```
 
 Select all the expressions which the pattern match would match. You can ignore the calculated value.

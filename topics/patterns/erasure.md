@@ -3,9 +3,9 @@ they are. Imagine, for example, the following method which we would like to retu
 `Any`-typed value is an instance of the type `S`.
 ```scala
 def asType[S](value: Any): Option[S] =
-  value match
-    case s: S => Some(s)
-    case _    => None
+   value match
+      case s: S => Some(s)
+      case _    => None
 ```
 
 There would be convenient, but it cannot work in its current form. Remember that a pattern match must compile
@@ -32,9 +32,9 @@ an abstract type.
 Here is the rewritten method:
 ```scala
 def asType[S: ClassTag](value: Any): Option[S] =
-  value match
-    case s: S => Some(s)
-    case _    => None
+   value match
+      case s: S => Some(s)
+      case _    => None
 ```
 
 ## Inlining
@@ -43,21 +43,21 @@ For a method like `asType`, there is an alternative solution which may work in m
 `ClassTag` context, we can make `asType` an _inline_ method, like so,
 ```scala
 inline def asType[S](value: Any): Option[S] =
-  value match
-    case s: S => Some(s)
-    case _    => None
+   value match
+      case s: S => Some(s)
+      case _    => None
 ```
 and then, an invocation of `asType` such as,
 ```scala
 def printIfString(value: Any): Unit =
-  asType[String](value).foreach(println)
+   asType[String](value).foreach(println)
 ```
 would expand to,
 ```scala
 def printIfString(value: Any): Unit = {
-  value match
-    case s: String => Some(s)
-    case _         => None
+   value match
+      case s: String => Some(s)
+      case _         => None
 }.foreach(println)
 ```
 
@@ -68,7 +68,7 @@ But this will not always be sufficient. Imagine that we would like to generalize
 which will print instances of any specified type, `printIfType[T]`,
 ```scala
 def printIfType[T](value: Any): Unit =
-  asType[T](value).foreach(println)
+   asType[T](value).foreach(println)
 ```
 
 Inlining would work exactly as before, except the expanded form would still contain a match against an abstract

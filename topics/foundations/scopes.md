@@ -11,8 +11,8 @@ compiler needs to refer to, is context-dependent. For example, in the following 
 package com.example
 
 case class File(path: String):
-  import java.io.File
-  val x = File("/tmp/file.txt")
+   import java.io.File
+   val x = File("/tmp/file.txt")
 
 val y = File("/tmp/file.txt")
 ```
@@ -37,11 +37,11 @@ Here is how that works in practice. Imagine a method nested within an object ins
 import utils.Server
 
 class Form():
-  val data: HashMap[Field, String] = HashMap()
-  def complete: Boolean = ???
-  object Submit:
-    def send(): Unit =
-      if complete then Server.send(data)
+   val data: HashMap[Field, String] = HashMap()
+   def complete: Boolean = ???
+   object Submit:
+      def send(): Unit =
+         if complete then Server.send(data)
 ```
 
 This short fragment of code introduces several scopes. In the top-level scope, the `Form` class is introduced,
@@ -107,25 +107,25 @@ accessible at any point within our code.
 ```scala
 val button: Boolean = true
 object App:
-  import Events._
-  def myButton: Boolean = button
-  def run(): Unit = println(myButton)
+   import Events._
+   def myButton: Boolean = button
+   def run(): Unit = println(myButton)
 ```
 When calling `App.run()`, what will be printed?
 
- - [ ] We know it will be `true`
- - [X] We cannot know for sure without also knowing whether `Events` contains a member called `button`
- - [ ] If it compiles, it will print `true`
- - [ ] Even if it compiles, and we know everything within the definition of `Events`, we cannot know for sure whether `true` or `false` is printed
+- [ ] We know it will be `true`
+- [X] We cannot know for sure without also knowing whether `Events` contains a member called `button`
+- [ ] If it compiles, it will print `true`
+- [ ] Even if it compiles, and we know everything within the definition of `Events`, we cannot know for sure whether `true` or `false` is printed
 
 # Now consider the following code:
 
 ```scala
 object Date:
-  val date = Date(7, 9, 2022)
+   val date = Date(7, 9, 2022)
 
 case class Date(day: Int, month: Int, year: Int):
-  val date = Date
+   val date = Date
 
 val date = Date(1, 1, 2000)
 ```

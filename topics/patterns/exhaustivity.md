@@ -19,20 +19,20 @@ match; if we know it will match everything, then there would not be any point at
 else _after_ a wildcard, and, in fact, the compiler considers it an error.
 ```scala
 def chooseTheme(background: Color): Theme =
-  background match
-    case Black => Theme.Light
-    case White => Theme.Dark
-    case _     => Theme.Adaptive
+   background match
+      case Black => Theme.Light
+      case White => Theme.Dark
+      case _     => Theme.Adaptive
 ```
 
 The `_` pattern is useful if we don't care to _use_ the value we have matched in the case clause, but if we do,
 then we can use a new identifier in place of the `_`, for example,
 ```scala
 def message(count: Int): String = count match
-  case 1 => "There is one."
-  case 2 => "There are two."
-  case 3 => "There are three."
-  case n => s"There are $n."
+   case 1 => "There is one."
+   case 2 => "There are two."
+   case 3 => "There are three."
+   case n => s"There are $n."
 ```
 
 Here, we introduce a new identifier, `n`, which is bound to the scrutinee after it has failed to match `1`, `2`
@@ -78,10 +78,10 @@ of them as "guarding" the execution on the right-hand side of the case clause; a
 syntax for guards reuses the `if` keyword with a predicate between the pattern and the `=>` symbol, like so,
 ```scala
 def howMany(value: Int): String = value match
-  case 1           => "one"
-  case 2           => "two"
-  case n if n < 10 => "a few"
-  case n           => n.toString
+   case 1           => "one"
+   case 2           => "two"
+   case n if n < 10 => "a few"
+   case n           => n.toString
 ```
 
 The match expression will check first if the scrutinee is equal to `1`, then if it is equal to `2`, then if it
@@ -116,9 +116,9 @@ will always match, never match or sometimes match, even when it might be obvious
 
 ```scala
 def complement(value: Color) = value match
-  case Color(0.0, green, blue) => green + blue
-  case Color(red, 0.0, blue)   => red + blue
-  case Color(red, green, 0.0)  => red + green
+   case Color(0.0, green, blue) => green + blue
+   case Color(red, 0.0, blue)   => red + blue
+   case Color(red, green, 0.0)  => red + green
 ```
 
 Is the pattern match expression exhaustive?
@@ -130,10 +130,10 @@ Is the pattern match expression exhaustive?
 
 ```scala
 enum Day:
-  case Mon, Tue, Wed, Thu, Fri, Sat, Sun
+   case Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
 enum Month:
-  case Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+   case Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
 
 case class Date(number: Int, day: Day, month: Month)
 ```
@@ -144,14 +144,14 @@ Is the pattern match, `meet` exhaustive?
 import Day._, Month._
 
 def meet(date: Date): Boolean = date match
-  case Date(1 | 2 | 3 | 4 | 5, Sat | Sun, _) =>
-    false
-  case Date(1 | 3 | 5, Tue | Thu, Jan | Mar | May | Jul | Aug | Oct | Dec) =>
-    true
-  case Date(2 | 4, Mon | Wed | Fri, Feb | Apr | Jun | Sep | Nov) =>
-    true
-  case Date(_, Tue | Thu, _) | Date(_, Mon | Wed | Fri, _) =>
-    false
+   case Date(1 | 2 | 3 | 4 | 5, Sat | Sun, _) =>
+      false
+   case Date(1 | 3 | 5, Tue | Thu, Jan | Mar | May | Jul | Aug | Oct | Dec) =>
+      true
+   case Date(2 | 4, Mon | Wed | Fri, Feb | Apr | Jun | Sep | Nov) =>
+      true
+   case Date(_, Tue | Thu, _) | Date(_, Mon | Wed | Fri, _) =>
+      false
 ```
 
 - [ ] Yes

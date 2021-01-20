@@ -33,10 +33,10 @@ the thread's behavior.
 
 ```scala
 class NotifyThread(name: String) extends Thread:
-  override def run(): Unit =
-    for(i <- 1 to 10)
-      println(msg)
-      Thread.sleep(1000L)
+   override def run(): Unit =
+      for(i <- 1 to 10)
+         println(msg)
+         Thread.sleep(1000L)
 ```
 and starting instances of it, like so,
 ```scala
@@ -64,12 +64,12 @@ on a value, then perform another operation using that value.
 
 ```scala
 object Data:
-  var list: List[Int] = initialList
+   var list: List[Int] = initialList
 
 def pop() =
-  if !Data.list.isEmpty then
-    println(Data.list.head)
-    Data.list = Data.list.tail
+   if !Data.list.isEmpty then
+      println(Data.list.head)
+      Data.list = Data.list.tail
 ```
 
 Here, the `pop` method checks that the global mutable variable, `Data.list` is not empty, then gets its head,
@@ -104,9 +104,9 @@ which is available on every JVM object, to apply this guarantee.
 
 ```scala
 def pop() = Data.synchronized {
-  if !Data.list.isEmpty then
-    println(Data.list.head)
-    Data.list = Data.list.tail
+   if !Data.list.isEmpty then
+      println(Data.list.head)
+      Data.list = Data.list.tail
 }
 ```
 

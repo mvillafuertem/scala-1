@@ -14,7 +14,7 @@ The Scala compiler will know from the syntactic context of the source code wheth
 a _type_. For example, in,
 ```scala
 class Item(element: Element):
-  def describe: String = s"This is a ${element.name}"
+   def describe: String = s"This is a ${element.name}"
 ```
 the compiler knows—without even needing to see their definitions—that `Element` and `String` are type
 identifiers which refer to definitions elsewhere. A big clue, in general, is that `Element` and `String` appear
@@ -128,9 +128,9 @@ simple that it does nothing more than return the same value each time. Though it
 interesting, like this:
 ```scala
 def second: String =
-  println("Accessed the second method.")
+   println("Accessed the second method.")
 
-  "two"
+   "two"
 ```
 
 With this definition, whenever a reference to `second` is evaluated, a message will be printed to the console.
@@ -153,9 +153,9 @@ Compare that to what would happen if we similarly included a `println` statement
 value `first`:
 ```scala
 val first: String =
-  println("Accessed the first method.")
+   println("Accessed the first method.")
 
-  "one"
+   "one"
 
 println(s"The result of ${first} plus ${first} is two.")
 ```
@@ -184,18 +184,18 @@ opaque at the use site.
 val counter = Counter(0)
 
 val rnd =
-  counter.inc()
-  math.random
+   counter.inc()
+   math.random
 
 def message =
-  counter.inc()
-  s"Three numbers: $rnd, $rnd and $rnd"
+   counter.inc()
+   s"Three numbers: $rnd, $rnd and $rnd"
 
 @main
 def run(): Unit =
-  println(message)
-  println(message)
-  println(counter.value)
+   println(message)
+   println(message)
+   println(counter.value)
 ```
 
 What is the counter value printed at the end of the `run()` method?
@@ -214,18 +214,18 @@ What is the counter value printed at the end of the `run()` method?
 def counter = Counter(0)
 
 def rnd =
-  counter.inc()
-  math.random
+   counter.inc()
+   math.random
 
 val message =
-  counter.inc()
-  s"Three numbers: $rnd, $rnd and $rnd"
+   counter.inc()
+   s"Three numbers: $rnd, $rnd and $rnd"
 
 @main
 def run(): Unit =
-  println(message)
-  println(message)
-  println(counter.value)
+   println(message)
+   println(message)
+   println(counter.value)
 ```
 
 What counter value is printed now? This is a tricky question, so be _very_ careful to check _every_ `val` and `def`!

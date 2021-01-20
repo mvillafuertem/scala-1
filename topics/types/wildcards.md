@@ -64,14 +64,14 @@ specificity.
 So, in a pattern match, it is correct to write,
 ```scala
 def populated(opt: Any) = opt match
-  case x: Some[?] => Success(x.get)
-  case _          => Failure(NoValueException())
+   case x: Some[?] => Success(x.get)
+   case _          => Failure(NoValueException())
 ```
 where the scrutinee is tested against the `Some[?]` wildcard type, while it would be _incorrect_ to write,
 ```scala
 def populated(opt: Any) = opt match
-  case x: Some[Int] => Success(x.get)
-  case _            => Failure(NotAnIntegerException())
+   case x: Some[Int] => Success(x.get)
+   case _            => Failure(NotAnIntegerException())
 ```
 as it is not possible to verify the type parameter of the scrutinee as `Some[Int]` at runtime.
 
@@ -85,7 +85,7 @@ returns its length, if it's non-empty:
 
 ```scala
 def nonEmptyLength[T](xs: List[T]): Option[Int] =
-  if xs.isEmpty then None else Some(xs.length)
+   if xs.isEmpty then None else Some(xs.length)
 ```
 
 The signature of this method introduces the type parameter, `T`, which is bound to the type parameter of `xs`, a
@@ -96,7 +96,7 @@ We could therefore describe the type parameter of the list as _unimportant_, and
 method could be rewritten with a wildcard type as,
 ```scala
 def nonEmptyLength(xs: List[?]): Option[Int] =
-  if xs.isEmpty then None else Some(xs.length)
+   if xs.isEmpty then None else Some(xs.length)
 ```
 without detriment to its behavior.
 
@@ -110,9 +110,9 @@ whether the cell is empty or not:
 
 ```scala
 trait Cell[T]:
-  def isEmpty: Boolean
-  def update(value: T): Unit
-  def apply(): T
+   def isEmpty: Boolean
+   def update(value: T): Unit
+   def apply(): T
 ```
 
 This may have several instances defined, such as `intCell`, a `Cell[Int]`; `rangeCell`, a `Cell[Range]`; and

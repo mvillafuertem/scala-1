@@ -14,10 +14,10 @@ late it is.
 We can represent these four possibilities with an enumeration,
 ```scala
 enum Arrival:
-  case Scheduled(time: Time)
-  case OnTime
-  case Canceled
-  case Late(minutes: Int)
+   case Scheduled(time: Time)
+   case OnTime
+   case Canceled
+   case Late(minutes: Int)
 ```
 and we can now call `OnTime` and `Canceled` _singleton cases_ to distinguish them from the
 _parameterized cases_.
@@ -31,9 +31,9 @@ line, but we may still combine several singleton cases together, like so:
 
 ```scala
 enum Arrival:
-  case Scheduled(time: Time)
-  case OnTime, Canceled
-  case Late(minutes: Int)
+   case Scheduled(time: Time)
+   case OnTime, Canceled
+   case Late(minutes: Int)
 ```
 
 Each of these four cases will also introduce a new type, which will be a subtype of `Arrival`. The parameterized
@@ -65,8 +65,8 @@ invalid, and in the latter case, we will include some information (a reason) why
 
 ```scala
 enum Validity[T]:
-  case Valid(value: T)
-  case Invalid(reason: String)
+   case Valid(value: T)
+   case Invalid(reason: String)
 ```
 
 This would allow us to create new instances such as `Valid(Time(9, 27))` (representing `9.27am`) or
@@ -86,13 +86,13 @@ which to infer the type parameter for the `Invalid` case.
 We can avoid this if the compiler _expects_ a particular type, like so,
 ```scala
 def validation(value: Int): Validity[Int] =
-  if check(value) then Valid(value) else Invalid("Failed validation")
+   if check(value) then Valid(value) else Invalid("Failed validation")
 ```
 or even when one branch of an expression suggests a type for a branch which has no information about that type,
 as in this version which omits the return type:
 ```scala
 def validation(value: Int) =
-  if check(value) then Valid(value) else Invalid("Failed validation")
+   if check(value) then Valid(value) else Invalid("Failed validation")
 ```
 
 Here, Scala typechecks `Valid(value)` and infers its type as `Validity[Int]` because `value` has the type `Int`.
@@ -106,8 +106,8 @@ parameters _and_ singleton cases.
 Let's consider an enumeration type `Maybe`, similar to the familiar type `Option`,
 ```scala
 enum Maybe[T]:
-  case Just(value: T)
-  case Empty
+   case Just(value: T)
+   case Empty
 ```
 one of whose cases is a singleton case.
 
@@ -126,8 +126,8 @@ covered later in this course. In the meantime, an easier solution is to redefine
 case, with zero parameters, which we can write as follows:
 ```scala
 enum Maybe[T]:
-  case Just(value: T)
-  case Empty()
+   case Just(value: T)
+   case Empty()
 ```
 
 This will now compile. The disadvantage with this approach is that multiple instances of the `Empty()` case
@@ -146,9 +146,9 @@ cases, without requiring multiple different instances. But for now, this approac
 
 ```scala
 enum Temporal:
-  case Time(hours: Int, minutes: Int)
-  case Date(year: Int, month: Int, day: Int)
-  case Datetime(date: Date, time: Time)
+   case Time(hours: Int, minutes: Int)
+   case Date(year: Int, month: Int, day: Int)
+   case Datetime(date: Date, time: Time)
 
 import Temporal._
 ```
@@ -168,8 +168,8 @@ Which of the following are valid instantiations of the type `Temporal`?
 
 ```scala
 enum Tree[T]:
-  case Branch(left: Tree[T], right: Tree[T])
-  case Leaf(value: T)
+   case Branch(left: Tree[T], right: Tree[T])
+   case Leaf(value: T)
 ```
 
 Which of the following changes would cause the code to _stop_ compiling? We are not considering what effect

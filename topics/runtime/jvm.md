@@ -90,12 +90,12 @@ elements in the _constant pool_, a part of a classfile containing fixed values l
 references. At the end of each line, `javap` will lookup these references and show them to us.
 
 This particular bytecode can be interpreted as follows:
- - `getstatic ##2` puts a reference to the value specified at constant pool index 2, `java.lang.System.out` which
+- `getstatic ##2` puts a reference to the value specified at constant pool index 2, `java.lang.System.out` which
    is a `java.io.PrintStream` onto the stack
- - `ldc ##3` loads the constant at index 3, `"Hello, World!"`, onto the stack
- - `invokevirtual ##4` calls the method `java.io.PrintStream##println(_: java.lang.String): Unit` (whose
+- `ldc ##3` loads the constant at index 3, `"Hello, World!"`, onto the stack
+- `invokevirtual ##4` calls the method `java.io.PrintStream##println(_: java.lang.String): Unit` (whose
    parameters are already on the stack)
- - `return` terminates the method
+- `return` terminates the method
 
 This sequence of commands will cause the words `Hello, World!` to be printed as output when the method is invoked.
 

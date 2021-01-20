@@ -7,15 +7,15 @@ a pattern, and alternation.
 In a match such as,
 ```scala
 enum Validation:
-  case Invalid, Valid
+   case Invalid, Valid
 
 val Blank = Some("")
 
 def valid(input: Option[String]): Validation =
-  input match
-    case None  => Invalid
-    case Blank => Invalid
-    case other => Valid
+   input match
+      case None  => Invalid
+      case Blank => Invalid
+      case other => Valid
 ```
 there is a subtle difference between the first two patterns and the final one. `None` and `Blank` are values
 which are already defined outside of the scope of the match, and the `input` value is compared to each of them,
@@ -43,8 +43,8 @@ val red: Color = Color(1.0, 0.0, 0.0)
 val cyan: Color = Color(0.0, 1.0, 1.0)
 
 def describe(color: Color): String = color match
-  case red  => "red"
-  case cyan => "cyan"
+   case red  => "red"
+   case cyan => "cyan"
 
 describe(cyan)
 ```
@@ -70,8 +70,8 @@ val red: Color = Color(1.0, 0.0, 0.0)
 val cyan: Color = Color(0.0, 1.0, 1.0)
 
 def describe(color: Color): String = color match
-  case `red`  => "red"
-  case `cyan` => "cyan"
+   case `red`  => "red"
+   case `cyan` => "cyan"
 
 describe(cyan)
 ```
@@ -91,15 +91,15 @@ are therefore compared to the scrutinee with an equality check.
 Sometimes we have two cases in a match expression which should invoke exactly the same behavior. For example:
 ```scala
 def validate(name: Option[String]): Validation =
-  name match
-    case None =>
-      log.warn("A valid name was not provided.")
-      Invalid
-    case Some("") =>
-      log.warn("A valid name was not provided.")
-      Invalid
-    case Some(_) =>
-      Valid
+   name match
+      case None =>
+         log.warn("A valid name was not provided.")
+         Invalid
+      case Some("") =>
+         log.warn("A valid name was not provided.")
+         Invalid
+      case Some(_) =>
+         Valid
 ```
 
 In this instance, both `None` and `Some("")` should log a warning and be considered invalid responses. The
@@ -109,12 +109,12 @@ Scala provides a convenient operator, `|`, which may be used between patterns to
 other pattern in that case may match. We can use it to reduce this example into just two cases, like so:
 ```scala
 def validate(name: Option[String]): Validation =
-  name match
-    case None | Some("") =>
-      log.warn("A valid name was not provided.")
-      Invalid
-    case Some(_) =>
-      Valid
+   name match
+      case None | Some("") =>
+         log.warn("A valid name was not provided.")
+         Invalid
+      case Some(_) =>
+         Valid
 ```
 
 This is called _alternation_, because it provides _alternative_ patterns to try to match against.
@@ -123,10 +123,10 @@ Of course, the `|` operator may be repeated, and it may be used on nested scruti
 which tries to read a `Boolean` value from an `Option[String]`, but which will return `None` for invalid input:
 ```scala
 def readBoolean(input: Option[String]): Option[Boolean] =
-  input match
-    case Some("true" | "yes" | "on" | "1")         => Some(true)
-    case None | Some("false" | "no" | "off" | "0") => Some(false)
-    case _                                         => None
+   input match
+      case Some("true" | "yes" | "on" | "1")         => Some(true)
+      case None | Some("false" | "no" | "off" | "0") => Some(false)
+      case _                                         => None
 ```
 
 Imagine having to list every one of those cases on a separate line!
@@ -154,12 +154,12 @@ val green = Color(0.0, 1.0, 0.0)
 val Blue = Color(0.0, 0.0, 1.0)
 
 green match
-  case Blue => 
-    println("First")
-  case Color(1.0, _, _) =>
-    println("Second")
-  case red =>
-    println("Third")
+   case Blue => 
+      println("First")
+   case Color(1.0, _, _) =>
+      println("Second")
+   case red =>
+      println("Third")
 ```
 
 Choose which pattern will match the expression
@@ -176,10 +176,10 @@ val green = Color(0.0, 1.0, 0.0)
 val Blue = Color(0.0, 0.0, 1.0)
 
 color match
-  case Color(r, g, b) | Blue => "First"
-  case `blue`                => "Second"
-  case red                   => "Third"
-  case Color(x, x, x)        => "Fourth"
+   case Color(r, g, b) | Blue => "First"
+   case `blue`                => "Second"
+   case red                   => "Third"
+   case Color(x, x, x)        => "Fourth"
 ```
 
 What value would be produced by the only error-free case clause?

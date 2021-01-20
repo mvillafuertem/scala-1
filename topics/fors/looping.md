@@ -7,7 +7,7 @@ If you learned any high level programming languages in the past you probably hav
 ```scala
 val list = List(1, 2, 3)
 for
-  i <- list
+   i <- list
 do println(i)
 ```
 
@@ -45,7 +45,7 @@ def isEven(number: Int) = number % 2 == 0
 val list = List(1, 2, 3, 4)
 
 for
-  i <- list if isEven(i)
+   i <- list if isEven(i)
 do println(i)
 ```
 
@@ -68,7 +68,7 @@ If we wanted to print out all the letters in the `firstList` we would do it as f
 
 ```scala
 for
-  letter <- firstList
+   letter <- firstList
 do println(letter)
 ```
 
@@ -78,8 +78,8 @@ the following:
 
 ```scala
 for
-  firstLetter  <- firstList
-  secondLetter <- secondList
+   firstLetter  <- firstList
+   secondLetter <- secondList
 do println(firstLetter.toString + secondLetter)
 ```
 
@@ -91,9 +91,9 @@ better. We can extract the combined letters to a separate constant:
 
 ```scala
 for
-  firstLetter  <- firstList
-  secondLetter <- secondList
-  twoLetters   = firstLetter.toString + secondLetter
+   firstLetter  <- firstList
+   secondLetter <- secondList
+   twoLetters    = firstLetter.toString + secondLetter
 do println(twoLetters)
 ```
 
@@ -107,9 +107,9 @@ exactly like we did it before:
 
 ```scala
 for
-  firstLetter  <- firstList
-  secondLetter <- secondList if secondLetter.isUpper
-  twoLetters   = firstLetter.toString + secondLetter
+   firstLetter  <- firstList
+   secondLetter <- secondList if secondLetter.isUpper
+   twoLetters    = firstLetter.toString + secondLetter
 do println(twoLetters)
 ```
 
@@ -119,9 +119,9 @@ All the code we wrote so far was only supposed to print out values. These `for c
 
 ```scala
 val combinations = for
-  firstLetter  <- firstList
-  secondLetter <- secondList
-  twoLetters   = firstLetter.toString + secondLetter
+   firstLetter  <- firstList
+   secondLetter <- secondList
+   twoLetters   = firstLetter.toString + secondLetter
 yield twoLetters
 ```
 

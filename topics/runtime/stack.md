@@ -91,9 +91,9 @@ One possibility is to throw an exception.
 
 ```scala
 def factorial(n: Int): Int =
-  if n < 1 then throw Exception("Parameter is non-positive")
-  else if n == 1 then 1
-  else n*factorial(n - 1)
+   if n < 1 then throw Exception("Parameter is non-positive")
+   else if n == 1 then 1
+   else n*factorial(n - 1)
 ```
 
 This allows us to abort execution of the method, and exit to the method which called ours. But, the way the
@@ -158,26 +158,26 @@ process of a program can remain superficial, so long as we understand how to rea
 ?---?
 
 # Stack traces can reveal:
-  * [x] The type of exception that was thrown
-  * [ ] The exact time that the exception was thrown
-  * [ ] All values stored on the stack
-  * [x] Each method that has been called (but which has not yet returned)
-  * [x] The name of each source file from which those methods were compiled 
-  * [ ] The parameters to those methods
-  * [x] The line numbers in the source files from which those methods were compiled
+* [x] The type of exception that was thrown
+* [ ] The exact time that the exception was thrown
+* [ ] All values stored on the stack
+* [x] Each method that has been called (but which has not yet returned)
+* [x] The name of each source file from which those methods were compiled 
+* [ ] The parameters to those methods
+* [x] The line numbers in the source files from which those methods were compiled
 
 # Have a look at the following stack trace:
 
 ```
 Exception in thread "main" java.lang.Exception: there was an unfortunate failure
-        at example$package$.beta(defs.scala:11)
-        at example$package$.alpha(defs.scala:8)
-        at example$package$.beta(defs.scala:12)
-        at example$package$.alpha(defs.scala:8)
-        at example$package$.beta(defs.scala:12)
-        at example$package$.alpha(defs.scala:8)
-        at example$package$.run(example.scala:3)
-        at run.main(example.scala:2)
+    at example$package$.beta(defs.scala:11)
+    at example$package$.alpha(defs.scala:8)
+    at example$package$.beta(defs.scala:12)
+    at example$package$.alpha(defs.scala:8)
+    at example$package$.beta(defs.scala:12)
+    at example$package$.alpha(defs.scala:8)
+    at example$package$.run(example.scala:3)
+    at run.main(example.scala:2)
 ```
 
 On which line of which file, and in which method was the exception thrown? You will need to select a line,

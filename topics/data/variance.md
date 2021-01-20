@@ -25,8 +25,8 @@ the definition, as in this definition of `Option` as an enumeration:
 
 ```scala
 enum Option[+T]:
-  case Some(value: T)
-  case None
+   case Some(value: T)
+   case None
 ```
 
 Unlike a type with an invariant type parameter, a type with a _covariant_ type parameter represents instances

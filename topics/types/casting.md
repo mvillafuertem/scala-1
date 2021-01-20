@@ -58,8 +58,8 @@ perform that operation quickly, but compromise on prepending it to the start of 
 efficiently add elements at the beginning, but not the end.
 ```scala
 def (seq: Seq[Int]).include(value: Int): Seq[Int] = seq match
-  case seq: List[Int] => value :: seq
-  case seq: Seq[Int]  => seq :+ value
+   case seq: List[Int] => value :: seq
+   case seq: Seq[Int]  => seq :+ value
 ```
 
 Testing this, we get,
@@ -98,16 +98,16 @@ check could fail, of course, and a `ClassCastException` would be thrown.
 Here is an example:
 ```scala
 val details: Map[String, Any] = Map(
-  "age" -> 27,
-  "locations" -> List("Vienna", "Tbilisi", "Bilbao")
+   "age" -> 27,
+   "locations" -> List("Vienna", "Tbilisi", "Bilbao")
 )
 
 val age: Int = details("age") match
-  case n: Int => n
-  case n      => 0
+   case n: Int => n
+   case n      => 0
 
 val locations: List[String] =
-  details("locations").asInstanceOf[List[String]]
+   details("locations").asInstanceOf[List[String]]
 ```
 
 Here, we are storing some fields, indexed by `String`s, in a generic `Map`. We can access the age and a list

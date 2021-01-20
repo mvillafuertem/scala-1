@@ -49,7 +49,7 @@ In this context, the type parameter is called an _abstract type_ because it's no
 We could define a template, for example,
 ```scala
 trait Consumer[T]:
-  def take(value: T): Unit
+   def take(value: T): Unit
 ```
 and any implementation of the method, `take`, could include expressions and statements involving `value`, which
 has the type `T`. But the type `T` is abstract in the context of this method definition, which means that for
@@ -66,10 +66,10 @@ a particular instance.
 This means that we could extend our template, `Consumer[T]`,
 ```scala
 trait Consumer[T]:
-  def take(value: T): Unit
+   def take(value: T): Unit
 
-  def takeAll(values: List[T]): Unit =
-    for value <- values do take(value)
+   def takeAll(values: List[T]): Unit =
+      for value <- values do take(value)
 ```
 and the method `takeAll` can be implemented by passing a instances of `T` (each `value`) to a method which takes
 instances of `T` as parameters. And regardless of what concrete type `T` is for a particular instance of
@@ -91,7 +91,7 @@ This should make some sense with an example: if we define a template with a meth
 any implementation for now),
 ```scala
 trait Sorter[T]:
-  def sort(values: List[T], ordering: Ordering[T]): List[T]
+   def sort(values: List[T], ordering: Ordering[T]): List[T]
 ```
 then we could create an instance of `Sorter[Throwable]` whose `sort` method would have the signature,
 ```scala
@@ -127,7 +127,7 @@ relationships.
 
 ```scala
 class Actionable[A](a: A):
-  def action(value: A): A = ???
+   def action(value: A): A = ???
 ```
 
 The implementation of the `action` method is incomplete. What operations could we legitimately perform as part
