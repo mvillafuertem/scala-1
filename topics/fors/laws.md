@@ -181,4 +181,108 @@ for drawing a variety of different analogies between monads and real-world conce
 for Haskell or Scala, it should be kept in mind that reading a Haskell-targeted tutorial may require additional
 understanding of Haskell syntax.
 
-?---?
+
+
+
+
+
+## Functor laws
+
+The implementation of `map` for `List` is, by almost any assessment, transforms the list in the "obvious" way.
+But it's not unique: we could define a different `map` method which returns a `List[String]` with at most one
+element (discarding the others), or one which reverses the order of the elements.
+
+While clearly these would be less useful, they would still be implementations which conform to `map`'s
+signature. However, they would not be valid as functor implementations, because a functor must also conform to
+certain laws which cannot be represented in Scala's type system.
+
+If `X[T]` is a generic type, the two laws required for its `map` method to provide a functor can be stated as
+follows—but we should be aware that they may seem too abstract to grasp in this form, so after stating them, we
+will take a more simplistic view of what they mean:
+
+1. if `f` is an isomorphic function from `T` to `S`, then `x => x.map(f)` should also be an isomorphism between
+   `X[T]` and `X[S]`.
+2. for any two functions, `f` and `g`, `x.map(f).map(g)` should produce the same result as
+   `x.map { v => g(f(v)) }` for all `x` in `X[T]`.
+
+The first law is defined in terms of an _isomorphic function_ or _isomorphism_ which means that for a function
+`f`, from a type `T` to a type `S`, will transform every instance of `T` into a different instance of `S`, and
+that for every instance of `S`, there's a corresponding instance of `T` which `f` will map to it (even if it's
+not efficient to find that instance of `T`)! This is commonly known as a _one-to-one_ relationship betweer `T`
+and `S`.
+
+What this means in practise is that applying an isomorphic function to `map` must preserve differences in input
+values as differences in output values (sometimes called _structure-preserving_), and that it must be
+theoretically possible (but perhaps not efficient) to recover the input value which the isomorphic function was
+mapped onto knowing only the output value.
+
+Isomorphic functions are not that common in Scala, particularly between different types. And the first law says
+nothing about the behaviour when mapping a fuction which is not isomorphic.
+
+A trivial isomorphic function is the identity function, `identity`, which maps every value to itself, and it can
+provide an easy way to prove that a particular `map` implementation is not a functor.
+
+
+
+
+Scala does not help to enforce these laws in any way, because the properties cannot be enforced with the type
+system.
+
+
+While the `map` method is part of the definition of a functor, it must also be able to accept any function as a
+parameter, which  the source parameter type to
+another type (which is, by definition, the destination parameter type). So there is nothing unique about the
+function `x => x.toString`, and we could use any other functions instead. For example, this,
+```scala
+def ordinal(n: Int): String = n match
+   case 1              => "first"
+   case 2              => "second"
+   case 3              => "third"
+   case n if n%10 == 1 => s"${n}st"
+   case n if n%10 == 2 => s"${n}nd"
+   case n if n%10 == 3 => s"${n}rd"
+   case _              => s"${n}th"
+
+List(3, 6, 9).map(ordinal(_))
+```
+would produce the list, `List("third", "6th", "9th")`, or this,
+```scala
+List(3, 6, 9).map("Hello World"(_))
+```
+which produces the list, `List('l', 'W', 'l')`. This is a `List[Char]` which reflects the type of the applied
+function, `"Hello World"(_)`, which maps each integer element, *n*, of the initial list to the *n*th character
+of the string `"Hello World"`.
+
+These are examples which _use_ a functor, but the concrete types `Int`, `String` and `Char`, like each function
+that is applied with `map` in the examples above, can be _anything_, and are completely unrelated to the functor
+itself, which dependends only on `List`.
+
+The functor is defined entirely in the `map` method of `List`. For a `List[A]`, its signature looks like this:
+```scala
+def map[B](fn: A => B): List[B]
+```
+
+This signature limits the ways in which this method can be implemented. Both `A` and `B` are abstract at the
+definition site, which means that no concrete properties about instances of `A` or `B` are known.
+
+
+For example, the `List` type has a monad. We can also say that `List` is a _monadic type_.
+
+Monads concern the sequencing of computations.
+
+
+Firstly, a monadic type must be generic.
+
+It is useful to first clarify some nomenclature. A monad is a particular set of rules which can apply to
+instances of a particular type. We will say that that type _has a monad_, or sometimes, _has a monad instance_.
+It is very common to hear that the particular type _is a monad_ or that instances of that type _are monads_, but
+we are not going to adopt that convention.
+
+Instead, if we can define the set of monad rules corresponding to a particular type, thne we will say that the
+type _is monadic_.
+
+
+For comprehensions
+
+Scala has first-class syntax for working with monads, in the form of a _for-comprehension_. These rely primarily
+on two methods, `map` and `flatMap`, being present on 

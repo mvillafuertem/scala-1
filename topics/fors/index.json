@@ -3,6 +3,24 @@
   "desc": "Working with for comprehensions",
   "lessons": [
     {
+      "id": "monads",
+      "title": "Monads",
+      "authorIds": [
+        "jon-pretty"
+      ],
+      "duration": 18,
+      "video": "https://www.youtube.com/embed/6Izhl3C8ies"
+    },
+    {
+      "id": "laws",
+      "title": "Monad Laws",
+      "authorIds": [
+        "jon-pretty"
+      ],
+      "duration": 10,
+      "comingSoon": true
+    },
+    {
       "id": "looping",
       "title": "Looping",
       "authorIds": [
