@@ -44,8 +44,8 @@
     },
     {
       "topicId": "fors",
-      "lessonStart": "looping",
-      "lessonEnd": "looping"
+      "lessonStart": "monads",
+      "lessonEnd": "monads"
     },
     {
       "topicId": "syntax",
