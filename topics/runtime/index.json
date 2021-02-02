@@ -52,7 +52,14 @@
       "authorIds": [
         "jon-pretty"
       ],
-      "duration": 15
+      "duration": 15,
+      "prerequisites": [
+        {
+          "reason": "Java's memory stores objects, so we need to understand them first",
+          "topicId": "templates",
+          "lessonId": "inheritance"
+        }
+      ]
     }
   ]
 }
