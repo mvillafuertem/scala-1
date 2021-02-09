@@ -41,6 +41,11 @@
       "topicId": "concepts",
       "lessonStart": "hashing",
       "lessonEnd": "hashing"
+    },
+    {
+      "topicId": "fors",
+      "lessonStart": "monads",
+      "lessonEnd": "monads"
     }
   ]
 }

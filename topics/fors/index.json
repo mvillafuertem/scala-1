@@ -3,6 +3,15 @@
   "desc": "Working with for comprehensions",
   "lessons": [
     {
+      "id": "options",
+      "title": "Option, Try and Future",
+      "authorIds": [
+        "jon-pretty"
+      ],
+      "duration": 28,
+      "video": "https://www.youtube.com/embed/uQI-LOj0f0s"
+    },
+    {
       "id": "monads",
       "title": "Monads",
       "authorIds": [
