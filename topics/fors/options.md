@@ -1,3 +1,5 @@
+## Some Monadic Types
+
 Scala provides convenient syntax for working with monadic types, though before we explore what a monad is, it
 would be useful to see a few examples without the distraction of trying to understand what makes them _monadic_.
 `Option`, `Try` and `Future` are three generic types that we will study in this lesson.
