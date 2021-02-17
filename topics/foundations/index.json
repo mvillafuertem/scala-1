@@ -82,13 +82,6 @@
       ]
     },
     {
-      "id": "floatingpoint",
-      "title": "Floating-Point Numbers",
-      "authorIds": ["jon-pretty"],
-      "duration": 14,
-      "prerequisites": []
-    },
-    {
       "id": "primitives",
       "title": "Primitives",
       "authorIds": [
