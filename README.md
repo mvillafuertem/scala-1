@@ -54,6 +54,7 @@ Course levels are parts of the course that are suited for users starting with di
  - Beginner
  - Intermediate
  - Advanced
+
 To add a level to a course, it must be present in the `levels` field in the course's index.json file. Level can be configured using `<level>.json` file in the course directory, where `<level>` is either `beginner`, `intermediate` or `advanced`. Here is the `Level` JSON structure:
 
 | Field name | Type                       | Description                                                |
@@ -74,13 +75,17 @@ Topic ranges define what topics and lessons are present in a course level. By sp
 
 ### Topics
 
-Topics are ordered collections of lessons. Their index is stored in the [topics/index.json] file. The structure of a single topic is defined in the `index.json` file inside the specific directory named after the topic in the `topics` directory. This `index.json` file has following JSON structure:
+Topics are ordered collections of lessons. Their index is stored in the [topics/index.json](topics/index.json) file. The
+structure of a single topic is defined in the `index.json` file inside the specific directory named after the topic in
+the `topics` directory. This `index.json` file has following JSON structure:
 
 | Field name | Type           | Description                                      |
 |------------|----------------|--------------------------------------------------|
 | `name`     | String         | Name of the topic that is visible on the website |
 | `desc`     | String         | Description of the topic                         |
 | `lessons`  | List of Lesson | Lessons that this topic consists of              |
+
+### Lessons
 
 The `Lesson` JSON type structure:
 
@@ -101,10 +106,10 @@ The `LessonPrerequisite` JSON type structure:
 | `topicId`  | String | Id of the topic of the lesson to depend upon |
 | `reason `  | String, Optional | Description of the reason of this dependency |
 
-### Lessons
-
-A lesson's content files are present in the topics directory, within a directory specific to the lesson's topic. The content file must be named after the lesson id and have a `.md` file extension. This file defines the text and questions that user sees after entering the lesson page. 
-You can use most of the markdown features inside of it, including tables, images and a special syntax for videos.
+A lesson's content files are present in the topics directory, within a directory specific to the lesson's topic. The
+content file must be named after the lesson id and have a `.md` file extension. This file defines the text and questions
+that user sees after entering the lesson page. You can use most of the markdown features inside of it, including tables,
+images and a special syntax for videos.
 
 #### Video syntax
 To embed a video inside a lesson you can use the following syntax:
@@ -185,36 +190,3 @@ To add two numbers ...
  * [X] Four
 
 ~~~
-
-### Authors
-
-Courses' authors are defined in the **authors.json** file in the content root repository. This file contains a list
-of `Author` objects. The `Author` JSON object has following structure:
-
-| Field name | Type             | Description                                 |
-|------------|------------------|---------------------------------------------|
-| `id`       | String           | Id of the author                            |
-| `name`     | String           | Name that is presented on the website       |
-| `order`    | Int              | The order of the author in the authors list |
-| `twitter`  | String, Optional | Link to the author's twitter page           |
-| `github`   | String, Optional | Link to the author's github page            |
-| `linkedin`   | String, Optional | Link to the author's linkedin page            |
-| `facebook`   | String, Optional | Link to the author's linkedin page            |
-| `desc`     | String           | Description of the author                   |
-| `company`  ~ String, Optional | Company of the autor                        |
-
-### Companies
-
-Courses' authors are defined in the **companies.json** file in the content root repository. This file contains a list
-of `Company` objects. The `Company` JSON object has following structure:
-
-| Field name | Type             | Description                                 |
-|------------|------------------|---------------------------------------------|
-| `id`       | String           | Id of the company                           |
-| `name`     | String           | Name that is presented on the website       |
-| `twitter`  | String, Optional | Link to the company's twitter page          |
-| `github`   | String, Optional | Link to the company's github page           |
-| `linkedin`   | String, Optional | Link to the company's linkedin page            |
-| `facebook`   | String, Optional | Link to the company's linkedin page            |
-| `desc`     | String           | Description of the company                   |
-
