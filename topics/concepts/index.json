@@ -12,6 +12,13 @@
       "duration": 10
     },
     {
+      "id": "floatingpoint",
+      "title": "Floating-Point Numbers",
+      "authorIds": ["jon-pretty"],
+      "duration": 16,
+      "prerequisites": []
+    },
+    {
       "id": "hashing",
       "title": "Hashing",
       "authorIds": [
