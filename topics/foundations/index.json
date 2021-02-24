@@ -66,6 +66,13 @@
       "prerequisites": []
     },
     {
+      "id": "functions",
+      "title": "Functions",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
+      "prerequisites": []
+    },
+    {
       "id": "scopes",
       "title": "Scopes and Namespaces",
       "authorIds": [
