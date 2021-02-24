@@ -138,7 +138,7 @@ object Example:
 
 The identifiers `chop` and `chop2` represent subtly different things.
 
-Which of the following does the identifier `Example.chop` represent in the code above?
+Which one of the following does the identifier `Example.chop` represent in the code above?
 
 * [ ] a function
 * [ ] a value
@@ -146,7 +146,7 @@ Which of the following does the identifier `Example.chop` represent in the code 
 * [ ] a type
 * [ ] an object
 
-# Which of the following does the identifier `Example.chop2` represent in the code above?
+# Which of the following does the identifier `Example.chop2` represent in the code above? You can choose more than one option.
 
 * [X] a function
 * [X] a value
@@ -154,7 +154,7 @@ Which of the following does the identifier `Example.chop` represent in the code 
 * [ ] a type
 * [X] an object
 
-# Which of the following represent the type of `chop2`?
+# Which of the following represent the type of `chop2`? You can choose more than one option.
 * [ ] `String`
 * [X] `Function1[String, String]`
 * [ ] `Function`
