@@ -201,4 +201,4 @@ Which of the following are possible definitions for `xs` to produce this result?
 
 * [ ] `val xs = List(0.0, -0.0, (0.0/1.0)/(1.0/0.0))`
 * [ ] `val xs = List(1.0/0.0, -1.0/0.0, 0.0/0.0)`
-* [X] `val xs = List(2.0/0.0, Double.MaxValue*2, 0.0/0.0)
+* [X] `val xs = List(2.0/0.0, Double.MaxValue*2, 0.0/0.0)`
