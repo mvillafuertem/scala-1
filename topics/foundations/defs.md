@@ -136,7 +136,7 @@ def second: String =
 With this definition, whenever a reference to `second` is evaluated, a message will be printed to the console.
 That means that code such as,
 ```scala
-println("The result of ${second} plus ${second} is four.")
+println(s"The result of ${second} plus ${second} is four.")
 ```
 would print the following, in order:
 ```
