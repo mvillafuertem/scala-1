@@ -54,8 +54,13 @@
     },
     {
       "topicId": "metaprogramming",
-      "lessonStart": "inlines",
+      "lessonStart": "basics",
       "lessonEnd": "macros"
+    },
+    {
+      "topicId": "syntax",
+      "lessonStart": "underscore",
+      "lessonEnd": "underscore"
     }
   ]
 }

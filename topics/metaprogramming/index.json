@@ -3,6 +3,13 @@
   "desc": "Metaprogramming in Scala",
   "lessons": [
     {
+      "id": "basics",
+      "title": "Basics",
+      "authorIds": ["jon-pretty"],
+      "duration": 10,
+      "comingSoon": true
+    },
+    {
       "id": "inlines",
       "title": "Inlining methods",
       "authorIds": ["jon-pretty"],
