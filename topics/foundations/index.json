@@ -5,36 +5,28 @@
     {
       "id": "introduction",
       "title": "Introduction",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/FvYS8r9Nt18",
       "duration": 9
     },
     {
       "id": "expressions",
       "title": "Expressions and Statements",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/fKCrvlBGbow",
       "duration": 14
     },
     {
       "id": "helloworld",
       "title": "Our First Program",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/KOz_53LlAMI",
       "duration": 12
     },
     {
       "id": "defs",
       "title": "Definitions",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/KLlAcPIUBKs",
       "duration": 15,
       "prerequisites": [
@@ -48,9 +40,7 @@
     {
       "id": "strings",
       "title": "Strings",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/DeG6wmkCou0",
       "duration": 22,
       "prerequisites": []
@@ -58,9 +48,7 @@
     {
       "id": "arithmetic",
       "title": "Arithmetic",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/nAV4Qd9glWY",
       "duration": 15,
       "prerequisites": []
@@ -70,14 +58,31 @@
       "title": "Functions",
       "authorIds": ["jon-pretty"],
       "duration": 12,
-      "prerequisites": []
+      "prerequisites": [
+        {
+          "reason": "this lesson explains how functions are objects, but we need to understand objects first",
+          "topicId": "templates",
+          "lessonId": "objects"
+        }
+      ]
+    },
+    {
+      "id": "lambdas",
+      "title": "Lambdas",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
+      "prerequisites": [
+        {
+          "reason": "Some of the advanced topics in this lesson make reference to the JVM's memory model",
+          "topicId": "runtime",
+          "lessonId": "memory"
+        }
+      ]
     },
     {
       "id": "scopes",
       "title": "Scopes and Namespaces",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/IOnttJYoj_4",
       "duration": 9,
       "prerequisites": [
@@ -91,10 +96,16 @@
     {
       "id": "primitives",
       "title": "Primitives",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 22,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "variables",
+      "title": "Variables",
+      "authorIds": ["jon-pretty"],
+      "duration": 15,
       "prerequisites": [],
       "comingSoon": true
     }

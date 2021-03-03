@@ -5,9 +5,7 @@
     {
       "id": "simple",
       "title": "Simple matching",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 8,
       "video": "https://www.youtube.com/embed/rhhkLMfyysA",
       "prerequisites": [
@@ -21,27 +19,21 @@
     {
       "id": "destructuring",
       "title": "Structural Matching",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/C-PI5HXlPTE",
       "duration": 14
     },
     {
       "id": "syntax",
       "title": "Pattern Syntax",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/dnSr2Ky3JxY",
       "duration": 15
     },
     {
       "id": "collections",
       "title": "Matching on Collections",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 12,
       "video": "https://www.youtube.com/embed/Mobst4aunLk",
       "prerequisites": [
@@ -55,11 +47,23 @@
     {
       "id": "exhaustivity",
       "title": "Exhaustivity",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 10,
       "video": "https://www.youtube.com/embed/8t8CQNXgdXo"
+    },
+    {
+      "id": "gadts",
+      "title": "GADTs",
+      "authorIds": ["jon-pretty"],
+      "duration": 25,
+      "comingSoon": true
+    }
+    {
+      "id": "matchtypes",
+      "title": "Match Types",
+      "authorIds": ["jon-pretty"],
+      "duration": 16,
+      "comingSoon": true
     }
   ]
 }

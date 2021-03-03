@@ -5,9 +5,7 @@
     {
       "id": "static",
       "title": "Static vs Dynamic",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/eupgcKTO6AY",
       "duration": 10
     },
@@ -21,9 +19,7 @@
     {
       "id": "hashing",
       "title": "Hashing",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 16,
       "video": "https://www.youtube.com/embed/p1qh7HoXxOA",
       "prerequisites": [
@@ -33,6 +29,30 @@
           "lessonId": "classes"
         }
       ]
+    },
+    {
+      "id": "recursion",
+      "title": "Recursion",
+      "authorIds": ["jon-pretty"],
+      "duration": 16,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "reftrans",
+      "title": "Referential Transparency",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "complexity",
+      "title": "Computational Complexity",
+      "authorIds": ["jon-pretty"],
+      "duration": 28,
+      "prerequisites": [],
+      "comingSoon": true
     }
   ]
 }

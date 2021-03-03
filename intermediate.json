@@ -5,47 +5,57 @@
     {
       "topicId": "types",
       "lessonStart": "casting",
-      "lessonEnd": "wildcards"
+      "lessonEnd": "dependentmethods"
     },
     {
       "topicId": "patterns",
       "lessonStart": "collections",
-      "lessonEnd": "exhaustivity"
+      "lessonEnd": "matchtypes"
     },
     {
       "topicId": "foundations",
       "lessonStart": "functions",
-      "lessonEnd": "primitives"
+      "lessonEnd": "variables"
     },
     {
       "topicId": "templates",
       "lessonStart": "traits",
-      "lessonEnd": "inheritance"
+      "lessonEnd": "selftypes"
     },
     {
       "topicId": "runtime",
       "lessonStart": "stack",
-      "lessonEnd": "threads"
+      "lessonEnd": "decompilation"
     },
     {
       "topicId": "collections",
       "lessonStart": "methods",
-      "lessonEnd": "methods"
+      "lessonEnd": "mutable"
     },
     {
       "topicId": "data",
       "lessonStart": "enums2",
-      "lessonEnd": "enums2"
+      "lessonEnd": "stringcontext"
+    },
+    {
+      "topicId": "context",
+      "lessonStart": "givens",
+      "lessonEnd": "extensions"
     },
     {
       "topicId": "concepts",
       "lessonStart": "floatingpoint",
-      "lessonEnd": "hashing"
+      "lessonEnd": "complexity"
     },
     {
       "topicId": "fors",
       "lessonStart": "monads",
-      "lessonEnd": "monads"
+      "lessonEnd": "laws"
+    },
+    {
+      "topicId": "metaprogramming",
+      "lessonStart": "inlines",
+      "lessonEnd": "macros"
     }
   ]
 }
