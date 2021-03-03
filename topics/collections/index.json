@@ -38,7 +38,7 @@
       "comingSoon": true
     },
     {
-      "id": "mutabable",
+      "id": "mutable",
       "title": "Mutable Collections",
       "authorIds": ["jon-pretty"],
       "duration": 19,
