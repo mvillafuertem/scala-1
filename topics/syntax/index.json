@@ -5,11 +5,23 @@
     {
       "id": "underscore",
       "title": "The Underscore",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 17,
       "video": "https://www.youtube.com/embed/ZHKOhOp1HT8"
+    },
+    {
+      "id": "whitespace",
+      "title": "Meaningful Whitespace",
+      "authorIds": ["jon-pretty"],
+      "duration": 17,
+      "comingSoon": true
+    },
+    {
+      "id": "keywords",
+      "title": "Scala Keywords",
+      "authorIds": ["jon-pretty"],
+      "duration": 16,
+      "comingSoon": true
     }
   ]
 }

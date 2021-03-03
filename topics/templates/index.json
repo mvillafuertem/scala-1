@@ -5,9 +5,7 @@
     {
       "id": "objects",
       "title": "Objects",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/72l8Kmwhlk4",
       "duration": 11,
       "prerequisites": [
@@ -26,18 +24,14 @@
     {
       "id": "classes",
       "title": "Classes",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 12,
       "video": "https://www.youtube.com/embed/LQtROAUWfYU"
     },
     {
       "id": "traits",
       "title": "Traits",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 20,
       "video": "https://www.youtube.com/embed/hrT33GtAP_A",
       "prerequisites": [
@@ -51,13 +45,48 @@
     {
       "id": "inheritance",
       "title": "Inheritance",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 11,
       "video": "https://www.youtube.com/embed/5uAkpxI-GUk",
+      "prerequisites": []
+    },
+    {
+      "id": "overriding",
+      "title": "Overriding",
+      "authorIds": ["jon-pretty"],
+      "duration": 11,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "overloading",
+      "title": "Overloading and Resolution",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "variances",
+      "title": "Declaring Variance",
+      "authorIds": ["jon-pretty"],
+      "duration": 13,
+      "comingSoon": true,
       "prerequisites": [
+        {
+          "reason": "we need to first understand how variance affects the subtyping relationship between types",
+          "topicId": "types",
+          "lessonId": "variance"
+        }
       ]
+    },
+    {
+      "id": "selftypes",
+      "title": "Self-types",
+      "authorIds": ["jon-pretty"],
+      "duration": 13,
+      "prerequisites": [],
+      "comingSoon": true
     }
   ]
 }

@@ -1,0 +1,62 @@
+{
+  "name": "Metaprogramming",
+  "desc": "Metaprogramming in Scala",
+  "lessons": [
+    {
+      "id": "basics",
+      "title": "Basics",
+      "authorIds": ["jon-pretty"],
+      "duration": 10,
+      "comingSoon": true
+    },
+    {
+      "id": "inlines",
+      "title": "Inlining methods",
+      "authorIds": ["jon-pretty"],
+      "duration": 21,
+      "comingSoon": true
+    },
+    {
+      "id": "asts",
+      "title": "Abstract Syntax Trees",
+      "authorIds": ["jon-pretty"],
+      "duration": 23,
+      "comingSoon": true
+    },
+    {
+      "id": "macros",
+      "title": "Macros",
+      "authorIds": ["jon-pretty"],
+      "duration": 23,
+      "comingSoon": true
+    },
+    {
+      "id": "quotes",
+      "title": "Quotes and Splices",
+      "authorIds": ["jon-pretty"],
+      "duration": 16,
+      "comingSoon": true
+    },
+    {
+      "id": "phases",
+      "title": "Phase Consistency",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
+      "comingSoon": true
+    },
+    {
+      "id": "typereprs",
+      "title": "Types and their Representation",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
+      "comingSoon": true
+    },
+    {
+      "id": "transparent",
+      "title": "Transparent Inlining",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
+      "comingSoon": true
+    }
+  ]
+}

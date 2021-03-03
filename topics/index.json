@@ -6,6 +6,8 @@
     "patterns",
     "collections",
     "concepts",
+    "context",
+    "metaprogramming",
     "runtime",
     "data",
     "syntax",

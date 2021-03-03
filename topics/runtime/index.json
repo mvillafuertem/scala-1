@@ -5,9 +5,7 @@
     {
       "id": "jvm",
       "title": "The JVM",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 12,
       "video": "https://www.youtube.com/embed/6xe4bmJF-JM",
       "prerequisites": [
@@ -16,9 +14,7 @@
     {
       "id": "memory",
       "title": "The Memory Model",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 14,
       "video": "https://www.youtube.com/embed/kA4CtzUoCvU",
       "prerequisites": [
@@ -32,9 +28,7 @@
     {
       "id": "stack",
       "title": "The Execution Stack",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 15,
       "video": "https://www.youtube.com/embed/es68rZbORoc",
       "prerequisites": [
@@ -49,17 +43,23 @@
       "id": "threads",
       "title": "Threads",
       "video": "https://www.youtube.com/embed/0OYNrUtc_vA",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 15,
       "prerequisites": [
         {
-          "reason": "Java's memory stores objects, so we need to understand them first",
+          "reason": "we will be defining threads by inheritance, so this must be understood first",
           "topicId": "templates",
           "lessonId": "inheritance"
         }
       ]
+    },
+    {
+      "id": "decompilation",
+      "title": "Decompilation",
+      "authorIds": ["jon-pretty"],
+      "duration": 22,
+      "prerequisites": [],
+      "comingSoon": true
     }
   ]
 }

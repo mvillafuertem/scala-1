@@ -10,17 +10,22 @@
     {
       "topicId": "concepts",
       "lessonStart": "static",
-      "lessonEnd": "hashing"
+      "lessonEnd": "reftrans"
     },
     {
       "topicId": "templates",
       "lessonStart": "objects",
-      "lessonEnd": "inheritance"
+      "lessonEnd": "overriding"
+    },
+    {
+      "topicId": "context",
+      "lessonStart": "givens",
+      "lessonEnd": "using"
     },
     {
       "topicId": "types",
       "lessonStart": "basics",
-      "lessonEnd": "wildcards"
+      "lessonEnd": "intersections"
     },
     {
       "topicId": "patterns",
@@ -30,17 +35,22 @@
     {
       "topicId": "collections",
       "lessonStart": "basics",
-      "lessonEnd": "methods"
+      "lessonEnd": "maps"
     },
     {
       "topicId": "data",
       "lessonStart": "enums",
-      "lessonEnd": "enums2"
+      "lessonEnd": "equality"
     },
     {
       "topicId": "runtime",
       "lessonStart": "jvm",
       "lessonEnd": "threads"
+    },
+    {
+      "topicId": "metaprogramming",
+      "lessonStart": "basics",
+      "lessonEnd": "basics"
     },
     {
       "topicId": "fors",
@@ -50,7 +60,7 @@
     {
       "topicId": "syntax",
       "lessonStart": "underscore",
-      "lessonEnd": "underscore"
+      "lessonEnd": "keywords"
     }
   ]
 }

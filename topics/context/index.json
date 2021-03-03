@@ -1,0 +1,35 @@
+{
+  "name": "Context",
+  "desc": "Using given context",
+  "lessons": [
+    {
+      "id": "givens",
+      "title": "Given Context",
+      "authorIds": ["jon-pretty"],
+      "duration": 17,
+      "comingSoon": true,
+      "prerequisites": [
+        {
+          "reason": "we need to understand how given context is resolved by its type",
+          "topicId": "types",
+          "lessonId": "hierarchy"
+        }
+      ]
+    },
+    {
+      "id": "using",
+      "title": "Using Context",
+      "authorIds": ["jon-pretty"],
+      "duration": 17,
+      "comingSoon": true,
+      "prerequisites": []
+    },
+    {
+      "id": "extensions",
+      "title": "Extension methods",
+      "authorIds": ["jon-pretty"],
+      "duration": 15,
+      "comingSoon": true
+    }
+  ]
+}

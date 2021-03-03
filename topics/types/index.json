@@ -5,9 +5,7 @@
     {
       "id": "basics",
       "title": "Basics",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/G2oyqW8VyqM",
       "duration": 12,
       "prerequisites": [
@@ -26,9 +24,7 @@
     {
       "id": "subtyping",
       "title": "Subtyping",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 12,
       "video": "https://www.youtube.com/embed/wfTM_0sxqsA",
       "prerequisites": [
@@ -42,38 +38,72 @@
     {
       "id": "casting",
       "title": "Casting",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "video": "https://www.youtube.com/embed/Z_RUJ9ApUzI",
       "duration": 14
     },
     {
       "id": "hierarchy",
       "title": "The Type Hierarchy",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 14,
       "video": "https://www.youtube.com/embed/AYvkAHqHEzk"
     },
     {
       "id": "generics",
       "title": "Generic Types",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 13,
       "video": "https://www.youtube.com/embed/rqovDkKmGP8"
     },
     {
       "id": "wildcards",
       "title": "Wildcard Types",
-      "authorIds": [
-        "jon-pretty"
-      ],
+      "authorIds": ["jon-pretty"],
       "duration": 13,
       "video": "https://www.youtube.com/embed/20RRooLvzRs"
+    },
+    {
+      "id": "unions",
+      "title": "Union types",
+      "authorIds": ["jon-pretty"],
+      "duration": 22,
+      "comingSoon": true
+    },
+    {
+      "id": "intersections",
+      "title": "Intersection types",
+      "authorIds": ["jon-pretty"],
+      "duration": 19,
+      "comingSoon": true
+    },
+    {
+      "id": "variance",
+      "title": "Variance",
+      "authorIds": ["jon-pretty"],
+      "duration": 21,
+      "comingSoon": true
+    },
+    {
+      "id": "projections",
+      "title": "Projection types",
+      "authorIds": ["jon-pretty"],
+      "duration": 11,
+      "comingSoon": true
+    },
+    {
+      "id": "contravariance",
+      "title": "Contravariance",
+      "authorIds": ["jon-pretty"],
+      "duration": 21,
+      "comingSoon": true
+    },
+    {
+      "id": "dependentmethods",
+      "title": "Dependent Methods",
+      "authorIds": ["jon-pretty"],
+      "duration": 19,
+      "comingSoon": true
     }
   ]
 }
