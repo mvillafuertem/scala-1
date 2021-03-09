@@ -31,6 +31,19 @@
       ]
     },
     {
+      "id": "encodings",
+      "title": "Character Encodings",
+      "authorIds": ["jon-pretty"],
+      "duration": 25,
+      "prerequisites": [
+        {
+          "reason": "we first need to know how strings work in Scala",
+          "topicId": "foundations",
+          "lessonId": "strings"
+        }
+      ]
+    },
+    {
       "id": "recursion",
       "title": "Recursion",
       "authorIds": ["jon-pretty"],
