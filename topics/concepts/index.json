@@ -35,6 +35,7 @@
       "title": "Character Encodings",
       "authorIds": ["jon-pretty"],
       "duration": 25,
+      "video": "https://www.youtube.com/embed/hI3m7q6ZwnM",
       "prerequisites": [
         {
           "reason": "we first need to know how strings work in Scala",

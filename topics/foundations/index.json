@@ -78,6 +78,7 @@
       "title": "Lambdas",
       "authorIds": ["jon-pretty"],
       "duration": 18,
+      "video": "https://www.youtube.com/embed/IMeiRxmQJss",
       "prerequisites": [
         {
           "reason": "Some of the advanced topics in this lesson make reference to the JVM's memory model",
