@@ -60,10 +60,26 @@
       "comingSoon": true
     },
     {
+      "id": "binary",
+      "title": "Binary",
+      "authorIds": ["jon-pretty"],
+      "duration": 19,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
       "id": "hex",
-      "title": "Hexadecimal",
+      "title": "Hexadecimal Numbers",
       "authorIds": ["jon-pretty"],
       "duration": 14,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "tailrec",
+      "title": "Tail Recursion",
+      "authorIds": ["jon-pretty"],
+      "duration": 22,
       "prerequisites": [],
       "comingSoon": true
     },

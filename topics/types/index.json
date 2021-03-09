@@ -99,10 +99,31 @@
       "comingSoon": true
     },
     {
+      "id": "stability",
+      "title": "Value Stability",
+      "authorIds": ["jon-pretty"],
+      "duration": 15,
+      "comingSoon": true
+    },
+    {
+      "id": "singletons",
+      "title": "Singleton Types",
+      "authorIds": ["jon-pretty"],
+      "duration": 14,
+      "comingSoon": true
+    },
+    {
       "id": "dependentmethods",
       "title": "Dependent Methods",
       "authorIds": ["jon-pretty"],
       "duration": 19,
+      "comingSoon": true
+    },
+    {
+      "id": "polykinded",
+      "title": "Poly-kinded Types",
+      "authorIds": ["jon-pretty"],
+      "duration": 14,
       "comingSoon": true
     }
   ]

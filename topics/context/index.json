@@ -17,6 +17,21 @@
       ]
     },
     {
+      "id": "typeclasses",
+      "title": "Typeclasses",
+      "authorIds": ["jon-pretty"],
+      "duration": 15,
+      "comingSoon": true
+    },
+    {
+      "id": "contextbounds",
+      "title": "Context Bounds",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
+      "comingSoon": true,
+      "prerequisites": []
+    },
+    {
       "id": "using",
       "title": "Using Context",
       "authorIds": ["jon-pretty"],
@@ -25,10 +40,39 @@
       "prerequisites": []
     },
     {
+      "id": "resolution",
+      "title": "Given Resolution",
+      "authorIds": ["jon-pretty"],
+      "duration": 17,
+      "comingSoon": true,
+      "prerequisites": []
+    },
+    {
       "id": "extensions",
-      "title": "Extension methods",
+      "title": "Extension Methods",
       "authorIds": ["jon-pretty"],
       "duration": 15,
+      "comingSoon": true
+    },
+    {
+      "id": "contextfunctions",
+      "title": "Context Functions",
+      "authorIds": ["jon-pretty"],
+      "duration": 20,
+      "comingSoon": true
+    },
+    {
+      "id": "typeclasses2",
+      "title": "Advanced Typeclasses",
+      "authorIds": ["jon-pretty"],
+      "duration": 25,
+      "comingSoon": true
+    },
+    {
+      "id": "derivation",
+      "title": "Typeclass Derivation",
+      "authorIds": ["jon-pretty"],
+      "duration": 25,
       "comingSoon": true
     }
   ]

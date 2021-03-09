@@ -43,6 +43,13 @@
       "authorIds": ["jon-pretty"],
       "duration": 19,
       "comingSoon": true
+    },
+    {
+      "id": "streams",
+      "title": "Streams",
+      "authorIds": ["jon-pretty"],
+      "duration": 22,
+      "comingSoon": true
     }
   ]
 }
