@@ -222,7 +222,7 @@ another.
 2. `String("Café".getBytes("ISO-8859-1"), "UTF-8")` produces a string, `"Caf "`, containing an unprintable
    character at the end which looks like a space.
 
-Since these incorrect encodings both appear frequently, it's useful to learn to identify them, as thsi can be
+Since these incorrect encodings both appear frequently, it's useful to learn to identify them, as this can be
 the first step towards identifying the source of the problem.
 
 Of course, the spurious characters in the example above, `Ä©`, or equivalently the missing characters, are not
