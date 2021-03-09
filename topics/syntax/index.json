@@ -41,7 +41,14 @@
       "id": "dynamic",
       "title": "Dynamic Objects",
       "authorIds": ["jon-pretty"],
-      "duration": 21,
+      "duration": 11,
+      "comingSoon": true
+    },
+    {
+      "id": "sam",
+      "title": "Single Abstract Method Types",
+      "authorIds": ["jon-pretty"],
+      "duration": 15,
       "comingSoon": true
     },
     {
