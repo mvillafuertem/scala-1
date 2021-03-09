@@ -60,6 +60,14 @@
       "comingSoon": true
     },
     {
+      "id": "hex",
+      "title": "Hexadecimal",
+      "authorIds": ["jon-pretty"],
+      "duration": 14,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
       "id": "complexity",
       "title": "Computational Complexity",
       "authorIds": ["jon-pretty"],
