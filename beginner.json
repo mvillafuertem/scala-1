@@ -48,11 +48,6 @@
       "lessonEnd": "threads"
     },
     {
-      "topicId": "metaprogramming",
-      "lessonStart": "basics",
-      "lessonEnd": "basics"
-    },
-    {
       "topicId": "fors",
       "lessonStart": "options",
       "lessonEnd": "monads"
@@ -60,7 +55,7 @@
     {
       "topicId": "syntax",
       "lessonStart": "underscore",
-      "lessonEnd": "keywords"
+      "lessonEnd": "sugar"
     }
   ]
 }

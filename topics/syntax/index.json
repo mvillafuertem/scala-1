@@ -22,6 +22,34 @@
       "authorIds": ["jon-pretty"],
       "duration": 16,
       "comingSoon": true
+    },
+    {
+      "id": "blocks",
+      "title": "Code blocks",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
+      "comingSoon": true
+    },
+    {
+      "id": "sugar",
+      "title": "Syntactic Sugar",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
+      "comingSoon": true
+    },
+    {
+      "id": "dynamic",
+      "title": "Dynamic Objects",
+      "authorIds": ["jon-pretty"],
+      "duration": 21,
+      "comingSoon": true
+    },
+    {
+      "id": "parsing",
+      "title": "Parsing",
+      "authorIds": ["jon-pretty"],
+      "duration": 21,
+      "comingSoon": true
     }
   ]
 }
