@@ -15,7 +15,7 @@
     {
       "topicId": "foundations",
       "lessonStart": "lambdas",
-      "lessonEnd": "params"
+      "lessonEnd": "byname"
     },
     {
       "topicId": "templates",

@@ -117,10 +117,26 @@
       "comingSoon": true
     },
     {
+      "id": "varargs",
+      "title": "Repeated Parameters",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
+      "prerequisites": [],
+      "comingSoon": true
+    }
+    {
       "id": "params",
       "title": "Named and Default Parameters",
       "authorIds": ["jon-pretty"],
       "duration": 22,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "byname",
+      "title": "By-name Parameters",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
       "prerequisites": [],
       "comingSoon": true
     }
