@@ -1,6 +1,6 @@
 {
   "name": "Intermediate Scala",
-  "desc": "Scala from for developers who already have some experience",
+  "desc": "Scala for developers who already have some experience",
   "ranges": [
     {
       "topicId": "types",
@@ -10,22 +10,22 @@
     {
       "topicId": "patterns",
       "lessonStart": "collections",
-      "lessonEnd": "matchtypes"
+      "lessonEnd": "exhaustivity"
     },
     {
       "topicId": "foundations",
-      "lessonStart": "functions",
-      "lessonEnd": "variables"
+      "lessonStart": "lambdas",
+      "lessonEnd": "params"
     },
     {
       "topicId": "templates",
       "lessonStart": "traits",
-      "lessonEnd": "selftypes"
+      "lessonEnd": "variances"
     },
     {
       "topicId": "runtime",
       "lessonStart": "stack",
-      "lessonEnd": "decompilation"
+      "lessonEnd": "erasure"
     },
     {
       "topicId": "collections",
@@ -35,7 +35,7 @@
     {
       "topicId": "data",
       "lessonStart": "enums2",
-      "lessonEnd": "stringcontext"
+      "lessonEnd": "equality"
     },
     {
       "topicId": "context",
@@ -50,17 +50,17 @@
     {
       "topicId": "fors",
       "lessonStart": "monads",
-      "lessonEnd": "laws"
+      "lessonEnd": "transformation"
     },
     {
       "topicId": "metaprogramming",
       "lessonStart": "basics",
-      "lessonEnd": "macros"
+      "lessonEnd": "inlines"
     },
     {
       "topicId": "syntax",
-      "lessonStart": "underscore",
-      "lessonEnd": "underscore"
+      "lessonStart": "sugar",
+      "lessonEnd": "dynamic"
     }
   ]
 }

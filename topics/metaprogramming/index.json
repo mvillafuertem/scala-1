@@ -57,6 +57,13 @@
       "authorIds": ["jon-pretty"],
       "duration": 18,
       "comingSoon": true
+    },
+    {
+      "id": "staging",
+      "title": "Staging",
+      "authorIds": ["jon-pretty"],
+      "duration": 25,
+      "comingSoon": true
     }
   ]
 }

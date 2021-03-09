@@ -10,6 +10,13 @@
       "duration": 9
     },
     {
+      "id": "running",
+      "title": "Installing and Running Scala",
+      "authorIds": ["jon-pretty"],
+      "duration": 20,
+      "comingSoon": true
+    },
+    {
       "id": "expressions",
       "title": "Expressions and Statements",
       "authorIds": ["jon-pretty"],
@@ -106,6 +113,14 @@
       "title": "Variables",
       "authorIds": ["jon-pretty"],
       "duration": 15,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "params",
+      "title": "Named and Default Parameters",
+      "authorIds": ["jon-pretty"],
+      "duration": 22,
       "prerequisites": [],
       "comingSoon": true
     }

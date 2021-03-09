@@ -54,6 +54,14 @@
       ]
     },
     {
+      "id": "erasure",
+      "title": "Type Erasure",
+      "authorIds": ["jon-pretty"],
+      "duration": 22,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
       "id": "decompilation",
       "title": "Decompilation",
       "authorIds": ["jon-pretty"],

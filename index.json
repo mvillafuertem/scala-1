@@ -1,6 +1,7 @@
 {
   "name": "Learning to code in Scala",
   "levels": [
+    "advanced",
     "intermediate",
     "beginner"
   ],
@@ -10,7 +11,7 @@
   "language": "English",
   "scope": [
     "Learn Scala 3 syntax",
-    "Explore the Scala type system",
+    "Explore Scala's type system",
     "Write functional code",
     "Understand the JVM runtime"
   ],
