@@ -123,7 +123,7 @@
       "duration": 12,
       "prerequisites": [],
       "comingSoon": true
-    }
+    },
     {
       "id": "params",
       "title": "Named and Default Parameters",
@@ -137,6 +137,22 @@
       "title": "By-name Parameters",
       "authorIds": ["jon-pretty"],
       "duration": 12,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "tuples",
+      "title": "Tuples",
+      "authorIds": ["jon-pretty"],
+      "duration": 12,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
+      "id": "hlists",
+      "title": "Heterogeneous Lists",
+      "authorIds": ["jon-pretty"],
+      "duration": 18,
       "prerequisites": [],
       "comingSoon": true
     }

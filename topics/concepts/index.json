@@ -60,6 +60,14 @@
       "comingSoon": true
     },
     {
+      "id": "tailrec",
+      "title": "Tail Recursion",
+      "authorIds": ["jon-pretty"],
+      "duration": 28,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
       "id": "complexity",
       "title": "Computational Complexity",
       "authorIds": ["jon-pretty"],

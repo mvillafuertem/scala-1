@@ -59,6 +59,14 @@
       "comingSoon": true
     },
     {
+      "id": "companions",
+      "title": "Companion Objects",
+      "authorIds": ["jon-pretty"],
+      "duration": 11,
+      "prerequisites": [],
+      "comingSoon": true
+    },
+    {
       "id": "overloading",
       "title": "Overloading and Resolution",
       "authorIds": ["jon-pretty"],

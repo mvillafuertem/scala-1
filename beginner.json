@@ -5,7 +5,7 @@
     {
       "topicId": "foundations",
       "lessonStart": "introduction",
-      "lessonEnd": "byname"
+      "lessonEnd": "tuples"
     },
     {
       "topicId": "concepts",

@@ -23,6 +23,11 @@
       "lessonEnd": "decompilation"
     },
     {
+      "topicId": "foundations",
+      "lessonStart": "hlists",
+      "lessonEnd": "hlists"
+    },
+    {
       "topicId": "collections",
       "lessonStart": "streams",
       "lessonEnd": "streams"
@@ -39,7 +44,7 @@
     },
     {
       "topicId": "concepts",
-      "lessonStart": "complexity",
+      "lessonStart": "tailrec",
       "lessonEnd": "complexity"
     },
     {
