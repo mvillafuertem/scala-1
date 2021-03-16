@@ -49,7 +49,8 @@ r("Beta") = "Delta"
 ```
 
 This can appear to be more intuitively updating the `"Beta"` key to the value `"Delta"`, while in our example,
-the actual modification taking place inside the `Relations` object just prepends a descriptive string to a list.
+the actual modification taking place inside the `Relations` object just prepends a descriptive string to a
+list—there are no constraints on the exact nature of an `update` method's implementation.
 
 More generally, an `update` method may take as few as a single parameter, or as many as we like, and while the
 last parameter will always correspond to the right-hand side of the assignment, any parameters which come before
@@ -78,15 +79,14 @@ Field.update(8)
 
 The transformation is carried out somewhat naïvely by the compiler, so details such as types and overloading are
 not taken into account when desugaring an apparent assignment (only "apparent", as the left-hand side of a real
-assignment must be an identifier, and not a term with parentheses) into an `update` invocation.
+assignment must be a simple identifier, and not a term with parentheses) into an `update` invocation.
 
 But this naïvity brings flexibility: it means that an `update` method may be defined in any way for which the
 desugared code will compile. This permits other Scala features such as `using` parameter blocks, inferred type
-parameters, or repeated arguments to be included in the definition.
+parameters, or repeated arguments to be included in the definition. By virtue of this same flexibility, an
+`update` method can also return a value, even though `Unit` is a more typical return type.
 
-By virtue of the same flexibility, an `update` method can also return a value.
-
-Scala's mutable `Map` collections are a particularly good example of this syntax.
+Scala's mutable `Map` collections are the most common example of this syntax.
 
 ## Setters
 
@@ -103,12 +103,13 @@ log the number of times it is called, and a setter could perform some transforma
 storing it, or could update a cache.
 
 A getter is really nothing more than a method, and in Scala there's no convention to name a getter method with
-the prefix `get`. So a getter method called that would be called `getValue` would just be called `value` in
-Scala.
+the prefix `get`. So a getter method called that would be traditionally called `getValue` in Java would just be
+called `value` in Scala.
 
-However a setter method called `setValue` would be named `value_=`. Although this may look like an odd name, it
-is just that: a name. The `_=` at the end is part of the identifier, and relies on Scala's ability to combine
-alphanumeric and symbolic characters in the same identifier _only_ when there is an underscore between them.
+However a setter method called `setValue` in Java would be named `value_=`. Although this may look like an odd
+name, it is just that: a name. The `_=` at the end is part of the identifier, and relies on Scala's ability to
+combine alphanumeric and symbolic characters in the same identifier _only_ when there is an underscore between
+them.
 
 Here's how the getter and setter might look in an object definition:
 ```scala
@@ -129,13 +130,14 @@ be invoked using assignment syntax, so,
 ```scala
 Cell.value = 4
 ```
-will be interpreted as:
+will be interpreted as a call to:
 ```scala
 Cell.value_=(4)
 ```
 
 Note, however, that the syntactic sugar is enabled _only_ if both a getter method with a name corresponding to
-the setter is defined on the same object.
+the setter is defined on the same object: without an appropriately-named getter definition for `value` on
+`Cell`, the statement `Cell.value = 4` would _not_ desugar.
 
 This allows code which looks like a simple assignment to perform more interesting computations. Although the
 example above is defined on a singleton object, there is nothing to restrict a setter being defined on a class
@@ -153,6 +155,10 @@ unrelated.
 
 While this facility remains possible, we should, of course, try to make our code intuitive for others to use, so
 returning a value other than `()` might not be desirable!
+
+Scala's setter syntax provides similar functionality to its `update` methods. The most distinguishing difference
+is the presence or absence of parentheses on the left-hand side of the `=` symbol, which determines
+unambiguously how an assignment-like statement can desugar.
 
 ## Unary methods
 
@@ -178,7 +184,7 @@ and use it as follows,
 val x = Complex(2.8, -1.1)
 val y = ~x
 ```
-and Scala would transform the definition of `y` to,
+where Scala would transform the definition of `y` to,
 ```scala
 val y = x.unary_~
 ```
@@ -207,8 +213,8 @@ and,
 x = x*2
 ```
 
-But there is syntactic sugar for performing these operations which avoids repeating the variable name twice,
-provided the variable we are mutating appears as the _first operand_ of a _symbolic_ operator.
+But there is syntactic sugar for performing these operations which avoids repeating the variable identifier
+twice, provided the variable we are mutating appears as the _first operand_ of a _symbolic_ operator.
 
 Instead of the examples above, we can write,
 ```scala
@@ -231,10 +237,19 @@ So, prepending an element to a `List[Int]` variable could be achieved with,
 var xs: List[Int] = List(2, 3)
 xs ::= 1
 ```
+which would desugar to,
+```scala
+xs = xs.::(1)
+```
+which is the same as,
+```scala
+xs = 1 :: xs
+```
+when the `::` operator is written in more typical infix-style.
 
-This syntactic sugar relies on one further criterion in order to be applied: the value we are mutating must
-_not_ already have a method with the same name as the mutation operator, otherwise it will be prioritized over
-the syntactic sugar.
+This syntactic sugar relies on one further criterion in order to be applicable: the value we are mutating must
+_not_ already have a method with the same name as the mutation operator, otherwise that operator will be
+prioritized over the syntactic sugar.
 
 ## Orthogonality
 
@@ -259,9 +274,12 @@ field("epsilon") -= value
 ```
 would become,
 ```scala
-field.update("epsilon", field("epsilon") - value)
+field.update("epsilon", field.apply("epsilon") - value)
 ```
 provided, of course, that there is no operator called `-=` defined directly on the return type of `field.apply`!
+
+In our example, `"epsilon"` is a pure literal string, but whatever expressions are used for the keys to the
+desugared `update` and `apply` methods will be used twice, but evaluated only once.
 
 ## Summary
 
@@ -271,7 +289,6 @@ statements and expressions are being interpreted.
 
 But the transformations rely only on local reasoning, and by design they are all intuitive: they provide
 flexibility to library designers to enable more usable APIs.
-
 
 ?---?
 
@@ -298,7 +315,7 @@ Bag.elements_=(Bag.elements ~ y.unary_-.unary_+)
 ```
 
 - [ ] `Bag.elements = ~(+(-y))`
-- [ ] `Bag.elements ~= -y)`
+- [ ] `Bag.elements ~= +-y`
 - [ ] `Bag.elements = Bag.elements + -y`
 - [X] `Bag.elements ~= +(-y)`
 - [ ] `Bag.elements = Bag.elements +(-y)`
