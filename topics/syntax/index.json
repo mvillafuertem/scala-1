@@ -34,8 +34,7 @@
       "id": "sugar",
       "title": "Syntactic Sugar",
       "authorIds": ["jon-pretty"],
-      "duration": 18,
-      "comingSoon": true
+      "duration": 18
     },
     {
       "id": "dynamic",
