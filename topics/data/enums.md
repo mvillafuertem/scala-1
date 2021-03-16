@@ -40,7 +40,7 @@ virtue of the `enum` definition. So we would need to refer to `Activity.Dormant`
 in general. But it would not be unusual to import these values into a scope to make the code less verbose, like so:
 
 ```scala
-import Activity._
+import Activity.*
 ```
 
 or more explicitly,
