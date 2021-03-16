@@ -107,7 +107,7 @@ accessible at any point within our code.
 ```scala
 val button: Boolean = true
 object App:
-   import Events._
+   import Events.*
    def myButton: Boolean = button
    def run(): Unit = println(myButton)
 ```

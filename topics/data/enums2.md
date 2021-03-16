@@ -150,7 +150,7 @@ enum Temporal:
    case Date(year: Int, month: Int, day: Int)
    case Datetime(date: Date, time: Time)
 
-import Temporal._
+import Temporal.*
 ```
 
 Which of the following are valid instantiations of the type `Temporal`?
