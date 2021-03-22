@@ -186,10 +186,10 @@ return type of the `as` method!
 That return type is specified as the right-hand side of the `Return[K, V]` type member within each typeclass
 instance, but the choice is not dependent on the polykinded type parameter except by virtue of being defined in
 its corresponding given instance: it is only by convention that we have specified return types which feature the
-polykinded type parameter. We could have returned an entirely different type.
+polykinded type parameter. In each case, we could have returned an entirely different type.
 
 And this is because there is simply no way to assimiliate a polykinded type with another type. We can only
-introduce a relationship between one type and another through a typeclass interface.
+introduce a relationship between a polykinded type and a type whose kind is known through a typeclass interface.
 
 ## `AnyKind`
 
@@ -199,6 +199,11 @@ not even specific about its kind (whereas at least `Any` is known to be a proper
 This is a slight special case in Scala's syntax, since, by default, any type parameter's upper bound will be
 `Any`. But `AnyKind` is a supertype of `Any`, and under normal circumstances, in the presence of two distinct
 upper bounds on a type, the more precise of the two would be chosen. Yet, when `AnyKind` is specified, instead
-of being subsumed into `Any`, it _overrides_ the default upper bound of `Any`.
+of being subsumed into `Any`, it _overrides_ the default upper bound of `Any`, widening the type parameter
+relative to its default.
 
-The type `AnyKind` itself has no members, since these may not even exist on improper types.
+The type `AnyKind` itself has no members, since these cannot even exist on improper types.
+
+?---?
+
+# 
