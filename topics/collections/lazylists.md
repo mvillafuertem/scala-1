@@ -14,9 +14,10 @@ creation, but their mutable nature can bring its own challenges.
 There does exist, in fact, a data structure which is both immutable and whose elements need not be fully
 specified at the moment of its construction: `LazyList`.
 
-A data structure which combines immutability without being fully-specified may seem like a contradiction, but it
-is not! A `LazyList` is conceptually and structurally very similar to a `List`, but its value—either an empty
-`LazyList` or the "cons" of a head value to a `LazyList` tail—is not calculated until it is needed.
+A data structure which combines immutability with the lack of a full specification may seem like a
+contradiction, but it is not! A `LazyList` is conceptually and structurally very similar to a `List`, but its
+value—either an empty `LazyList` or the "cons" of a head value to a `LazyList` tail—is not calculated until it
+is needed.
 
 So effectively, a `LazyList` is a reference to a function which, the first time it is accessed, will calculate
 the `LazyList`'s head and tail member values for that instance (or could potentially calculate the empty
