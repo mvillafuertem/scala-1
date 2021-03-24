@@ -234,7 +234,7 @@ But in any case, Scala accommodates both.
 
 ?---?
 
-# The method `intStream()` returns a new `LazyList[Int]` containing a series of integers which we want to add up, according to an agreed protocol for the stream: the first element of the stream will always be the number of subsequent integers that should be added to the total. However, any number of additional elements may appear at the end of the stream which should _not_ be included in the total. The stream may be very large, and we expect that it may produce new elements slowly.
+# Every time the method `intStream()` is called, it returns a new `LazyList[Int]` containing a series of integers which we want to add up, according to an agreed protocol for the stream: the first element of the stream will always be the number of subsequent integers that should be added to the total. However, any number of additional elements may appear at the end of the stream which should _not_ be included in the total. The stream may be very large, and we expect that it may produce new elements slowly.
 
 For example, if we receive the following stream,
 ```scala
