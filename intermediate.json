@@ -30,7 +30,7 @@
     {
       "topicId": "collections",
       "lessonStart": "methods",
-      "lessonEnd": "mutable"
+      "lessonEnd": "lazylists"
     },
     {
       "topicId": "data",
