@@ -234,7 +234,13 @@ But in any case, Scala accommodates both.
 
 ?---?
 
-# The method `intStream()` returns a new `LazyList[Int]` containing a new stream of integers which we need to add up, according to a protocol for the stream: the first element of the stream will always be the number of subsequent integers that should be added to the total, though any number of additional elements may appear at the end of the stream which should not be included in the total. The stream may be very large, and it is acceptable that it may produce new elements slowly.
+# The method `intStream()` returns a new `LazyList[Int]` containing a series of integers which we want to add up, according to an agreed protocol for the stream: the first element of the stream will always be the number of subsequent integers that should be added to the total. However, any number of additional elements may appear at the end of the stream which should _not_ be included in the total. The stream may be very large, and we expect that it may produce new elements slowly.
+
+For example, if we receive the following stream,
+```scala
+Stream(4, 8, 3, 5, 3, 2, 6)
+```
+then we should sum the four numbers, `8`, `3`, `5` and `3` to produce `19`, ignoring `2` and `6` at the end.
 
 Here is a naïve implementation of the method:
 ```scala
@@ -242,8 +248,8 @@ val size: Int = intStream().head
 intStream().tail.take(size).sum
 ```
 
-It produces the correct answer sometimes, but not always. Which two of the following potential problems are
-responsible for the failures?
+It produces the correct answer most of the time, but not always. Which two of the following potential problems
+are responsible for the failures?
 
 * [X] the two calls to `intStream()` may return different `LazyList`s
 * [ ] the call to `intStream().head` may block the current thread
@@ -251,7 +257,7 @@ responsible for the failures?
 * [X] the call to `intStream().head` may fail because the `LazyList` is empty
 
 
-# The method `stream` produces a new, endless `LazyList[Unit]` which prints `"element"` when each element is evaluated, but only on its evaluation. The value `elements` constructs a new `LazyList` using two calls to `stream` and is converted to a strict `List`, _twice_.
+# The method `stream` produces a new, endless `LazyList[Unit]` which prints `"element"` when each element is evaluated, but _only_ when it is evaluated. The value `elements` constructs a new `LazyList` using two calls to `stream` and is converted to a strict `List`, _twice_.
 
 In evaluating the following code,
 ```scala
