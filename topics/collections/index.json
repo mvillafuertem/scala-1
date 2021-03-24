@@ -45,10 +45,16 @@
       "comingSoon": true
     },
     {
-      "id": "streams",
-      "title": "Streams",
+      "id": "lazylists",
+      "title": "Lazy Lists",
       "authorIds": ["jon-pretty"],
-      "duration": 22,
+      "duration": 27
+    },
+    {
+      "id": "streams",
+      "title": "Streaming",
+      "authorIds": ["jon-pretty"],
+      "duration": 21,
       "comingSoon": true
     }
   ]
