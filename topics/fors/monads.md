@@ -126,7 +126,7 @@ In Scala, a type which has both `map` and `flatMap` methods with these signature
 type has a corresponding _monad_, and by this definition, `List` has a monad.
 
 There are a couple of other necessary constraints on how `map` and `flatMap` are defined—"the Monad Laws"—which
-we will look at in detail in a later lesson, but we will can make progress without learning them yet.
+we will look at in detail in a later lesson, but we can make progress without learning them yet.
 
 `Option` is also monadic, and we can define its `map` and `flatMap` operations very easily, by pattern matching
 on each of the cases, like this:
