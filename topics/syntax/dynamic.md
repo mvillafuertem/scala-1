@@ -104,15 +104,15 @@ method invocations with multiple parameters and parameter lists, with named para
 
 The following table describes these transformations.
 
-Original expression                | Transformed expression
------------------------------------|--------------------------------------------------------
-value.member                       | value.selectDynamic("member")
-value.member(param) = newValue     | value.selectDynamic("member").update(param, newValue)
-value.member(param1, param2)       | value.applyDynamic("member")(param1, param2)
-value.member(param1)(param2)       | value.applyDynamic("member")(param1).apply(param2)
-value.member(name = param)         | value.applyDynamicNamed("member")(("name", param))
-value.member(name = param, param2) | value.applyDynamicNamed("member")(("name", 1), ("", 2))
-value.member = newValue            | value.updateDynamic("member")(newValue)
+Original expression                  | Transformed expression
+-------------------------------------|-------------------------------------------------------------------
+`value.member`                       | `value.selectDynamic("member")`
+`value.member(param) = newValue`     | `value.selectDynamic("member").update(param, newValue)`
+`value.member(param1, param2)`       | `value.applyDynamic("member")(param1, param2)`
+`value.member(param1)(param2)`       | `value.applyDynamic("member")(param1).apply(param2)`
+`value.member(name = param)`         | `value.applyDynamicNamed("member")(("name", param))`
+`value.member(name = param, param2)` | `value.applyDynamicNamed("member")(("name", param), ("", param2))`
+`value.member = newValue`            | `value.updateDynamic("member")(newValue)`
 
 Expressions of the form shown on the left of this table will be transformed into the form shown on the right, as
 long as the object `value` is known statically to be a subtype of `Dynamic`, and as long as they would not
