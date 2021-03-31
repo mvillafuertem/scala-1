@@ -1,27 +1,31 @@
-## Dot Notation
+## Dot-Notation
 
-In object-oriented programming, the "dot-notation" which we use to access the members of an object is
-fundamental to how we think about objects and their members. A path written using dot-notation can be thought of
-as an address for accessing a particular object in memory, for example,
+In object-oriented programming, the "dot-notation" which we use to access the members of an object is a
+fundamental part of how we think about objects and their members. A path to an object written in dot-notation
+can be thought of as an address for accessing a particular object in memory.
+
+For example,
 ```scala
 country.city.street
 ```
 would access the `city` member object of `country`, and then the `street` member of that `city`.
 
 And, of course, this syntax corresponds directly to the structure of the `country`, `city` and `street` objects
-as they exist in the JVM's memory, and is often known as _dereferencing_.
+as they exist in memory, each `.` choosing the field of the object containing the reference we should follow,
+and is often known as _dereferencing_.
 
-And since the type of each object is known statically, the Scala compiler can enforce at compiletime the
-restriction that objects may only be dereferenced to members that are known to exist at runtime.
+And since the type of each object is known statically, the Scala compiler can enforce (at compiletime) the
+restriction that only members within an object that are known to exist at runtime may be dereferenced.
 
 And the correspondence between dot-notation in syntax and the structure of objects in memory is normally so
 tight that it may seem surprising to discover that Scala allows a more versatile interpretation of the dot (`.`)
 in dot-notation.
 
-This feature is unexpected enough that it must be first enabled with a language import:
+This feature is unexpected enough that it must be first enabled with a language import,
 ```scala
 import scala.language.dynamics
 ```
+and all the examples in this lesson assume the import is in scope.
 
 ## The `Dynamic` trait
 
@@ -40,12 +44,13 @@ So, given an instance, `pool`, of a class, `Pool`, which is a subtype of `Dynami
 
 Of course, any code which the compiler _accepts_ as valid must compile to _something_. And bytecode which
 attempts to access nonexistent members (either methods or fields) would not only be unacceptable to the JVM, but
-would furthermore be useless!
+would also be useless! What purpose could it possibly serve?
 
 So instead, Scala transforms any attempt to access a nonexistent member of a `Dynamic` object into a call to a
-method which _does_ exist, converting the nonexistent member name into a `String`.
+method which _does_ exist, converting the nonexistent member name into a `String` and passing it as a parameter
+instead.
 
-For the simplest member accesses, the conversion results in a call to a method called `selectDynamic`.
+For the simplest member accesses, the conversion produces a call to a method called `selectDynamic`.
 
 For example, the expression,
 ```scala
@@ -62,10 +67,10 @@ accept a `String` as its only parameter.
 The `selectDynamic` method is not part of an object-oriented interface, though, since `Dynamic` is only a marker
 trait, and its precise signature may vary in a number of ways. It could take type parameters, or given context.
 Its parameter could be typed as `Any`, or it could be defined to take repeated arguments or default arguments,
-even if it is always called with just one.
+even if it is always called with just one argument—the apparent member name.
 
 It could even be implemented as an inner object with an apply method (taking a `String`)! The key requirement is
-that the method `selectDynamic` may be called with a single `String` parameter, and this becomes apparent if we
+that the method `selectDynamic` may be called with a single `String` parameter, and this becomes clear if we
 attempt to access a nonexistent member of a `Dynamic` object which is missing a suitable `selectDynamic`
 implementation.
 
@@ -78,20 +83,21 @@ which is `Dynamic`, but has no `selectDynamic` method, with the attempted invoca
 Container().missing
 ```
 
-The compiler will identify this as an error. Not the error that `missing` is not a member of `Container`, but
+The compiler will identify this as an error; not the error that `missing` is not a member of `Container`, but
 instead:
 ```
 value selectDynamic is not a member of Container
 possible cause: maybe a wrong Dynamic method signature?
 ```
 
-This message makes it clearer what transformed invocation the compiler is attempting.
+This message makes it a little more obvious that the compiler has attempted a transformation to a `Dynamic`
+signature, and which method is involved in that transformation.
 
 ## Other Transformations
 
-Different types of expression involving dot-notation on `Dynamic` objects (in the example below, called `value`)
-will be rewritten by the compiler into statically-typed expressions involving the real methods, `selectDynamic`,
-`applyDynamic`, `applyDynamicNamed` and `updateDynamic`.
+Different types of expression involving dot-notation on `Dynamic` objects (in all the examples below, called
+`value`) will be rewritten by the compiler into statically-typed expressions involving the real methods,
+`selectDynamic`, `applyDynamic`, `applyDynamicNamed` and `updateDynamic`.
 
 These transformations include a variety of different types of expression, including not just member access, but
 method invocations with multiple parameters and parameter lists, with named parameters.
@@ -112,36 +118,40 @@ Expressions of the form shown on the left of this table will be transformed into
 long as the object `value` is known statically to be a subtype of `Dynamic`, and as long as they would not
 compile without the transformation.
 
-So calling `value.member` on a `Dynamic` object `value` which has a field called `member` would return the
-field's value, without attempting to rewrite to `value.selectDynamic("member")`.
+So calling `value.member` on a `Dynamic` object `value` which has a real field whose name is `member` would
+just return the field's value (as always), without attempting to rewrite to `value.selectDynamic("member")`.
 
 We should be particularly aware of any methods that are defined on the `Any` type (such as `clone` and `wait`)
-since these will always be members of all objects, and thus can never be transformed into `Dynamic` invocations.
-Some of these are easily forgotten!
+since these will always be members of every object, and thus can never be transformed into `Dynamic`
+invocations. Some of these are easily forgotten!
 
 And in general, the implementations of `selectDynamic`, `applyDynamic`, `applyDynamicNamed` and `updateDynamic`
-need only be such that the transformed expressions on the right side of the table will compile.
+need only be such that the transformed expressions on the right side of the table will compile, so parameter
+types and return types may be chosen accordingly.
 
-The transformations also have a number of interesting curiosities.
+These transformations have a couple of interesting curiosities.
 
 The expression, `a.b(c)`, on a `Dynamic` value, `a`, will _not_ transform to `a.selectDynamic("b")(c)` or
 `a.selectDynamic("b").apply(c)`, even though these would also be reasonable transformations. But the distinction
 does make it possible for the code,
 ```scala
-val x = a.b
-x(c)
+val b = a.b
+b(c)
 ```
-to have different behavior to:
+to have different behavior to,
 ```scala
 a.b(c)
 ```
+as the latter is transformed as an entire expression to `applyDynamic`.
 
 `Dynamic` expressions with multiple parameters or parameter blocks generally transform in predictable ways, but
-care should be taken when one or more parameters in an expression are _named parameters_, as the transformed
-invocation may change from `applyDynamic` to `applyDynamicNamed`, which could have entirely different behavior.
+some care should be taken when one or more parameters in an expression are _named parameters_, as the
+transformed invocation may change from `applyDynamic` to `applyDynamicNamed`, which could have entirely
+different behavior.
 
 A quirk of `applyDynamicNamed` is that any _unnamed_ parameter passed to it will transform to a two-tuple whose
-first value will be the empty string, `""`.
+first value will be the empty string, `""`. It is common for `applyDynamicNamed` to take repeated arguments, but
+more restrictive implementations which take a fixed number of arguments are possible.
 
 It is also uniquely possible with method calls that transform into `applyDynamicNamed` invocations to pass more
 than one named parameter with the same name, since these simply transform into additional _positional_
@@ -155,11 +165,11 @@ for the named "member" of a `Dynamic` object suggests a less permissive possibil
 types, and union types.
 
 Each of the special `Dynamic` methods takes, as the first parameter in its first parameter block, the name of
-the apparent member being accessed. So, in each definition, this parameter may be typed to permit only certain
-string values.
+the apparent member being accessed. So, in each definition, this parameter may be more restrictively typed to
+permit only certain string values.
 
-We could use the union of singleton types, `"sum" | "product"`, to restrict calls to an `applyDynamic` method, as
-follows:
+For example, we could use the union of singleton types, `"sum" | "product"`, to restrict calls to an
+`applyDynamic` method, as follows:
 ```scala
 object Calc extends Dynamic:
   def applyDynamic(method: "sum" | "product")(xs: Int*): Int =
@@ -168,13 +178,14 @@ object Calc extends Dynamic:
 
 This permits calls to `Calc.sum(1, 2, 4)` or `Calc.product(1, 2, 4)`, which would produce the results `7` and
 `8` respectively, while forbidding a method with any other name to be invoked on `Calc` (except those inherited
-from `Any`, of course).
+from `Any`, of course). Only at runtime, by checking the value of the `method` parameter, is the particular
+implementation to be used chosen.
 
 In a more advanced example, the singleton types could be provided through a type parameter.
 
 ## Limitations
 
-While an object which extends `Dynamic` will appear to have a variety of apparent members, accessible with the
+While an object which extends `Dynamic` will _seem_ to have a variety of apparent members, accessible through
 familiar dot-notation, from the type system's perspective (and indeed, in reality) these members do not exist,
 except as syntactic rewrites.
 
@@ -194,23 +205,37 @@ object HelloWorld extends Dynamic:
 upon which it is certainly _possible_ to call `HelloWorld.value`, we are nonetheless forbidden from calling,
 `access(HelloWorld)`.
 
-Additionally, the erasure of Scala's types means that it is not possible to overload many singleton-typed
-variants of dynamic methods, unless their erased signatures can be disambiguated, since any `String` literal
-singleton type will erase to `String`.
+Similarly, it's not possible to call methods on a generic `Dynamic` instance without knowing the specifics of
+how its dynamic methods are implemented, since their signatures are needed for typechecking.
 
-This means that it's possible to define both of,
+So a method definition such as,
+```scala
+def access(cell: Dynamic) = cell.value
+```
+would fail to compile since the type of `cell` is not known to have a `selectDynamic` method, or what its return
+type would be.
+
+Additionally, the erasure of Scala's types means that it is not possible to overload many singleton-typed
+variants of dynamic methods, unless their erased signatures can somehow be disambiguated, since any `String`
+literal singleton type will erase to `String`.
+
+This means that it's possible to define both,
 ```scala
 def applyDynamic(m1: "alpha")(): Unit = ()
 def applyDynamic(m2: "beta")(value: Int): Unit = ()
 ```
-but only by virtue of their arity providing a way to disambiguate between them.
+but only by virtue of their arity providing a way to disambiguate between them, and,
+```scala
+def applyDynamic(m1: "alpha")(): Unit = ()
+def applyDynamic(m2: "beta")(): Unit = ()
+```
+could not be defined on the same object, as the types `"alpha"` and `"beta"` both erase to the same type,
+`java.lang.String`.
 
 ## A Word of Caution
 
 The `Dynamic` trait offers a lot of flexibility to reinterpret the familiar syntax of dot-notation in custom
-ways.
-
-But it should be used sparingly.
+ways. But it should be used sparingly.
 
 Scala developers are not only very familiar with dot-notation, but also very familiar with its _usual_
 interpretation. And the use of `Dynamic` introduces new, custom, and potentially unexpected interpretations that
@@ -251,23 +276,23 @@ What is the result of evaluating, `Data(1).delta(value = 2).gamma`?
 ```scala
 import scala.language.dynamics
 
-case class Data[M <: String & Singleton](map: Map[String, Int] = Map()) extends Dynamic:
-  def updateDynamic(m: String & Singleton)(v: Int): Data[M | m.type] =
-    Data(map.updated(m, v))
+case class Tracker[M <: String & Singleton](map: Map[String, Int] = Map()) extends Dynamic:
+  def updateDynamic(m: String & Singleton)(v: Int): Tracker[M | m.type] =
+    Tracker(map.updated(m, v))
   
   def selectDynamic(m: M): Int = map(m)
 ```
 
-Given the following definitions of `d1`, `d2` and `d3`,
+Given the following definitions of `t1`, `t2` and `t3`,
 ```scala
-val d1 = Data().alpha = 6
-val d2 = d1.beta = 4
-val d3 = d2.gamma = 9
+val t1 = Tracker().alpha = 6
+val t2 = t1.beta = 4
+val t3 = t2.gamma = 9
 ```
 which of the following expressions will compile?
 
-* [X] `d1.alpha`
-* [ ] `d2.gamma`
-* [X] `d2.beta`
-* [X] `d3.gamma`
-* [X] `d2.alpha == d3.alpha`
+* [X] `t1.alpha`
+* [ ] `t2.gamma`
+* [X] `t2.beta`
+* [X] `t3.gamma`
+* [X] `t2.alpha == t3.alpha`
