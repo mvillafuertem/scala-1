@@ -19,6 +19,7 @@ class TopicRange:
   lesson_start: str
   lesson_end: str
 
+
 @dataclass
 class Level:
   level: str
@@ -42,6 +43,7 @@ class Lesson:
 class LessonPrereq:
   lesson_id: str
   topic_id: str
+
 
 @dataclass
 class Topic:
