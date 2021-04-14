@@ -121,10 +121,9 @@
     },
     {
       "id": "polykinded",
-      "title": "Poly-kinded Types",
+      "title": "Kind Polymorphism",
       "authorIds": ["jon-pretty"],
-      "duration": 14,
-      "comingSoon": true
+      "duration": 24
     }
   ]
 }
