@@ -1,6 +1,6 @@
 {
   "name": "The Runtime",
-  "desc": "The JVM runtime environment",
+  "description": "The JVM runtime environment",
   "lessons": [
     {
       "id": "jvm",

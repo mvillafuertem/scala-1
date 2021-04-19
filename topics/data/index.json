@@ -1,6 +1,6 @@
 {
   "name": "Data Modeling",
-  "desc": "How we model real-world data using Scala constructs",
+  "description": "How we model real-world data using Scala constructs",
   "lessons": [
     {
       "id": "enums",

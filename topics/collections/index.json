@@ -1,6 +1,6 @@
 {
   "name": "Collections",
-  "desc": "Working with collections of values",
+  "description": "Working with collections of values",
   "lessons": [
     {
       "id": "basics",

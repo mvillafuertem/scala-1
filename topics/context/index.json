@@ -1,6 +1,6 @@
 {
   "name": "Context",
-  "desc": "Using given context",
+  "description": "Using given context",
   "lessons": [
     {
       "id": "givens",

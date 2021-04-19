@@ -1,6 +1,6 @@
 {
   "name": "For comprehensions",
-  "desc": "Working with for comprehensions",
+  "description": "Working with for comprehensions",
   "lessons": [
     {
       "id": "looping",

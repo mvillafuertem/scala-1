@@ -1,6 +1,6 @@
 {
   "name": "Intermediate Scala",
-  "desc": "Scala for developers who already have some experience",
+  "description": "Scala for developers who already have some experience",
   "ranges": [
     {
       "topicId": "types",

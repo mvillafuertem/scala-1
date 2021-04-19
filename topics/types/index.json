@@ -1,6 +1,6 @@
 {
   "name": "Types",
-  "desc": "All about Scala's Type System",
+  "description": "All about Scala's Type System",
   "lessons": [
     {
       "id": "basics",

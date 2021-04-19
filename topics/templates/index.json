@@ -1,6 +1,6 @@
 {
   "name": "Templates",
-  "desc": "Classes, traits, objects and their creation",
+  "description": "Classes, traits, objects and their creation",
   "lessons": [
     {
       "id": "objects",

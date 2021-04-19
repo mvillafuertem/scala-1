@@ -1,6 +1,6 @@
 {
   "name": "Pattern Matching",
-  "desc": "Matching and deconstructing values in Scala with Patterns",
+  "description": "Matching and deconstructing values in Scala with Patterns",
   "lessons": [
     {
       "id": "simple",

@@ -1,6 +1,6 @@
 {
   "name": "Syntax",
-  "desc": "The syntax of Scala code",
+  "description": "The syntax of Scala code",
   "lessons": [
     {
       "id": "underscore",

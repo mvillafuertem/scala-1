@@ -1,6 +1,6 @@
 {
   "name": "Scala for beginners",
-  "desc": "Scala for Beginners",
+  "description": "Scala for Beginners",
   "ranges": [
     {
       "topicId": "foundations",

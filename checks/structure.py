@@ -5,10 +5,10 @@ from dataclasses import dataclass
 class Course:
   id: str
   name: str
-  levels: [str]
+  course_level_types: [str]
   image: str
   video: str
-  desc: str
+  description: str
   language: str
   scope: [str]
 
@@ -25,7 +25,7 @@ class Level:
   level: str
   course_id: str
   name: str
-  desc: str
+  description: str
   ranges: [TopicRange]
 
 
@@ -49,7 +49,7 @@ class LessonPrereq:
 class Topic:
   id: str
   name: str
-  desc: str
+  description: str
   lessons: [Lesson]
 
 

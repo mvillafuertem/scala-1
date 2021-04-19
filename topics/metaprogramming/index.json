@@ -1,6 +1,6 @@
 {
   "name": "Metaprogramming",
-  "desc": "Metaprogramming in Scala",
+  "description": "Metaprogramming in Scala",
   "lessons": [
     {
       "id": "basics",

@@ -1,13 +1,13 @@
 {
   "name": "Learning to code in Scala",
-  "levels": [
+  "courseLevelTypes": [
     "advanced",
     "intermediate",
     "beginner"
   ],
   "image": "courseImages/scala/scala.svg",
   "video": "https://www.youtube.com/embed/FvYS8r9Nt18",
-  "desc": "The Scala programming language",
+  "description": "The Scala programming language",
   "language": "English",
   "scope": [
     "Learn Scala 3 syntax",

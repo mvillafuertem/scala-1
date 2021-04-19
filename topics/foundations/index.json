@@ -1,6 +1,6 @@
 {
   "name": "Foundations",
-  "desc": "Fundamental topics for learning to program in Scala",
+  "description": "Fundamental topics for learning to program in Scala",
   "lessons": [
     {
       "id": "introduction",

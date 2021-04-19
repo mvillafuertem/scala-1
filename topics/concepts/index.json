@@ -1,6 +1,6 @@
 {
   "name": "Programming Concepts",
-  "desc": "General concepts of programming and computer science",
+  "description": "General concepts of programming and computer science",
   "lessons": [
     {
       "id": "static",
