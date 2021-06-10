@@ -15,8 +15,7 @@ Intersection types occur very frequently in Scala, since they arise from calcula
 themselves.
 
 An intersection type, such as `Movable & Doubleclickable`, is the combination of two or more other types—in this
-case, `Movable` and `Doublclickable`—using n ampersand: the symbol, `&`. An intersection type represents all the
-properties from all of the types which make up the intersection. So `Movable & Doubleclickable` has every
+case, `Movable` and `Doublclickable`—using an ampersand: the symbol, `&`. An intersection type represents all the properties from all of the types which make up the intersection. So `Movable & Doubleclickable` has every
 property that `Movable` has, and every property that `Doublclickable` has.
 
 ## Relationship with Templates
@@ -36,7 +35,7 @@ def doubleclick(): Unit
 ```
 plus any that it inherits from `Clickable`.
 
-An intersection types may be used anywhere, without any need for a corresponding class or trait template to be
+An intersection type may be used anywhere, without any need for a corresponding class or trait template to be
 created first. So while this exact list of properties may be represented by the type,
 `Movable & Doublelickable`, we do not need to define a template in order to use the type.
 
@@ -55,7 +54,7 @@ method, `change`.
 Such an instance may be constructed from a template which inherits from both traits (either directly, or
 indirectly via another trait), and implements all of its properties, such as:
 ```scala
-class Window() extends Movable, Doubleclickable:
+class Window extends Movable, Doubleclickable:
   def moveTo(position: Position): Unit = ???
   def doubleclick(): Unit = ???
   def click() = ??? // from Clickable
@@ -124,7 +123,7 @@ which are not; and the instances of `Doubleclickable` may be partitioned into th
 
 It may seem obvious, but whichever of these two approaches we take to defining the set of instances that are
 both `Doublclickable`s and `Movable`s, the resultant set of instances will be identical and indistinguishable,
-and is some intersection of the set of all `Doubleclickable`s and the set of all `Movable`s. (And this is where
+and is the intersection of the set of all `Doubleclickable`s and the set of all `Movable`s. (And this is where
 the name, "intersection type", arises!)
 
 That means that `Movable & Doubleclickable` and `Doubleclickable & Movable` are _identical_ types, as they
@@ -180,7 +179,7 @@ _intersection of properties_.
 
 ?---?
 
-# Select all the types which are equivalent to the type `Int & String`. Do _not_ select any answers where there is a subtyping relationship, unless the types are equal.
+# Select all the types which are equivalent to the type `Int & String`.
 
 Remember that `Int` is a subtype of `AnyVal`, `String` is a subtype of `AnyRef` and all are subtypes of `Any`.
 

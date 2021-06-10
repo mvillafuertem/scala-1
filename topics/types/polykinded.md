@@ -232,9 +232,8 @@ extension [T <: AnyKind](value: T)
 
 Unfortunately, this suggestion will not work. Which of the following are valid problems?
 
-* [ ] The type member of `proc`, `Type`, is not a valid return type
+* [ ] The type member of `proc`, `Return`, is not a valid return type
 * [X] The subject of the extension method, `value`, must have a proper type
-* [ ] There is no way to relate the type `bar.X` to the type `T`
 * [ ] An extension method cannot be parameterized with a polykinded type parameter
 * [ ] The type constructor `Proc` would not be able to take a polykinded type parameter
 * [ ] A `Proc` template could not be defined in such a way that it could ever be instantiated
